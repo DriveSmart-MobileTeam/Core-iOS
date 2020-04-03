@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/DSCoreFramework-Swift.h</key>
 		<data>
-		CwbkQu8Dy3KzjmRi8/YAve/dubU=
+		FtnBgIFjmRagpVzMTbao9qEPkG0=
 		</data>
 		<key>Headers/DSCoreFramework.h</key>
 		<data>
@@ -14,15 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		TdElRNFIrLzLlopzV/dcQ4oUQsE=
+		J1aQBaHj9+KrW9jSa7f1k2dBbVM=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		hy4YxsUBeVSJWx4r6al0LXMuFzk=
+		TySN6TDWVKUuCK1QSoECfLaCb80=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		60Cg1PTvynQEBKwc0GmIjTH9Bf0=
+		xBU4N2zQ2VhKg7ONTjZdNTf76Bs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -83,7 +83,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XEO1taoxcYJAfQzzsaE3EXRvKk7IEmdg0Lbaoa80p7w=
+			aYE6emYnxTZYx21Qqh8a/IZsWZiT+nI6PT5FYCur15Y=
 			</data>
 		</dict>
 		<key>Headers/DSCoreFramework.h</key>
@@ -97,14 +97,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rv0jkMfj7tU9WIl5/Y7DItRLR+HiYXetP6WLtKhH+GA=
+			RJ08v8pr4lgJsXj2qxck6BAOAwW0Kri2lTrlT4iy5g8=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4b+Tu8z+oJt9Qcp3xldTnxOJr8M/EjpBg5DUTW1YL44=
+			4pUP4Wm60llh8uguk5LunpIAxEW+nY6Uanqwf1vRbho=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
