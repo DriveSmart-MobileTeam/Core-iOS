@@ -8,7 +8,7 @@ s.summary = "DSCoreFramework Framework is the core of DriveSmart"
 #s.requires_arc = true
 
 # 2
-s.version = "0.0.4"
+s.version = "0.0.5"
 
 # 3
 s.license = { :type => "GNU", :file => "LICENSE" }
@@ -39,7 +39,7 @@ s.swift_version = "5.0"
 s.exclude_files = "DSCoreFramework/**/*.plist"
 s.ios.vendored_frameworks = 'DSCoreFramework.framework'
 
-s.dependency 'Alamofire', '~> 4.9.1'
-s.dependency 'RealmSwift', '~> 4.3.1'
+s.dependency 'Alamofire', '4.9.1'
+s.dependency 'RealmSwift', '4.3.1'
 
 end
