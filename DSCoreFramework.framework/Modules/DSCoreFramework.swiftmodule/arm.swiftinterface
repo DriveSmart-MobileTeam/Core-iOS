@@ -1,0 +1,1295 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DSCoreFramework
+import Alamofire
+import CoreLocation
+@_exported import DSCoreFramework
+import Darwin
+import Foundation
+import RealmSwift
+import Swift
+import SystemConfiguration
+import UIKit
+import WebKit
+public struct DSInsight {
+  public var message: Swift.String?
+  public var read: Swift.Bool?
+}
+public struct DSDeleteGroupRequest {
+  public var groupId: Swift.Int
+  public init(groupId: Swift.Int)
+}
+public struct DSAcceptChallengeRequest : DSCoreFramework.DSBaseRequest {
+  public var token: Swift.String
+  public var challengeId: Swift.Int
+  public var answer: Swift.Int?
+  public init(token: Swift.String, challengeId: Swift.Int, answer: Swift.Int?)
+}
+public struct DSLandingStatusRequest : DSCoreFramework.DSBaseRequest {
+  public var token: Swift.String
+  public var idLanding: Swift.Int
+  public init(token: Swift.String, idLanding: Swift.Int)
+}
+public struct DSImageLoaderRequest {
+  public var photo: Swift.String
+  public init(photo: Swift.String)
+}
+public struct DSUnlockChallengeRequest {
+  public var code: Swift.String?
+  public var email: Swift.String?
+  public init(code: Swift.String?, email: Swift.String?)
+}
+public enum DSSmileType : Swift.Int {
+  case safety
+  case sustainable
+  case social
+  case all
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct DSSmilesHistoryResponse {
+  public var type: DSCoreFramework.DSSmileType?
+  public var description: Swift.String?
+  public var date: Foundation.NSDate?
+}
+public struct DSSmiles {
+  public var percent: Swift.Int?
+  public var pendingSmiles: Swift.Int?
+  public var obtainedSmiles: Swift.Int?
+  public var obtainedSafetySmiles: Swift.Int?
+  public var obtainedSocialSmiles: Swift.Int?
+  public var obtainedSustanaibleSmiles: Swift.Int?
+  public var requiredSafetySmiles: Swift.Int?
+  public var requiredSocialSmiles: Swift.Int?
+  public var requiredSustanaibleSmiles: Swift.Int?
+  public var nextLevel: DSCoreFramework.DSSmilesLevel
+}
+public enum ErrorNotificationType : Swift.Int {
+  case info
+  case notification
+  case error
+  case unhandledError
+  case alwaysAllow
+  public func needToShow() -> Swift.Bool
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum ErrorNotificationSeverityType : Swift.Int {
+  case none
+  case low
+  case medium
+  case high
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class ErrorResponse {
+  public var code: DSCoreFramework.DSNetworkingService.Codes?
+  public var title: Swift.String?
+  public var notification: Swift.String?
+  public var message: Swift.String?
+  public var canDismiss: Swift.Bool?
+  public var minTimeDismiss: Swift.Double
+  public var maxTimeDismiss: Swift.Double
+  public var timeToDismiss: Swift.Double?
+  public var type: DSCoreFramework.ErrorNotificationType
+  public var severity: DSCoreFramework.ErrorNotificationSeverityType
+  public var icon: UIKit.UIImage?
+  public var color: UIKit.UIColor?
+  public var titleColor: UIKit.UIColor?
+  public var messageColor: UIKit.UIColor?
+  convenience public init(code: Swift.Int? = nil, title: Swift.String? = nil, notification: Swift.String? = nil, message: Swift.String? = nil, canDismiss: Swift.Bool? = nil, minTimeDismiss: Swift.Int? = nil, maxTimeDismiss: Swift.Int? = nil, type: DSCoreFramework.ErrorNotificationType? = nil, severity: DSCoreFramework.ErrorNotificationSeverityType? = nil, titleColor: UIKit.UIColor? = .black, messageColor: UIKit.UIColor? = .black)
+  convenience public init(code: DSCoreFramework.DSNetworkingService.Codes?, title: Swift.String? = nil, notification: Swift.String? = nil, message: Swift.String? = nil, canDismiss: Swift.Bool? = nil, minTimeDismiss: Swift.Int? = nil, maxTimeDismiss: Swift.Int? = nil, type: DSCoreFramework.ErrorNotificationType? = nil, severity: DSCoreFramework.ErrorNotificationSeverityType? = nil, icon: UIKit.UIImage? = nil, color: UIKit.UIColor? = .lightGray, titleColor: UIKit.UIColor? = .black, messageColor: UIKit.UIColor? = .black)
+  @objc deinit
+}
+extension ErrorResponse : Swift.Equatable {
+  public static func == (lhs: DSCoreFramework.ErrorResponse, rhs: DSCoreFramework.ErrorResponse) -> Swift.Bool
+}
+public struct DSLastTrip {
+  public var distance: Swift.Double?
+  public var incidents: Swift.Int?
+  public var startDate: Foundation.Date?
+  public var endDate: Foundation.Date?
+  public var score: Swift.Int?
+  public var smartCoins: Swift.Int?
+  public var insights: Swift.String?
+  public var tripId: Swift.Int?
+}
+public enum ServiceMethods {
+  case create
+  case read
+  case update
+  case delete
+  public static func == (a: DSCoreFramework.ServiceMethods, b: DSCoreFramework.ServiceMethods) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum ServiceResult {
+  case success(data: Any?)
+  case error(error: DSCoreFramework.ErrorResponse?)
+}
+public typealias ServiceCompletion = (DSCoreFramework.ServiceResult) -> ()
+public typealias ServiceError = (code: DSCoreFramework.DSNetworkingService.Codes, message: Swift.String, notification: Swift.String)
+public class DSNetworkingService {
+  public static let notificationStart: Swift.String
+  public static let notificationFinish: Swift.String
+  public init()
+  public enum Codes : Swift.Int {
+    case success
+    case errorNoDataFound
+    case errorGeneric
+    case errorServerConnection
+    case errorToken
+    case errorAPIKey
+    case errorLogin
+    case errorUserNotFound
+    case errorResetPassword
+    case errorChallengeUnexisting
+    case errorServer
+    case errorNotProfileForAnonymousUser
+    case errorBluetooth
+    case errorReachebility
+    case errorGoogleLogin
+    case errorGoogleLoginData
+    case errorFacebookLogin
+    case errorFacebookLoginCancel
+    case errorFacebookLoginData
+    case errorFacebookUserInfo
+    case errorFacebookAutorizhing
+    case errorFacebookToken
+    case infoAchievements
+    case infoTrips
+    case infoPitstop
+    case infoMetrics
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public func configure(isPro: Swift.Bool)
+  public func call<T>(service serviceType: T.Type, action serviceAction: DSCoreFramework.ServiceMethods, parameters parametersData: [Swift.String : Swift.AnyObject]?, completion: @escaping DSCoreFramework.ServiceCompletion) where T : DSCoreFramework.ResponseObjectSerializable, T : DSCoreFramework.ResponseProtocol
+  @objc deinit
+}
+public struct DSMonthlyTripsRequest {
+  public var date: Foundation.Date
+  public var userTime: Swift.Int?
+  public init(date: Foundation.Date, userTime: Swift.Int?)
+}
+@objc public enum DSErrors : Swift.Int {
+  case DS_INVALID_SESSION
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct DSScoreMetricsResponse {
+  public let global: DSCoreFramework.DSScoreMetricTypeResponse?, urban: DSCoreFramework.DSScoreMetricTypeResponse?, subUrban: DSCoreFramework.DSScoreMetricTypeResponse?
+  public let smileIcons: [DSCoreFramework.DSSmileIconsResponse]?
+  public let weekDays: [DSCoreFramework.DSWeekDaysResponse]?
+}
+public struct DSSmileIconsResponse {
+  public let id: Swift.Int?, scoreFrom: Swift.Int?, scoreLessThan: Swift.Int?
+  public let absolutePath: Swift.String?
+}
+public struct DSScoreMetricTypeResponse {
+  public let score: DSCoreFramework.DSScoreResponse?
+  public let insight: DSCoreFramework.DSScoreMetricsInsightResponse?
+  public let summary: DSCoreFramework.DSSummaryScoreMetricsResponse?
+  public let scoreDetail: DSCoreFramework.DSScoreDetailScoreMetricsResponse?
+  public let dailyGraphics: [DSCoreFramework.DSDailyGraphicResponse]?
+}
+public struct DSDailyGraphicResponse {
+  public let day: Swift.Int?
+  public var min: Swift.Double?, max: Swift.Double?, avg: Swift.Double?
+  public let sMin: Swift.String?, sMax: Swift.String?, sAvg: Swift.String?
+  public let trips: Swift.Int?, distance: Swift.Int?, time: Swift.Int?
+  public var isEnable: Swift.Bool
+  public let dayOfWeek: Swift.Int?, speedScore: Swift.Int?, minSpeedScore: Swift.Int?, maxSpeedScore: Swift.Int?, accelerationScore: Swift.Int?, minAccelerationScore: Swift.Int?, maxAccelerationScore: Swift.Int?, minBrakingScore: Swift.Int?, maxBrakingScore: Swift.Int?, brakingScore: Swift.Int?, corneringScore: Swift.Int?, minCorneringScore: Swift.Int?, maxCorneringScore: Swift.Int?, trafficAnticipationScore: Swift.Int?, minTrafficAnticipationScore: Swift.Int?, maxTrafficAnticipationScore: Swift.Int?
+}
+public struct DSScoreMetricsInsightResponse {
+  public let insightID: Swift.Int?, userVote: Swift.Int?, like: Swift.Int?, dislike: Swift.Int?
+  public let message: Swift.String?
+}
+public struct DSScoreResponse {
+  public let score: Swift.Int?
+  public let smileScore: Swift.String?
+}
+public struct DSScoreDetailScoreMetricsResponse {
+  public let speedScore: Swift.Int?, accelerationScore: Swift.Int?, brakingScore: Swift.Int?, corneringScore: Swift.Int?, trafficAnticipationScore: Swift.Int?
+  public let accelerationInsightId: Swift.Int?, brakingInsightId: Swift.Int?, corneringInsightId: Swift.Int?, speedInsightId: Swift.Int?, trafficAnticipationInsightId: Swift.Int?
+  public let insights: [DSCoreFramework.DSScoreMetricsInsightResponse]?
+}
+public struct DSSummaryScoreMetricsResponse {
+  public let trips: Swift.Int?, distance: Swift.Int?, duration: Swift.Int?
+}
+public struct DSWeekDaysResponse {
+  public let weekDay: Swift.Int?
+  public let text: Swift.String?
+}
+@objc public enum DSSmilesLevel : Swift.Int {
+  case normal = 1
+  case bronze
+  case silver
+  case gold
+  case complete
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct DSMemberResponse {
+  public var since: Swift.String?
+  public var memberShipId: DSCoreFramework.DSSmilesLevel
+  public var memberShip: Swift.String?
+  public var categoriesText: Swift.String?
+  public var needed: Swift.Int?
+  public var required: Swift.String?
+  public var benefits: [Swift.String]?
+  public var blocked: Swift.Bool?
+}
+public protocol DSBaseRequest {
+  var token: Swift.String { get set }
+}
+public struct DSSettingPhoneRequest {
+  public var location: Swift.Bool?
+  public var realTimeRecording: Swift.Bool?
+  public var bluetooth: Swift.Bool?
+  public init(location: Swift.Bool?, realTimeRecording: Swift.Bool?, bluetooth: Swift.Bool?)
+}
+public struct DSMonthlyTripsResponse {
+  public var tripsTabModel: [DSCoreFramework.DSTripsTabResponse]?
+  public var tripsDayResponse: [DSCoreFramework.DSTripsDayResponse]?
+  public var tripInsightResponse: [DSCoreFramework.DSTripInsightResponse]?
+}
+public struct DSTripsTabResponse {
+  public var date: Foundation.NSDate?
+  public var title: Swift.String?
+  public var count: Swift.Int?
+  public var badge: Swift.Int?
+  public var select: Swift.Bool?
+  public var index: Swift.Int?
+}
+public struct DSTripsDayResponse {
+  public var idTrips: Swift.String?
+  public var date: Foundation.NSDate?
+  public var month: Swift.String?
+  public var dayName: Swift.String?
+  public var totalScore: Swift.Int?
+  public var totalDistance: Swift.Double?
+  public var totalTime: Swift.Double?
+  public var unRead: Swift.Int?
+  public var smailScore: Swift.String?
+  public var trips: [DSCoreFramework.DSTripDetailResponse]?
+}
+public struct DSTripInsightResponse {
+  public var idInsight: Swift.Int?
+  public var userVote: Swift.Int?
+  public var likes: Swift.Int?
+  public var dislikes: Swift.Int?
+  public var message: Swift.String?
+  public var messageCaption: Swift.String?
+  public var messageLink: Swift.String?
+}
+public struct DSTripRequest {
+  public var tripId: Swift.Int
+  public init(tripId: Swift.Int)
+}
+public struct DSAddressRequest {
+  public var idCountry: Swift.Int?
+  public var idState: Swift.Int?
+  public var state: Swift.String?
+  public var city: Swift.String?
+  public var address: Swift.String?
+  public var zipCode: Swift.String?
+  public var receiveCard: Swift.Bool?
+  public init(idCountry: Swift.Int?, idState: Swift.Int?, state: Swift.String?, city: Swift.String?, address: Swift.String?, zipCode: Swift.String?, receiveCard: Swift.Bool?)
+}
+@objc public enum ConnectionType : Swift.Int {
+  case hub
+  case persistent
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum State : Swift.Int {
+  case connecting
+  case connected
+  case disconnected
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum Transport {
+  case auto
+  case webSockets
+  case foreverFrame
+  case serverSentEvents
+  case longPolling
+  public static func == (a: DSCoreFramework.Transport, b: DSCoreFramework.Transport) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum SwiftRError : Swift.Error {
+  case notConnected
+  public var message: Swift.String {
+    get
+  }
+  public static func == (a: DSCoreFramework.SwiftRError, b: DSCoreFramework.SwiftRError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@objc open class SignalR : ObjectiveC.NSObject, DSCoreFramework.SwiftRWebDelegate {
+  public var signalRVersion: DSCoreFramework.SignalRVersion
+  public var useWKWebView: Swift.Bool
+  public var transport: DSCoreFramework.Transport
+  public var originUrlString: Swift.String?
+  open var state: DSCoreFramework.State
+  open var connectionID: Swift.String?
+  open var received: ((Any?) -> ())?
+  open var starting: (() -> ())?
+  open var connected: (() -> ())?
+  open var disconnected: (() -> ())?
+  open var connectionSlow: (() -> ())?
+  open var connectionFailed: (() -> ())?
+  open var reconnecting: (() -> ())?
+  open var reconnected: (() -> ())?
+  open var error: (([Swift.String : Any]?) -> ())?
+  open var customUserAgent: Swift.String?
+  open var queryString: Any? {
+    get
+    set
+  }
+  open var headers: [Swift.String : Swift.String]? {
+    get
+    set
+  }
+  public init(_ baseUrl: Swift.String, connectionType: DSCoreFramework.ConnectionType = .hub)
+  public func connect(_ callback: (() -> ())? = nil)
+  @objc deinit
+  open func createHubProxy(_ name: Swift.String) -> DSCoreFramework.Hub
+  open func addHub(_ hub: DSCoreFramework.Hub)
+  open func send(_ data: Any?)
+  open func start()
+  open func stop()
+  @objc open func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @objc open func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  @objc open func webView(_ webView: UIKit.UIWebView, shouldStartLoadWith request: Foundation.URLRequest, navigationType: UIKit.UIWebView.NavigationType) -> Swift.Bool
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers open class Hub : ObjectiveC.NSObject {
+  public init(_ name: Swift.String)
+  open func on(_ method: Swift.String, callback: @escaping ([Any]?) -> ())
+  open func invoke(_ method: Swift.String, arguments: [Any]? = nil, callback: ((Any?, Any?) -> ())? = nil) throws
+  @objc deinit
+  @objc override dynamic public init()
+}
+public enum SignalRVersion : Swift.CustomStringConvertible {
+  case v2_2_2
+  case v2_2_1
+  case v2_2_0
+  case v2_1_2
+  case v2_1_1
+  case v2_1_0
+  case v2_0_3
+  case v2_0_2
+  case v2_0_1
+  case v2_0_0
+  public var description: Swift.String {
+    get
+  }
+  public static func == (a: DSCoreFramework.SignalRVersion, b: DSCoreFramework.SignalRVersion) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol SwiftRWebDelegate : UIKit.UIWebViewDelegate, WebKit.WKNavigationDelegate, WebKit.WKScriptMessageHandler {
+}
+public struct DSSettingResponse {
+  public var userSettings: DSCoreFramework.DSSettingUserResponse?
+  public var phoneSettings: DSCoreFramework.DSSettingPhoneResponse?
+  public var notifications: DSCoreFramework.DSSettingNotificationsResponse?
+}
+public struct DSSettingAssitanceResponse {
+  public var assistanceId: Swift.Int?
+  public var assistanceName: Swift.String?
+  public var helpCallMisdn: Swift.String?
+  public var assistanceIconPath: Swift.String?
+  public var backgroundLogo: Swift.String?
+}
+public struct DSSettingDateResponse {
+  public var dateTimeFormat: Swift.Int?
+  public var dateFormat: Swift.Int?
+  public var timeFormat: Swift.Int?
+}
+public struct DSSettingUserResponse {
+  public var idMetric: Swift.Int?
+  public var language: Swift.Int?
+  public var assistance: DSCoreFramework.DSSettingAssitanceResponse?
+  public var idMap: Swift.Int?
+  public var date: DSCoreFramework.DSSettingDateResponse?
+}
+public struct DSSettingPhoneResponse {
+  public var realTime: Swift.Bool?
+}
+public struct DSSettingDisplayResponse {
+  public var funfacts: Swift.Bool?
+  public var challenges: Swift.Bool?
+  public var metrics: Swift.Bool?
+  public var specialOffers: Swift.Bool?
+  public var rewards: Swift.Bool?
+  public var pitStop: Swift.Bool?
+  public var tripSummary: Swift.Bool?
+}
+public struct DSSettingMailResponse {
+  public var monthlyReport: Swift.Bool?
+  public var newsletter: Swift.Bool?
+}
+public struct DSSettingAudioResponse {
+  public var countDown: Swift.Bool?
+  public var startingTrip: Swift.Bool?
+  public var tripFinished: Swift.Bool?
+}
+public struct DSSettingNotificationsResponse {
+  public var display: DSCoreFramework.DSSettingDisplayResponse?
+  public var mail: DSCoreFramework.DSSettingMailResponse?
+  public var audio: DSCoreFramework.DSSettingAudioResponse?
+}
+public struct DSInterestResponse {
+  public var appIconPath: Swift.String?
+  public var textDescription: Swift.String?
+  public var idInterest: Swift.Int?
+  public var selected: Swift.Bool?
+}
+public enum DSActivityType : Swift.Int {
+  case today
+  case week
+  case month
+  case absolute
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct DSActivity {
+  public var activity: DSCoreFramework.DSActivityType?
+  public var trips: Swift.Int?
+  public var distance: Swift.Double?
+  public var duration: Swift.Double?
+  public var incidents: Swift.Int?
+  public var score: Swift.Int?
+  public var smartcoins: Swift.Int?
+  public var date: Foundation.Date?
+  public var read: Swift.Bool?
+}
+public struct DSStateResponse {
+  public var countryID: Swift.Int?
+  public var countryName: Swift.String?
+}
+public protocol DataServiceProtocol {
+  func requestData(fromUrl url: Swift.String, httpMethod methodHTTP: Alamofire.HTTPMethod, headers headersData: Alamofire.HTTPHeaders?, parameters parametersData: Alamofire.Parameters?, parametersEncoding encoding: Alamofire.ParameterEncoding?) -> Alamofire.DataRequest
+  func parse<T>(response responseData: Alamofire.DataResponse<T>, service serviceType: Swift.String, completion: DSCoreFramework.ServiceCompletion?) where T : DSCoreFramework.ResponseObjectSerializable
+  func parse<T>(response responseData: Alamofire.DataResponse<[T]>, service serviceType: Swift.String, completion: DSCoreFramework.ServiceCompletion?) where T : DSCoreFramework.ResponseCollectionSerializable
+}
+public protocol AppDataProtocol {
+  func call<T>(service serviceType: T.Type, action serviceAction: DSCoreFramework.ServiceMethods, parameters parametersData: [Swift.String : Swift.AnyObject]?, completion: DSCoreFramework.ServiceCompletion?) where T : DSCoreFramework.ResponseObjectSerializable, T : DSCoreFramework.ResponseProtocol
+  func call<T>(serviceCollection serviceType: T.Type, action serviceAction: DSCoreFramework.ServiceMethods, parameters parametersData: [Swift.String : Swift.AnyObject]?, completion: DSCoreFramework.ServiceCompletion?) where T : DSCoreFramework.ResponseCollectionSerializable, T : DSCoreFramework.ResponseProtocol
+}
+public protocol ResponseProtocol {
+  static var url: Swift.String { get }
+  static var name: Swift.String { get }
+  static var showLoading: Swift.Bool { get set }
+  static func serviceMethod(for action: DSCoreFramework.ServiceMethods) -> Alamofire.HTTPMethod
+  static func parametersURL(data parametersData: [Swift.String : Swift.AnyObject]?) -> [Swift.CVarArg]?
+  static func parametersHeaders(data parametersData: [Swift.String : Swift.AnyObject]?) -> Alamofire.HTTPHeaders?
+  static func parametersBody(data parametersData: [Swift.String : Swift.AnyObject]?) -> Alamofire.Parameters?
+}
+public struct DSMetricsRequest {
+  public var date: Swift.String
+  public init(date: Swift.String)
+}
+public struct DSScore {
+  public var month: Swift.Int?
+  public var score: Swift.Int?
+  public var icon: Swift.String?
+  public var scoreAbsolute: Swift.Int?
+  public var iconAbsolute: Swift.String?
+}
+public struct DSChallengeResponse {
+  public var challengeID: Swift.Int?
+  public var name: Swift.String?, url: Swift.String?
+  public var imageURL: Swift.String?
+  public var desc: Swift.String?, startDate: Swift.String?, endDate: Swift.String?, isoCountryCode: Swift.String?
+  public var termsAndCond: Swift.String?
+  public var isRegistered: Swift.Bool?, isVisible: Swift.Bool?, isLocked: Swift.Bool?
+  public var form: [Swift.String : Any]?
+  public var unlockCode: Swift.String?
+}
+public struct DSThirdPartyRequest {
+  public var token: Swift.String?
+  public var loginType: Swift.Int?
+  public var landingStatus: Swift.Int?
+  public var apiKey: Swift.String?
+  public var language: Swift.String?
+  public var email: Swift.String?
+  public var isTermsAccepted: Swift.Bool?
+  public var latitude: Swift.Double?
+  public var longitude: Swift.Double?
+  public init(token: Swift.String?, loginType: DSCoreFramework.DSLoginType?, landingStatus: Swift.Int?, apiKey: Swift.String?, language: Swift.String?, email: Swift.String?, isTermsAccepted: Swift.Bool?, latitude: Swift.Double?, longitude: Swift.Double?)
+}
+@objc public enum DSGenreType : Swift.Int {
+  case none = 0
+  case female = 2
+  case male = 1
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct DSUserProfile {
+  public var email: Swift.String?
+  public var isEmailValid: Swift.Bool?
+  public var name: Swift.String?
+  public var surname: Swift.String?
+  public var phone: Swift.String?
+  public var codePhone: Swift.String?
+  public var birthday: Swift.String?
+  public var genre: DSCoreFramework.DSGenreType
+  public var address: Swift.String?
+  public var addressSecond: Swift.String?
+  public var country: Swift.String?
+  public var idCountry: Swift.Int?
+  public var state: Swift.String?
+  public var idState: Swift.Int?
+  public var city: Swift.String?
+  public var zipcode: Swift.String?
+  public var memberCode: Swift.String?
+  public var imageUrl: Swift.String?
+  public var isMapfre: Swift.Bool?
+  public var plate: Swift.String?
+}
+public typealias DSUserTypeAlias = (DSCoreFramework.DSUser?) -> ()
+public typealias DSUserSessionTypeAlias = (DSCoreFramework.DSUserSession?) -> ()
+public struct DSUniqueUserIdRequest {
+  public var uniqueUserId: Swift.String
+  public init(uniqueUserId: Swift.String)
+}
+public struct DSValidateUserRequest {
+  public var documentNumber: Swift.String
+  public var plateNumber: Swift.String
+  public var policyNumber: Swift.String
+  public var adsAccepted: Swift.Bool
+  public init(documentNumber: Swift.String, plateNumber: Swift.String, policyNumber: Swift.String, adsAccepted: Swift.Bool)
+}
+public struct DSTripByOriginalIdRequest {
+  public var originalTripId: Swift.Int
+  public var tripDate: Foundation.Date
+  public init(originalTripId: Swift.Int, tripDate: Foundation.Date)
+}
+public enum DSMetricType {
+  case trips
+  case distance
+  case time
+  case incidents
+  case severity
+  case frecuency
+  case ecoScore
+  case smiles
+  case smartcoins
+  public static func == (a: DSCoreFramework.DSMetricType, b: DSCoreFramework.DSMetricType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct DSMetricsResponse {
+  public var tabs: [DSCoreFramework.DSMetricsTabResponse]?
+  public var metrics: DSCoreFramework.DSMetricsHeaderResponse?
+  public var driving: [DSCoreFramework.DSMetricResponse]?
+  public var incidents: [DSCoreFramework.DSMetricResponse]?
+  public var efficiency: [DSCoreFramework.DSMetricResponse]?
+  public var miscellaneous: [DSCoreFramework.DSMetricResponse]?
+}
+public struct DSMetricsTabResponse {
+  public var date: Foundation.NSDate?
+  public var title: Swift.String?
+  public var count: Swift.Int?
+  public var badge: Swift.Int?
+  public var select: Swift.Bool
+  public var index: Swift.Int?
+}
+public struct DSMetricsHeaderResponse {
+  public var global: Swift.Double?
+  public var globalIcon: Swift.String?
+  public var urban: Swift.Double?
+  public var urbanIcon: Swift.String?
+  public var suburban: Swift.Double?
+  public var suburbanIcon: Swift.String?
+}
+public struct DSMetricResponse {
+  public var data: Swift.Double?
+  public var type: DSCoreFramework.DSMetricType
+  public var score: Swift.Bool
+  public var icon: Swift.String?
+}
+public enum DSErrorNotificationType : Swift.Int {
+  case info
+  case notification
+  case error
+  case unhandledError
+  case alwaysAllow
+  public func needToShow() -> Swift.Bool
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum DSErrorNotificationSeverityType : Swift.Int {
+  case none
+  case low
+  case medium
+  case high
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class DSErrorResponse {
+  public var code: DSCoreFramework.DSNetworkingService.Codes?
+  public var title: Swift.String?
+  public var notification: Swift.String?
+  public var message: Swift.String?
+  public var canDismiss: Swift.Bool?
+  public var minTimeDismiss: Swift.Double
+  public var maxTimeDismiss: Swift.Double
+  public var timeToDismiss: Swift.Double?
+  public var type: DSCoreFramework.DSErrorNotificationType
+  public var severity: DSCoreFramework.DSErrorNotificationSeverityType
+  public var icon: UIKit.UIImage?
+  public var color: UIKit.UIColor?
+  public var titleColor: UIKit.UIColor?
+  public var messageColor: UIKit.UIColor?
+  convenience public init(code: DSCoreFramework.DSNetworkingService.Codes? = nil, title: Swift.String? = nil, notification: Swift.String? = nil, message: Swift.String? = nil, canDismiss: Swift.Bool? = nil, minTimeDismiss: Swift.Double? = nil, maxTimeDismiss: Swift.Double? = nil, type: DSCoreFramework.DSErrorNotificationType? = nil, severity: DSCoreFramework.DSErrorNotificationSeverityType? = nil, titleColor: UIKit.UIColor? = .black, messageColor: UIKit.UIColor? = .black)
+  convenience public init(code: DSCoreFramework.DSNetworkingService.Codes?, title: Swift.String? = nil, notification: Swift.String? = nil, message: Swift.String? = nil, canDismiss: Swift.Bool? = nil, minTimeDismiss: Swift.Double? = nil, maxTimeDismiss: Swift.Double? = nil, type: DSCoreFramework.DSErrorNotificationType? = nil, severity: DSCoreFramework.DSErrorNotificationSeverityType? = nil, icon: UIKit.UIImage? = nil, color: UIKit.UIColor? = .black, titleColor: UIKit.UIColor?, messageColor: UIKit.UIColor? = .black)
+  @objc deinit
+}
+extension DSErrorResponse : Swift.Equatable {
+  public static func == (lhs: DSCoreFramework.DSErrorResponse, rhs: DSCoreFramework.DSErrorResponse) -> Swift.Bool
+}
+extension DSErrorResponse : Swift.Comparable {
+  public static func < (left: DSCoreFramework.DSErrorResponse, right: DSCoreFramework.DSErrorResponse) -> Swift.Bool
+}
+public struct DSCountryResponse {
+  public var countryID: Swift.Int?
+  public var countryName: Swift.String?
+}
+public struct DSCertificateResponse {
+  public var totalScore: Swift.Int?
+  public var certificateImage: Swift.String?
+  public var isProfesional: Swift.Bool?
+  public var tripDistanceInMeter: Swift.Double?
+  public var driveTimeInSeconds: Swift.Double?
+  public var obtainRequeriments: Swift.Bool?
+  public var obtainCertificateDatetime: Swift.String?
+  public var professionalBrandedUrl: Swift.String?
+}
+public struct DSInsightRequest {
+  public var vote: Swift.Int?
+  public var idInsight: Swift.Int?
+  public init(vote: Swift.Int?, idInsight: Swift.Int?)
+}
+public struct DSSmilesHistoryRequest : DSCoreFramework.DSBaseRequest {
+  public var token: Swift.String
+  public var categoryId: Swift.Int?
+  public var pageIndex: Swift.Int?
+  public var pageSize: Swift.Int?
+  public init(token: Swift.String, categoryId: Swift.Int?, pageIndex: Swift.Int?, pageSize: Swift.Int?)
+}
+public struct DSInterestRequest : DSCoreFramework.DSBaseRequest {
+  public var token: Swift.String
+  public var interests: [Swift.Int]?
+  public init(token: Swift.String, interests: [Swift.Int]?)
+}
+public struct DSSettingAssitanceRequest {
+  public var assistanceId: Swift.Int?
+  public var assistanceName: Swift.String?
+  public var helpCallMisdn: Swift.String?
+  public var assistanceIconPath: Swift.String?
+  public var backgroundLogo: Swift.String?
+  public init(assistanceId: Swift.Int?, assistanceName: Swift.String?, helpCallMisdn: Swift.String?, assistanceIconPath: Swift.String?, backgroundLogo: Swift.String?)
+}
+public struct DSSettingGeneralRequest {
+  public var unitSystemId: Swift.Int?
+  public var mapTypeId: Swift.Int?
+  public var phoneDateFormatId: Swift.Int?
+  public var dateFormatId: Swift.Int?
+  public var timeFormatId: Swift.Int?
+  public var languageId: Swift.Int?
+  public var assistance: DSCoreFramework.DSSettingAssitanceRequest?
+  public init(unitSystemId: Swift.Int?, mapTypeId: Swift.Int?, phoneDateFormatId: Swift.Int?, dateFormatId: Swift.Int?, timeFormatId: Swift.Int?, languageId: Swift.Int?, assistance: DSCoreFramework.DSSettingAssitanceRequest?)
+}
+public struct DSMarkAllTripsRequest {
+  public var date: Swift.String
+  public init(date: Swift.String)
+}
+public enum DSAnswerChallengeType : Swift.Int {
+  case deny
+  case accept
+  case nothing
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct DSAcceptChallengeResponse {
+  public var answer: DSCoreFramework.DSAnswerChallengeType?
+}
+public struct DSUserRequest {
+  public var email: Swift.String
+  public var password: Swift.String
+  public var latitude: Swift.Double?
+  public var longitude: Swift.Double?
+  public init(email: Swift.String, password: Swift.String, latitude: Swift.Double? = 0, longitude: Swift.Double? = 0)
+}
+@objc public protocol DSSignalManagerProtocol {
+  @objc optional func onSignalReceived(type: DSCoreFramework.DSSignalTypes, data: Any?)
+  @objc optional func invalidSession(error: Foundation.NSError)
+}
+@_hasMissingDesignatedInitializers public class DSCoreFramework {
+  public static func configure(apkKey: Swift.String, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func refreshUserSession(_ completion: @escaping DSCoreFramework.DSUserSessionTypeAlias)
+  public static func getUserSession(_ completion: @escaping DSCoreFramework.DSUserSessionTypeAlias)
+  public static func signOut()
+  public static func signIn(userRequest: DSCoreFramework.DSUserRequest, completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func signUp(userRequest: DSCoreFramework.DSUserRequest, completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func addUniqueUserId(uniqueUserIdRequest: DSCoreFramework.DSUniqueUserIdRequest, completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func setPassword(userRequest: DSCoreFramework.DSForgottenPasswordRequest, completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func accessThirdParty(_ thirdPartyRequest: DSCoreFramework.DSThirdPartyRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func anonymousSignIn(_ anonymousRequest: DSCoreFramework.DSAnonymousRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func agreementsAcceptance(_ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getUserProfile(_ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func setUserProfile(_ userRequest: DSCoreFramework.DSSetUserProfileRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func uploadPhoto(_ imageRequest: DSCoreFramework.DSImageLoaderRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getUserChallenge(_ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getTrips(_ monthlyTripsRequest: DSCoreFramework.DSMonthlyTripsRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getRoutes(_ dsDailyMapsRequest: DSCoreFramework.DSDailyMapsRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func markAllAsRead(_ dsMarkAllTripsRequest: DSCoreFramework.DSMarkAllTripsRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getTripDetail(_ dsTripRequest: DSCoreFramework.DSTripRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getDiscrepancies(_ dsTripRequest: DSCoreFramework.DSTripRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getUnseenTrips(_ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getTripDetailByOriginalTripId(_ tripByOriginalIdRequest: DSCoreFramework.DSTripByOriginalIdRequest, completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getSettings(_ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func setNotificationsSettings(_ dsSettingNotificationRequest: DSCoreFramework.DSSettingNotificationRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func setGeneralSettings(_ dsSettingGeneralRequest: DSCoreFramework.DSSettingGeneralRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func setPhoneSettings(_ dsSettingPhoneRequest: DSCoreFramework.DSSettingPhoneRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getGroups(_ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func addNewGroup(_ addNewGroupRequest: DSCoreFramework.DSAddNewGroupRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func validateUser(_ validateUserRequest: DSCoreFramework.DSValidateUserRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func deleteGroup(_ deleteGroupRequest: DSCoreFramework.DSDeleteGroupRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func setAddress(_ addressRequest: DSCoreFramework.DSAddressRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getScoreMetrics(_ metricsRequest: DSCoreFramework.DSMetricsRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getMetrics(_ metricsRequest: DSCoreFramework.DSMetricsRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getFindMyCar(_ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getCountries(_ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func getStates(_ dsLocationRequest: DSCoreFramework.DSLocationRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func addUserToDefaultCountry(_ dsLocationRequest: DSCoreFramework.DSLocationRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func setDefaultCountry(_ dsRegistrationCountryRequest: DSCoreFramework.DSRegistrationCountryRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func setTemporalCountry(_ dsLocationRequest: DSCoreFramework.DSLocationRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func setTemporalCountry(_ dsRegistrationCountryRequest: DSCoreFramework.DSRegistrationCountryRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func setVote(_ dsInsightRequest: DSCoreFramework.DSInsightRequest, _ completion: @escaping DSCoreFramework.DSServiceCompletion)
+  public static func setSignalComunnication(delegate: DSCoreFramework.DSSignalManagerProtocol?)
+  public static func getSignalObject(type: DSCoreFramework.DSSignalTypes, _ completion: @escaping DSCoreFramework.DSSignalCompletion)
+  @objc deinit
+}
+public struct DSDailyMapsResponse {
+  public var tid: Swift.Int?
+  public var route: [(Swift.Double, Swift.Double)]?
+  public var incidents: [DSCoreFramework.DSTripIncidentResponse]?
+  public var type: Swift.Int?
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class DSSmallAchievement : DSCoreFramework.DSAchievements {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class DSAchievements {
+  public var idAchievement: Swift.Int?
+  public var icon: Swift.String?
+  public var title: Swift.String?
+  public var subtitle: Swift.String?
+  public var message: Swift.String?
+  public var link: Swift.String?
+  public var linkTitle: Swift.String?
+  public var next: DSCoreFramework.DSSmallAchievement?
+  public var show: Swift.Bool?
+  convenience public init(idAchievement: Swift.Int?, icon: Swift.String?, title: Swift.String? = nil, subtitle: Swift.String? = nil, message: Swift.String?, link: Swift.String? = nil, linkTitle: Swift.String? = nil, next: DSCoreFramework.DSSmallAchievement? = nil, show: Swift.Bool? = nil)
+  @objc deinit
+}
+public struct DSForgottenPasswordRequest {
+  public var userEmail: Swift.String
+  public init(userEmail: Swift.String)
+}
+public struct DSUserSession {
+  public var apiKey: Swift.String?
+  public var userId: Swift.String?
+  public var email: Swift.String?
+  public var password: Swift.String?
+  public var token: Swift.String?
+  public var tokenSocial: Swift.String?
+  public var loginType: Swift.Int
+  public let userType: Swift.Int?
+  public var lastTripDate: Foundation.NSDate?
+  public var realTime: Swift.Bool?
+  public var profile: DSCoreFramework.DSUserProfile?
+  public var settings: DSCoreFramework.DSSettingResponse?
+}
+public protocol ResponseObjectSerializable {
+  init(response: Foundation.HTTPURLResponse, representation: Swift.AnyObject)
+  func resultData() -> DSCoreFramework.ResultModel?
+}
+public protocol ResponseCollectionSerializable {
+  static func collection(from response: Foundation.HTTPURLResponse, withRepresentation representation: Swift.AnyObject) -> [Self]
+  func resultData() -> DSCoreFramework.ResultModel?
+}
+extension ResponseCollectionSerializable where Self : DSCoreFramework.ResponseObjectSerializable {
+  public static func collection(from response: Foundation.HTTPURLResponse, withRepresentation representation: Swift.AnyObject) -> [Self]
+}
+public struct DSSubscribeChallengeRequest {
+  public var form: [Swift.String : Any]?
+  public var idChallenge: Swift.Int?
+  public init(form: [Swift.String : Any]?, idChallenge: Swift.Int?)
+}
+public struct DSGroupResponse {
+  public var id: Swift.Int?
+  public var name: Swift.String?
+  public var imageURL: Swift.String?
+  public var status: Swift.String?
+  public var statusId: Swift.Int?
+  public var termsAndCondition: Swift.String?
+  public var validationKey: Swift.String?
+}
+public struct DSSmartcoins {
+  public var smartCoins: Swift.Int
+}
+public struct DSDailyMapsRequest {
+  public var date: Swift.String
+  public var userTime: Swift.Int?
+  public init(date: Swift.String, userTime: Swift.Int?)
+}
+public struct DSABRequest : DSCoreFramework.DSBaseRequest {
+  public var token: Swift.String
+  public var idCampaign: Swift.Int
+  public init(token: Swift.String, idCampaign: Swift.Int)
+}
+public struct DSSmilesTypeResponse {
+  public var categoryId: Swift.Int?
+  public var category: Swift.String?
+  public var group: [DSCoreFramework.DSSmilesTypesGroupResponse]?
+}
+public struct DSSmilesTypesGroupResponse {
+  public var groupId: Swift.Int?
+  public var name: Swift.String?
+  public var smiles: [DSCoreFramework.DSSmilesTypesGroupSmilesResponse]?
+}
+public struct DSSmilesTypesGroupSmilesResponse {
+  public var title: Swift.String?
+  public var description: Swift.String?
+  public var subText: Swift.String?
+}
+public struct DSSettingNotificationRequest {
+  public var tripSummary: Swift.Bool?
+  public var funfacts: Swift.Bool?
+  public var challenges: Swift.Bool?
+  public var metrics: Swift.Bool?
+  public var specialOffers: Swift.Bool?
+  public var rewards: Swift.Bool?
+  public var pitstop: Swift.Bool?
+  public var monthlyReport: Swift.Bool?
+  public var newsletter: Swift.Bool?
+  public var countDown: Swift.Bool?
+  public var startingTrip: Swift.Bool?
+  public var tripFinished: Swift.Bool?
+  public init(tripSummary: Swift.Bool?, funfacts: Swift.Bool?, challenges: Swift.Bool?, metrics: Swift.Bool?, specialOffers: Swift.Bool?, rewards: Swift.Bool?, pitstop: Swift.Bool?, monthlyReport: Swift.Bool?, newsletter: Swift.Bool?, countDown: Swift.Bool?, startingTrip: Swift.Bool?, tripFinished: Swift.Bool?)
+}
+public struct DSSetUserProfileRequest {
+  public var name: Swift.String?
+  public var surname: Swift.String?
+  public var email: Swift.String?
+  public var phone: Swift.String?
+  public var codePhone: Swift.String?
+  public var birthday: Swift.String?
+  public var genre: DSCoreFramework.DSGenreType
+  public var address: Swift.String?
+  public var addressSecond: Swift.String?
+  public var country: Swift.String?
+  public var idCountry: Swift.Int?
+  public var state: Swift.String?
+  public var idState: Swift.Int?
+  public var city: Swift.String?
+  public var zipcode: Swift.String?
+  public var memberCode: Swift.String?
+  public var isEmailValid: Swift.Bool?
+  public var isMapfre: Swift.Bool?
+  public var plate: Swift.String?
+  public init(name: Swift.String?, surname: Swift.String?, email: Swift.String?, phone: Swift.String?, codePhone: Swift.String?, birthday: Swift.String?, genre: DSCoreFramework.DSGenreType?, address: Swift.String?, addressSecond: Swift.String?, country: Swift.String?, idCountry: Swift.Int?, state: Swift.String?, idState: Swift.Int?, city: Swift.String?, zipcode: Swift.String?, memberCode: Swift.String?, isEmailValid: Swift.Bool?, isMapfre: Swift.Bool?, plate: Swift.String?)
+}
+@objc public enum DSLoginType : Swift.Int {
+  case anonymous = 0
+  case driveSmart
+  case facebook
+  case google
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+}
+@objc public enum DSLandingState : Swift.Int {
+  case signout = -1
+  case splash = 1
+  case pitch = 2
+  case login = 3
+  case terms = 4
+  case completed = 5
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+}
+@objc public enum DSCampaignVariant : Swift.Int {
+  case access = 1
+  case bait
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct DSUser {
+  public var email: Swift.String?
+  public var password: Swift.String?
+  public var language: Swift.String?
+  public var tokenSocial: Swift.String?
+  public var loginType: Swift.Int
+  public var assistantTel: Swift.String?
+  public var assistantBackground: Swift.String?
+  public var assistantLogo: Swift.String?
+  public var userId: Swift.String?
+  public var lastTripDate: Foundation.NSDate?
+  public var isTermsAccepted: Swift.Bool?
+  public var isNew: Swift.Bool?
+  public let userType: Swift.Int?
+  public let apiVersion: Swift.Int?
+  public let engineerId: Swift.Int?
+  public let phoneConfigId: Swift.Int?
+  public var country: Swift.String?
+  public var idCountry: Swift.Int?
+  public var campaignVariant: Swift.Int?
+  public var idRegistrationCountry: Swift.Int?
+  public var nameRegistrationCountry: Swift.String?
+  public var registrationCountryLat: Swift.Double?
+  public var registrationCountryLon: Swift.Double?
+  public var smartCoins: Swift.Int?
+  public var apiKey: Swift.String?
+  public var landingStatus: Swift.Int
+}
+@objc public enum DSSignalTypes : Swift.Int {
+  case achievements = 2
+  case activity = 3
+  case score = 4
+  case lastTrip = 5
+  case smartcoins = 6
+  case smartmiles = 7
+  case insight = 9
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct DSTripDiscrepancyResponse {
+  public var discrepancies: [DSCoreFramework.DSDiscrepancyResponse]?
+}
+public struct DSDiscrepancyResponse {
+  public var incidentId: Swift.Int?
+  public var discrepancyId: Swift.Int?
+  public var discrepancyDate: Foundation.NSDate?
+}
+public struct DSFindMyCarResponse {
+  public var address: Swift.String?
+  public var city: Swift.String?
+  public var longitude: Swift.Double?
+  public var latitude: Swift.Double?
+  public var eventDate: Foundation.NSDate?
+}
+public struct DSLocationRequest {
+  public var idCountry: Swift.Int?
+  public init(idCountry: Swift.Int?)
+}
+public struct ResultModel : DSCoreFramework.ResponseObjectSerializable, DSCoreFramework.ResponseCollectionSerializable {
+  public static let keyData: Swift.String
+  public static let keyResult: Swift.String
+  public static let keyNotification: Swift.String
+  public static let keyTitle: Swift.String
+  public static let keyDescription: Swift.String
+  public static let keyCode: Swift.String
+  public static let keyMessage: Swift.String
+  public static let keyCategory: Swift.String
+  public static let keySeverity: Swift.String
+  public static let keyMinTime: Swift.String
+  public static let keyMaxTime: Swift.String
+  public let error: DSCoreFramework.ErrorResponse?
+  public init(response: Foundation.HTTPURLResponse, representation: Swift.AnyObject)
+  public func resultData() -> DSCoreFramework.ResultModel?
+}
+public struct DSUserChallengeResponse {
+  public var dsUserId: Swift.Int?
+  public var score: Swift.Int?
+  public var requieredKilometers: Swift.Int?
+  public var kilometers: Swift.Int?
+  public var trips: Swift.Int?
+  public var days: Swift.Int?
+  public var discount: Swift.Int?
+  public var daysPolicityRenewal: Swift.Int?
+  public var requieredDiscounts: [Swift.Int]?
+  public var coins: Swift.Int?
+  public var questStatus: Swift.Int?
+  public var previousQuests: [DSCoreFramework.DSUserChallengeResponse]
+}
+public enum DSQuestStatus : Swift.Int {
+  case nothing
+  case inQuest
+  case notAchieved
+  case notScore
+  case achieved
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct DSAddNewGroupRequest {
+  public var code: Swift.String
+  public init(code: Swift.String)
+}
+public enum DSServiceResult {
+  case success(data: Any?)
+  case error(error: DSCoreFramework.DSErrorResponse?)
+}
+public typealias DSServiceCompletion = (DSCoreFramework.DSServiceResult) -> ()
+public typealias DSSignalCompletion = (DSCoreFramework.DSSignalTypes, Any?) -> ()
+public struct DSTripDetailResponse {
+  public var idTrip: Swift.Int?
+  public var originalId: [Swift.Int]?
+  public var type: Swift.Int?
+  public var adressStart: Swift.String?
+  public var adressFinish: Swift.String?
+  public var dateStart: Foundation.NSDate?
+  public var dateFinish: Foundation.NSDate?
+  public var distance: Swift.Double?
+  public var score: Swift.Int?
+  public var smileScore: Swift.String?
+  public var insight: Swift.Int?
+  public var read: Swift.Bool?
+  public var duration: Swift.Double?
+  public var efficiency: Swift.Int?
+  public var smartcoins: Swift.Int?
+  public var summary: DSCoreFramework.DSTripsSummaryResponse?
+  public var incidents: [DSCoreFramework.DSTripIncidentResponse]?
+  public var scoreDetail: DSCoreFramework.DSTripScoreResponse?
+  public var efficiencyDetail: DSCoreFramework.DSTripEfficiencyResponse?
+  public var route: [DSCoreFramework.DSDailyMapsResponse]?
+  public var insightDetail: [DSCoreFramework.DSTripInsightResponse]?
+  public var collapse: Swift.Bool
+}
+public struct DSTripsSummaryResponse {
+  public var distance: Swift.Double?
+  public var time: Swift.Double?
+  public var averageSpeed: Swift.Double?
+  public var numIncidents: Swift.Int?
+  public var fuelEfficiency: Swift.Int?
+  public var smartCoins: Swift.Int?
+  public var score: Swift.Int?
+  public var lastTripTrend: DSCoreFramework.DSSummaryTrendResponse?
+  public var lastDayTrend: DSCoreFramework.DSSummaryTrendResponse?
+  public var lastWeekTrend: DSCoreFramework.DSSummaryTrendResponse?
+  public var lastMonthTrend: DSCoreFramework.DSSummaryTrendResponse?
+  public var absoluteTrend: DSCoreFramework.DSSummaryTrendResponse?
+}
+public struct DSSummaryTrendResponse {
+  public var distance: Swift.Double?
+  public var time: Swift.Double?
+  public var averageSpeed: Swift.Int?
+  public var numIncidents: Swift.Int?
+  public var fuelEfficiency: Swift.Int?
+  public var smartCoins: Swift.Int?
+  public var score: Swift.Int?
+}
+public struct DSTripIncidentResponse {
+  public var tripId: Swift.Int
+  public var latitude: Swift.Double?
+  public var longitude: Swift.Double?
+  public var address: Swift.String?
+  public var date: Foundation.Date?
+  public var eventID: Swift.Int?
+  public var heading: Swift.Int?
+  public var isUrban: Swift.Bool?
+  public var speed: Swift.Int?
+  public var speedLimit: Swift.Int?
+  public var severity: Swift.Int?
+  public var eventIncidentId: Swift.Double?
+  public var incidentTypeId: Swift.Int?
+  public var customMessageId: Swift.Double?
+  public var acceleration: Swift.Double?
+  public var batteryStatus: Swift.Int?
+  public var gpsStatus: Swift.Int?
+  public var smartCoinsPenalty: Swift.Double?
+  public var scorePenalty: Swift.Double?
+  public var dimensionType: Swift.Int?
+}
+public struct DSTripScoreResponse {
+  public var dimension: [DSCoreFramework.DSScoreDimensionResponse]?
+  public var metrics: [Swift.String : DSCoreFramework.DSMetricsScoreResponse]?
+  public var totalScore: Swift.Int?
+  public var smileScore: Swift.String?
+  public var tripInsightTotalScore: Swift.Double?
+  public var lastTrip: DSCoreFramework.DSScoreComparationResponse?
+  public var lastDay: DSCoreFramework.DSScoreComparationResponse?
+  public var lastWeek: DSCoreFramework.DSScoreComparationResponse?
+  public var lastMonth: DSCoreFramework.DSScoreComparationResponse?
+  public var absolute: DSCoreFramework.DSScoreComparationResponse?
+}
+public struct DSScoreComparationResponse {
+  public var score: Swift.Int?
+  public var smileScore: Swift.String?
+}
+public struct DSScoreDimensionResponse {
+  public var tripInsight: Swift.Int?
+  public var dimensionTypeId: Swift.Int?
+  public var score: Swift.Int?
+}
+public struct DSMetricsScoreResponse {
+  public var imgURL: Swift.String?
+  public var score: Swift.Int?
+}
+public struct DSTripEfficiencyResponse {
+  public var distance: Swift.Double?
+  public var urbanDistance: Swift.Double?
+  public var suburbanDistance: Swift.Double?
+  public var averageSpeed: Swift.Int?
+  public var averageSpeedUrban: Swift.Int?
+  public var suburbanAverageSpeed: Swift.Int?
+  public var nightDistance: Swift.Double?
+}
+public struct DSAutoEvaluationRequest : DSCoreFramework.DSBaseRequest {
+  public var token: Swift.String
+  public var evaluationId: Swift.Int
+  public var dimensionId: Swift.Int
+  public var answer: Swift.Int
+  public init(token: Swift.String, evaluationId: Swift.Int, dimensionId: Swift.Int, answer: Swift.Int)
+}
+public struct DSReminderRequest : DSCoreFramework.DSBaseRequest {
+  public var token: Swift.String
+  public var reminderUUID: Swift.String?
+  public var time: Swift.String?
+  public init(token: Swift.String, reminderUUID: Swift.String?, time: Swift.String?)
+}
+public struct DSRegistrationCountryRequest {
+  public var latitude: Swift.Double?
+  public var longitude: Swift.Double?
+  public init(latitude: Swift.Double?, longitude: Swift.Double?)
+}
+public struct DSAnonymousRequest {
+  public var latitude: Swift.Double?
+  public var longitude: Swift.Double?
+  public init(latitude: Swift.Double? = 0, longitude: Swift.Double? = 0)
+}
+extension DSCoreFramework.DSSmileType : Swift.Equatable {}
+extension DSCoreFramework.DSSmileType : Swift.Hashable {}
+extension DSCoreFramework.DSSmileType : Swift.RawRepresentable {}
+extension DSCoreFramework.ErrorNotificationType : Swift.Equatable {}
+extension DSCoreFramework.ErrorNotificationType : Swift.Hashable {}
+extension DSCoreFramework.ErrorNotificationType : Swift.RawRepresentable {}
+extension DSCoreFramework.ErrorNotificationSeverityType : Swift.Equatable {}
+extension DSCoreFramework.ErrorNotificationSeverityType : Swift.Hashable {}
+extension DSCoreFramework.ErrorNotificationSeverityType : Swift.RawRepresentable {}
+extension DSCoreFramework.ServiceMethods : Swift.Equatable {}
+extension DSCoreFramework.ServiceMethods : Swift.Hashable {}
+extension DSCoreFramework.DSNetworkingService.Codes : Swift.Equatable {}
+extension DSCoreFramework.DSNetworkingService.Codes : Swift.Hashable {}
+extension DSCoreFramework.DSNetworkingService.Codes : Swift.RawRepresentable {}
+extension DSCoreFramework.DSErrors : Swift.Equatable {}
+extension DSCoreFramework.DSErrors : Swift.Hashable {}
+extension DSCoreFramework.DSErrors : Swift.RawRepresentable {}
+extension DSCoreFramework.DSSmilesLevel : Swift.Equatable {}
+extension DSCoreFramework.DSSmilesLevel : Swift.Hashable {}
+extension DSCoreFramework.DSSmilesLevel : Swift.RawRepresentable {}
+extension DSCoreFramework.ConnectionType : Swift.Equatable {}
+extension DSCoreFramework.ConnectionType : Swift.Hashable {}
+extension DSCoreFramework.ConnectionType : Swift.RawRepresentable {}
+extension DSCoreFramework.State : Swift.Equatable {}
+extension DSCoreFramework.State : Swift.Hashable {}
+extension DSCoreFramework.State : Swift.RawRepresentable {}
+extension DSCoreFramework.Transport : Swift.Equatable {}
+extension DSCoreFramework.Transport : Swift.Hashable {}
+extension DSCoreFramework.SwiftRError : Swift.Equatable {}
+extension DSCoreFramework.SwiftRError : Swift.Hashable {}
+extension DSCoreFramework.SignalRVersion : Swift.Equatable {}
+extension DSCoreFramework.SignalRVersion : Swift.Hashable {}
+extension DSCoreFramework.DSActivityType : Swift.Equatable {}
+extension DSCoreFramework.DSActivityType : Swift.Hashable {}
+extension DSCoreFramework.DSActivityType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSGenreType : Swift.Equatable {}
+extension DSCoreFramework.DSGenreType : Swift.Hashable {}
+extension DSCoreFramework.DSGenreType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSMetricType : Swift.Equatable {}
+extension DSCoreFramework.DSMetricType : Swift.Hashable {}
+extension DSCoreFramework.DSErrorNotificationType : Swift.Equatable {}
+extension DSCoreFramework.DSErrorNotificationType : Swift.Hashable {}
+extension DSCoreFramework.DSErrorNotificationType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSErrorNotificationSeverityType : Swift.Equatable {}
+extension DSCoreFramework.DSErrorNotificationSeverityType : Swift.Hashable {}
+extension DSCoreFramework.DSErrorNotificationSeverityType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSAnswerChallengeType : Swift.Equatable {}
+extension DSCoreFramework.DSAnswerChallengeType : Swift.Hashable {}
+extension DSCoreFramework.DSAnswerChallengeType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSLoginType : Swift.Equatable {}
+extension DSCoreFramework.DSLoginType : Swift.Hashable {}
+extension DSCoreFramework.DSLoginType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSLandingState : Swift.Equatable {}
+extension DSCoreFramework.DSLandingState : Swift.Hashable {}
+extension DSCoreFramework.DSLandingState : Swift.RawRepresentable {}
+extension DSCoreFramework.DSCampaignVariant : Swift.Equatable {}
+extension DSCoreFramework.DSCampaignVariant : Swift.Hashable {}
+extension DSCoreFramework.DSCampaignVariant : Swift.RawRepresentable {}
+extension DSCoreFramework.DSSignalTypes : Swift.Equatable {}
+extension DSCoreFramework.DSSignalTypes : Swift.Hashable {}
+extension DSCoreFramework.DSSignalTypes : Swift.RawRepresentable {}
+extension DSCoreFramework.DSQuestStatus : Swift.Equatable {}
+extension DSCoreFramework.DSQuestStatus : Swift.Hashable {}
+extension DSCoreFramework.DSQuestStatus : Swift.RawRepresentable {}
