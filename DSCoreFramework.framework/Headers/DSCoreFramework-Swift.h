@@ -1185,6 +1185,8 @@ SWIFT_CLASS("_TtC15DSCoreFramework18DSTripsTabResponse")
 
 SWIFT_CLASS("_TtC15DSCoreFramework21DSUniqueUserIdRequest")
 @interface DSUniqueUserIdRequest : NSObject
+@property (nonatomic, copy) NSString * _Nonnull uniqueUserId;
+- (nonnull instancetype)initWithUniqueUserId:(NSString * _Nonnull)uniqueUserId OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1199,6 +1201,34 @@ SWIFT_CLASS("_TtC15DSCoreFramework24DSUnlockChallengeRequest")
 
 SWIFT_CLASS("_TtC15DSCoreFramework6DSUser")
 @interface DSUser : NSObject
+@property (nonatomic, copy) NSString * _Nullable email;
+@property (nonatomic, copy) NSString * _Nullable password;
+@property (nonatomic, copy) NSString * _Nullable language;
+@property (nonatomic, copy) NSString * _Nullable token;
+@property (nonatomic, copy) NSString * _Nullable tokenSocial;
+@property (nonatomic, strong) NSNumber * _Nonnull loginType;
+@property (nonatomic, copy) NSString * _Nullable assistantTel;
+@property (nonatomic, copy) NSString * _Nullable assistantBackground;
+@property (nonatomic, copy) NSString * _Nullable assistantLogo;
+@property (nonatomic, copy) NSString * _Nullable userId;
+@property (nonatomic, strong) NSDate * _Nullable lastTripDate;
+@property (nonatomic) BOOL isTermsAccepted;
+@property (nonatomic) BOOL isNew;
+@property (nonatomic, strong) NSNumber * _Nullable userType;
+@property (nonatomic, strong) NSNumber * _Nullable apiVersion;
+@property (nonatomic, strong) NSNumber * _Nullable engineerId;
+@property (nonatomic, strong) NSNumber * _Nullable phoneConfigId;
+@property (nonatomic, copy) NSString * _Nullable country;
+@property (nonatomic, strong) NSNumber * _Nullable idCountry;
+@property (nonatomic, strong) NSNumber * _Nullable campaignVariant;
+@property (nonatomic, strong) NSNumber * _Nullable idRegistrationCountry;
+@property (nonatomic, copy) NSString * _Nullable nameRegistrationCountry;
+@property (nonatomic, strong) NSNumber * _Nullable registrationCountryLat;
+@property (nonatomic, strong) NSNumber * _Nullable registrationCountryLon;
+@property (nonatomic, strong) NSNumber * _Nullable smartCoins;
+@property (nonatomic, copy) NSString * _Nullable apiKey;
+@property (nonatomic, strong) NSNumber * _Nonnull landingStatus;
+- (nonnull instancetype)initWithEmail:(NSString * _Nullable)email password:(NSString * _Nullable)password language:(NSString * _Nullable)language token:(NSString * _Nullable)token tokenSocial:(NSString * _Nullable)tokenSocial loginType:(NSNumber * _Nonnull)loginType assistantTel:(NSString * _Nullable)assistantTel assistantBackground:(NSString * _Nullable)assistantBackground assistantLogo:(NSString * _Nullable)assistantLogo userId:(NSString * _Nullable)userId lastTripDate:(NSDate * _Nullable)lastTripDate isTermsAccepted:(BOOL)isTermsAccepted isNew:(BOOL)isNew userType:(NSNumber * _Nullable)userType apiVersion:(NSNumber * _Nullable)apiVersion engineerId:(NSNumber * _Nullable)engineerId phoneConfigId:(NSNumber * _Nullable)phoneConfigId country:(NSString * _Nullable)country idCountry:(NSNumber * _Nullable)idCountry campaignVariant:(NSNumber * _Nullable)campaignVariant idRegistrationCountry:(NSNumber * _Nullable)idRegistrationCountry nameRegistrationCountry:(NSString * _Nullable)nameRegistrationCountry registrationCountryLat:(NSNumber * _Nullable)registrationCountryLat registrationCountryLon:(NSNumber * _Nullable)registrationCountryLon smartCoins:(NSNumber * _Nullable)smartCoins apiKey:(NSString * _Nullable)apiKey landingStatus:(NSNumber * _Nonnull)landingStatus OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2495,6 +2525,8 @@ SWIFT_CLASS("_TtC15DSCoreFramework18DSTripsTabResponse")
 
 SWIFT_CLASS("_TtC15DSCoreFramework21DSUniqueUserIdRequest")
 @interface DSUniqueUserIdRequest : NSObject
+@property (nonatomic, copy) NSString * _Nonnull uniqueUserId;
+- (nonnull instancetype)initWithUniqueUserId:(NSString * _Nonnull)uniqueUserId OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2509,6 +2541,34 @@ SWIFT_CLASS("_TtC15DSCoreFramework24DSUnlockChallengeRequest")
 
 SWIFT_CLASS("_TtC15DSCoreFramework6DSUser")
 @interface DSUser : NSObject
+@property (nonatomic, copy) NSString * _Nullable email;
+@property (nonatomic, copy) NSString * _Nullable password;
+@property (nonatomic, copy) NSString * _Nullable language;
+@property (nonatomic, copy) NSString * _Nullable token;
+@property (nonatomic, copy) NSString * _Nullable tokenSocial;
+@property (nonatomic, strong) NSNumber * _Nonnull loginType;
+@property (nonatomic, copy) NSString * _Nullable assistantTel;
+@property (nonatomic, copy) NSString * _Nullable assistantBackground;
+@property (nonatomic, copy) NSString * _Nullable assistantLogo;
+@property (nonatomic, copy) NSString * _Nullable userId;
+@property (nonatomic, strong) NSDate * _Nullable lastTripDate;
+@property (nonatomic) BOOL isTermsAccepted;
+@property (nonatomic) BOOL isNew;
+@property (nonatomic, strong) NSNumber * _Nullable userType;
+@property (nonatomic, strong) NSNumber * _Nullable apiVersion;
+@property (nonatomic, strong) NSNumber * _Nullable engineerId;
+@property (nonatomic, strong) NSNumber * _Nullable phoneConfigId;
+@property (nonatomic, copy) NSString * _Nullable country;
+@property (nonatomic, strong) NSNumber * _Nullable idCountry;
+@property (nonatomic, strong) NSNumber * _Nullable campaignVariant;
+@property (nonatomic, strong) NSNumber * _Nullable idRegistrationCountry;
+@property (nonatomic, copy) NSString * _Nullable nameRegistrationCountry;
+@property (nonatomic, strong) NSNumber * _Nullable registrationCountryLat;
+@property (nonatomic, strong) NSNumber * _Nullable registrationCountryLon;
+@property (nonatomic, strong) NSNumber * _Nullable smartCoins;
+@property (nonatomic, copy) NSString * _Nullable apiKey;
+@property (nonatomic, strong) NSNumber * _Nonnull landingStatus;
+- (nonnull instancetype)initWithEmail:(NSString * _Nullable)email password:(NSString * _Nullable)password language:(NSString * _Nullable)language token:(NSString * _Nullable)token tokenSocial:(NSString * _Nullable)tokenSocial loginType:(NSNumber * _Nonnull)loginType assistantTel:(NSString * _Nullable)assistantTel assistantBackground:(NSString * _Nullable)assistantBackground assistantLogo:(NSString * _Nullable)assistantLogo userId:(NSString * _Nullable)userId lastTripDate:(NSDate * _Nullable)lastTripDate isTermsAccepted:(BOOL)isTermsAccepted isNew:(BOOL)isNew userType:(NSNumber * _Nullable)userType apiVersion:(NSNumber * _Nullable)apiVersion engineerId:(NSNumber * _Nullable)engineerId phoneConfigId:(NSNumber * _Nullable)phoneConfigId country:(NSString * _Nullable)country idCountry:(NSNumber * _Nullable)idCountry campaignVariant:(NSNumber * _Nullable)campaignVariant idRegistrationCountry:(NSNumber * _Nullable)idRegistrationCountry nameRegistrationCountry:(NSString * _Nullable)nameRegistrationCountry registrationCountryLat:(NSNumber * _Nullable)registrationCountryLat registrationCountryLon:(NSNumber * _Nullable)registrationCountryLon smartCoins:(NSNumber * _Nullable)smartCoins apiKey:(NSString * _Nullable)apiKey landingStatus:(NSNumber * _Nonnull)landingStatus OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -3805,6 +3865,8 @@ SWIFT_CLASS("_TtC15DSCoreFramework18DSTripsTabResponse")
 
 SWIFT_CLASS("_TtC15DSCoreFramework21DSUniqueUserIdRequest")
 @interface DSUniqueUserIdRequest : NSObject
+@property (nonatomic, copy) NSString * _Nonnull uniqueUserId;
+- (nonnull instancetype)initWithUniqueUserId:(NSString * _Nonnull)uniqueUserId OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -3819,6 +3881,34 @@ SWIFT_CLASS("_TtC15DSCoreFramework24DSUnlockChallengeRequest")
 
 SWIFT_CLASS("_TtC15DSCoreFramework6DSUser")
 @interface DSUser : NSObject
+@property (nonatomic, copy) NSString * _Nullable email;
+@property (nonatomic, copy) NSString * _Nullable password;
+@property (nonatomic, copy) NSString * _Nullable language;
+@property (nonatomic, copy) NSString * _Nullable token;
+@property (nonatomic, copy) NSString * _Nullable tokenSocial;
+@property (nonatomic, strong) NSNumber * _Nonnull loginType;
+@property (nonatomic, copy) NSString * _Nullable assistantTel;
+@property (nonatomic, copy) NSString * _Nullable assistantBackground;
+@property (nonatomic, copy) NSString * _Nullable assistantLogo;
+@property (nonatomic, copy) NSString * _Nullable userId;
+@property (nonatomic, strong) NSDate * _Nullable lastTripDate;
+@property (nonatomic) BOOL isTermsAccepted;
+@property (nonatomic) BOOL isNew;
+@property (nonatomic, strong) NSNumber * _Nullable userType;
+@property (nonatomic, strong) NSNumber * _Nullable apiVersion;
+@property (nonatomic, strong) NSNumber * _Nullable engineerId;
+@property (nonatomic, strong) NSNumber * _Nullable phoneConfigId;
+@property (nonatomic, copy) NSString * _Nullable country;
+@property (nonatomic, strong) NSNumber * _Nullable idCountry;
+@property (nonatomic, strong) NSNumber * _Nullable campaignVariant;
+@property (nonatomic, strong) NSNumber * _Nullable idRegistrationCountry;
+@property (nonatomic, copy) NSString * _Nullable nameRegistrationCountry;
+@property (nonatomic, strong) NSNumber * _Nullable registrationCountryLat;
+@property (nonatomic, strong) NSNumber * _Nullable registrationCountryLon;
+@property (nonatomic, strong) NSNumber * _Nullable smartCoins;
+@property (nonatomic, copy) NSString * _Nullable apiKey;
+@property (nonatomic, strong) NSNumber * _Nonnull landingStatus;
+- (nonnull instancetype)initWithEmail:(NSString * _Nullable)email password:(NSString * _Nullable)password language:(NSString * _Nullable)language token:(NSString * _Nullable)token tokenSocial:(NSString * _Nullable)tokenSocial loginType:(NSNumber * _Nonnull)loginType assistantTel:(NSString * _Nullable)assistantTel assistantBackground:(NSString * _Nullable)assistantBackground assistantLogo:(NSString * _Nullable)assistantLogo userId:(NSString * _Nullable)userId lastTripDate:(NSDate * _Nullable)lastTripDate isTermsAccepted:(BOOL)isTermsAccepted isNew:(BOOL)isNew userType:(NSNumber * _Nullable)userType apiVersion:(NSNumber * _Nullable)apiVersion engineerId:(NSNumber * _Nullable)engineerId phoneConfigId:(NSNumber * _Nullable)phoneConfigId country:(NSString * _Nullable)country idCountry:(NSNumber * _Nullable)idCountry campaignVariant:(NSNumber * _Nullable)campaignVariant idRegistrationCountry:(NSNumber * _Nullable)idRegistrationCountry nameRegistrationCountry:(NSString * _Nullable)nameRegistrationCountry registrationCountryLat:(NSNumber * _Nullable)registrationCountryLat registrationCountryLon:(NSNumber * _Nullable)registrationCountryLon smartCoins:(NSNumber * _Nullable)smartCoins apiKey:(NSString * _Nullable)apiKey landingStatus:(NSNumber * _Nonnull)landingStatus OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

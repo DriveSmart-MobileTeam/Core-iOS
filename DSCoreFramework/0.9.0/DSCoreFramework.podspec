@@ -8,7 +8,7 @@ s.summary = "DSCoreFramework Framework is the core of DriveSmart"
 #s.requires_arc = true
 
 # 2
-s.version = "0.0.7"
+s.version = "0.9.0"
 
 # 3
 s.license = { :type => "GNU", :file => "LICENSE" }

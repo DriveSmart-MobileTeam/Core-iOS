@@ -588,8 +588,8 @@ public protocol SwiftRWebDelegate : UIKit.UIWebViewDelegate, WebKit.WKNavigation
 public typealias DSUserTypeAlias = (DSCoreFramework.DSUser?) -> ()
 public typealias DSUserSessionTypeAlias = (DSCoreFramework.DSUserSession?) -> ()
 @objc public class DSUniqueUserIdRequest : ObjectiveC.NSObject {
-  public var uniqueUserId: Swift.String
-  public init(uniqueUserId: Swift.String)
+  @objc public var uniqueUserId: Swift.String
+  @objc public init(uniqueUserId: Swift.String)
   @objc deinit
   @objc override dynamic public init()
 }
@@ -1100,33 +1100,34 @@ extension ResponseCollectionSerializable where Self : DSCoreFramework.ResponseOb
   }
 }
 @objc public class DSUser : ObjectiveC.NSObject {
-  public var email: Swift.String?
-  public var password: Swift.String?
-  public var language: Swift.String?
-  public var tokenSocial: Swift.String?
-  public var loginType: Swift.Int
-  public var assistantTel: Swift.String?
-  public var assistantBackground: Swift.String?
-  public var assistantLogo: Swift.String?
-  public var userId: Swift.String?
-  public var lastTripDate: Foundation.NSDate?
-  public var isTermsAccepted: Swift.Bool?
-  public var isNew: Swift.Bool?
-  public var userType: Swift.Int?
-  public var apiVersion: Swift.Int?
-  public var engineerId: Swift.Int?
-  public var phoneConfigId: Swift.Int?
-  public var country: Swift.String?
-  public var idCountry: Swift.Int?
-  public var campaignVariant: Swift.Int?
-  public var idRegistrationCountry: Swift.Int?
-  public var nameRegistrationCountry: Swift.String?
-  public var registrationCountryLat: Swift.Double?
-  public var registrationCountryLon: Swift.Double?
-  public var smartCoins: Swift.Int?
-  public var apiKey: Swift.String?
-  public var landingStatus: Swift.Int
-  public init(email: Swift.String? = nil, password: Swift.String? = nil, language: Swift.String? = nil, token: Swift.String? = nil, tokenSocial: Swift.String? = nil, loginType: Swift.Int = DSLoginType.driveSmart.rawValue, assistantTel: Swift.String? = nil, assistantBackground: Swift.String? = nil, assistantLogo: Swift.String? = nil, userId: Swift.String? = nil, lastTripDate: Foundation.NSDate? = nil, isTermsAccepted: Swift.Bool? = nil, isNew: Swift.Bool? = nil, userType: Swift.Int? = nil, apiVersion: Swift.Int? = nil, engineerId: Swift.Int? = nil, phoneConfigId: Swift.Int? = nil, country: Swift.String? = nil, idCountry: Swift.Int? = nil, campaignVariant: Swift.Int? = nil, idRegistrationCountry: Swift.Int? = nil, nameRegistrationCountry: Swift.String? = nil, registrationCountryLat: Swift.Double? = nil, registrationCountryLon: Swift.Double? = nil, smartCoins: Swift.Int? = nil, apiKey: Swift.String? = nil, landingStatus: Swift.Int = DSLandingState.splash.rawValue)
+  @objc public var email: Swift.String?
+  @objc public var password: Swift.String?
+  @objc public var language: Swift.String?
+  @objc public var token: Swift.String?
+  @objc public var tokenSocial: Swift.String?
+  @objc public var loginType: Foundation.NSNumber
+  @objc public var assistantTel: Swift.String?
+  @objc public var assistantBackground: Swift.String?
+  @objc public var assistantLogo: Swift.String?
+  @objc public var userId: Swift.String?
+  @objc public var lastTripDate: Foundation.NSDate?
+  @objc public var isTermsAccepted: Swift.Bool
+  @objc public var isNew: Swift.Bool
+  @objc public var userType: Foundation.NSNumber?
+  @objc public var apiVersion: Foundation.NSNumber?
+  @objc public var engineerId: Foundation.NSNumber?
+  @objc public var phoneConfigId: Foundation.NSNumber?
+  @objc public var country: Swift.String?
+  @objc public var idCountry: Foundation.NSNumber?
+  @objc public var campaignVariant: Foundation.NSNumber?
+  @objc public var idRegistrationCountry: Foundation.NSNumber?
+  @objc public var nameRegistrationCountry: Swift.String?
+  @objc public var registrationCountryLat: Foundation.NSNumber?
+  @objc public var registrationCountryLon: Foundation.NSNumber?
+  @objc public var smartCoins: Foundation.NSNumber?
+  @objc public var apiKey: Swift.String?
+  @objc public var landingStatus: Foundation.NSNumber
+  @objc public init(email: Swift.String? = nil, password: Swift.String? = nil, language: Swift.String? = nil, token: Swift.String? = nil, tokenSocial: Swift.String? = nil, loginType: Foundation.NSNumber = NSNumber(value: DSLoginType.driveSmart.rawValue), assistantTel: Swift.String? = nil, assistantBackground: Swift.String? = nil, assistantLogo: Swift.String? = nil, userId: Swift.String? = nil, lastTripDate: Foundation.NSDate? = nil, isTermsAccepted: Swift.Bool = false, isNew: Swift.Bool = false, userType: Foundation.NSNumber? = nil, apiVersion: Foundation.NSNumber? = nil, engineerId: Foundation.NSNumber? = nil, phoneConfigId: Foundation.NSNumber? = nil, country: Swift.String? = nil, idCountry: Foundation.NSNumber? = nil, campaignVariant: Foundation.NSNumber? = nil, idRegistrationCountry: Foundation.NSNumber? = nil, nameRegistrationCountry: Swift.String? = nil, registrationCountryLat: Foundation.NSNumber? = nil, registrationCountryLon: Foundation.NSNumber? = nil, smartCoins: Foundation.NSNumber? = nil, apiKey: Swift.String? = nil, landingStatus: Foundation.NSNumber = NSNumber(value: DSLandingState.splash.rawValue))
   @objc override dynamic public init()
   @objc deinit
 }
