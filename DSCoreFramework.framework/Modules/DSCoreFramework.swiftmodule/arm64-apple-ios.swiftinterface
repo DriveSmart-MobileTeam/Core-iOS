@@ -357,7 +357,6 @@ public enum SwiftRError : Swift.Error {
   open func stop()
   @objc open func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
   @objc open func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
-  @objc open func webView(_ webView: UIKit.UIWebView, shouldStartLoadWith request: Foundation.URLRequest, navigationType: UIKit.UIWebView.NavigationType) -> Swift.Bool
   @objc override dynamic public init()
 }
 @objc @_hasMissingDesignatedInitializers open class Hub : ObjectiveC.NSObject {
@@ -387,7 +386,7 @@ public enum SignalRVersion : Swift.CustomStringConvertible {
   }
   public func hash(into hasher: inout Swift.Hasher)
 }
-public protocol SwiftRWebDelegate : UIKit.UIWebViewDelegate, WebKit.WKNavigationDelegate, WebKit.WKScriptMessageHandler {
+public protocol SwiftRWebDelegate : WebKit.WKNavigationDelegate, WebKit.WKScriptMessageHandler {
 }
 @objc public class DSSettingResponse : ObjectiveC.NSObject {
   public var userSettings: DSCoreFramework.DSSettingUserResponse?
