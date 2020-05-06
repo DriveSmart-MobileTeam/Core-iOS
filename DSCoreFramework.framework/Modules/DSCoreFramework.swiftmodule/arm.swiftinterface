@@ -610,8 +610,8 @@ public typealias DSUserSessionTypeAlias = (DSCoreFramework.DSUserSession?) -> ()
 }
 @objc public class DSTripByOriginalIdRequest : ObjectiveC.NSObject {
   @objc public var originalTripId: Swift.Int
-  @objc public var tripDate: Foundation.Date
-  @objc public init(originalTripId: Swift.Int, tripDate: Foundation.Date)
+  @objc public var tripDate: Foundation.Date?
+  @objc public init(originalTripId: Swift.Int, tripDate: Foundation.Date?)
   @objc deinit
   @objc override dynamic public init()
 }
