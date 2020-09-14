@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
 // swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DSCoreFramework
 import CoreLocation
 @_exported import DSCoreFramework
@@ -69,6 +69,21 @@ import WebKit
   @objc deinit
   @objc override dynamic public init()
 }
+public struct ResultModel : DSCoreFramework.ResponseObjectSerializable, DSCoreFramework.ResponseCollectionSerializable {
+  public static let keyData: Swift.String
+  public static let keyResult: Swift.String
+  public static let keyNotification: Swift.String
+  public static let keyTitle: Swift.String
+  public static let keyDescription: Swift.String
+  public static let keyCode: Swift.String
+  public static let keyMessage: Swift.String
+  public static let keyCategory: Swift.String
+  public static let keySeverity: Swift.String
+  public static let keyMinTime: Swift.String
+  public static let keyMaxTime: Swift.String
+  public init(response: Foundation.HTTPURLResponse, representation: Swift.AnyObject)
+  public func resultData() -> DSCoreFramework.ResultModel?
+}
 @objc public class DSSmiles : ObjectiveC.NSObject {
   public var percent: Swift.Int?
   public var pendingSmiles: Swift.Int?
@@ -83,6 +98,18 @@ import WebKit
   public init(percent: Swift.Int? = nil, pendingSmiles: Swift.Int? = nil, obtainedSmiles: Swift.Int? = nil, obtainedSafetySmiles: Swift.Int? = nil, obtainedSocialSmiles: Swift.Int? = nil, obtainedSustanaibleSmiles: Swift.Int? = nil, requiredSafetySmiles: Swift.Int? = nil, requiredSocialSmiles: Swift.Int? = nil, requiredSustanaibleSmiles: Swift.Int? = nil, nextLevel: DSCoreFramework.DSSmilesLevel = DSSmilesLevel.normal)
   @objc override dynamic public init()
   @objc deinit
+}
+@objc public class DSUserChallengePaydResponse : ObjectiveC.NSObject {
+  public var dsUserId: Swift.Int?
+  public var odometer: Swift.Int?
+  public var odometerDate: Swift.String?
+  public var totalKilometers: Swift.Int?
+  public var validatedKilometers: Swift.Int?
+  public var nonValidatedKilometers: Swift.Int?
+  public var fromDate: Swift.String?
+  public init(dsUserId: Swift.Int?, odometer: Swift.Int?, odometerDate: Swift.String?, totalKilometers: Swift.Int?, validatedKilometers: Swift.Int?, nonValidatedKilometers: Swift.Int?, fromDate: Swift.String?)
+  @objc deinit
+  @objc override dynamic public init()
 }
 @objc public class DSLastTrip : ObjectiveC.NSObject {
   public var distance: Swift.Double?
@@ -215,6 +242,17 @@ import WebKit
   public init(location: Swift.Bool?, realTimeRecording: Swift.Bool?, bluetooth: Swift.Bool?)
   @objc deinit
   @objc override dynamic public init()
+}
+public protocol ResponseObjectSerializable {
+  init(response: Foundation.HTTPURLResponse, representation: Swift.AnyObject)
+  func resultData() -> DSCoreFramework.ResultModel?
+}
+public protocol ResponseCollectionSerializable {
+  static func collection(from response: Foundation.HTTPURLResponse, withRepresentation representation: Swift.AnyObject) -> [Self]
+  func resultData() -> DSCoreFramework.ResultModel?
+}
+extension ResponseCollectionSerializable where Self : DSCoreFramework.ResponseObjectSerializable {
+  public static func collection(from response: Foundation.HTTPURLResponse, withRepresentation representation: Swift.AnyObject) -> [Self]
 }
 @objc public class DSMonthlyTripsResponse : ObjectiveC.NSObject {
   @objc public var tripsTabModel: [DSCoreFramework.DSTripsTabResponse]?
@@ -865,6 +903,7 @@ public typealias DSUserSessionTypeAlias = (DSCoreFramework.DSUserSession?) -> ()
   @objc public static func setUserProfile(_ userRequest: DSCoreFramework.DSSetUserProfileRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
   @objc public static func uploadPhoto(_ imageRequest: DSCoreFramework.DSImageLoaderRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
   @objc public static func getUserChallenge(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getUserPaydChallenge(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
   @objc public static func getTrips(_ monthlyTripsRequest: DSCoreFramework.DSMonthlyTripsRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
   @objc public static func getRoutes(_ dsDailyMapsRequest: DSCoreFramework.DSDailyMapsRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
   @objc public static func markAllAsRead(_ dsMarkAllTripsRequest: DSCoreFramework.DSMarkAllTripsRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
@@ -949,17 +988,6 @@ public typealias DSUserSessionTypeAlias = (DSCoreFramework.DSUserSession?) -> ()
   public init(apiKey: Swift.String? = nil, userId: Swift.String? = nil, email: Swift.String? = nil, password: Swift.String? = nil, token: Swift.String? = nil, tokenSocial: Swift.String? = nil, loginType: Swift.Int = DSLoginType.driveSmart.rawValue, userType: Swift.Int? = nil, lastTripDate: Foundation.NSDate? = nil, realTime: Swift.Bool = true, profile: DSCoreFramework.DSUserProfile? = nil, settings: DSCoreFramework.DSSettingResponse? = nil)
   @objc override dynamic public init()
   @objc deinit
-}
-public protocol ResponseObjectSerializable {
-  init(response: Foundation.HTTPURLResponse, representation: Swift.AnyObject)
-  func resultData() -> DSCoreFramework.ResultModel?
-}
-public protocol ResponseCollectionSerializable {
-  static func collection(from response: Foundation.HTTPURLResponse, withRepresentation representation: Swift.AnyObject) -> [Self]
-  func resultData() -> DSCoreFramework.ResultModel?
-}
-extension ResponseCollectionSerializable where Self : DSCoreFramework.ResponseObjectSerializable {
-  public static func collection(from response: Foundation.HTTPURLResponse, withRepresentation representation: Swift.AnyObject) -> [Self]
 }
 @objc public class DSSubscribeChallengeRequest : ObjectiveC.NSObject {
   public var form: [Swift.String : Any]?
@@ -1173,21 +1201,6 @@ extension ResponseCollectionSerializable where Self : DSCoreFramework.ResponseOb
   public init(idCountry: Swift.Int?)
   @objc deinit
   @objc override dynamic public init()
-}
-public struct ResultModel : DSCoreFramework.ResponseObjectSerializable, DSCoreFramework.ResponseCollectionSerializable {
-  public static let keyData: Swift.String
-  public static let keyResult: Swift.String
-  public static let keyNotification: Swift.String
-  public static let keyTitle: Swift.String
-  public static let keyDescription: Swift.String
-  public static let keyCode: Swift.String
-  public static let keyMessage: Swift.String
-  public static let keyCategory: Swift.String
-  public static let keySeverity: Swift.String
-  public static let keyMinTime: Swift.String
-  public static let keyMaxTime: Swift.String
-  public init(response: Foundation.HTTPURLResponse, representation: Swift.AnyObject)
-  public func resultData() -> DSCoreFramework.ResultModel?
 }
 @objc public class DSUserChallengeResponse : ObjectiveC.NSObject {
   public var dsUserId: Swift.Int?
