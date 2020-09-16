@@ -101,13 +101,14 @@ public struct ResultModel : DSCoreFramework.ResponseObjectSerializable, DSCoreFr
 }
 @objc public class DSUserChallengePaydResponse : ObjectiveC.NSObject {
   public var dsUserId: Swift.Int?
+  public var bonusKilometers: Swift.Int?
   public var odometer: Swift.Int?
   public var odometerDate: Swift.String?
   public var totalKilometers: Swift.Int?
   public var validatedKilometers: Swift.Int?
   public var nonValidatedKilometers: Swift.Int?
   public var fromDate: Swift.String?
-  public init(dsUserId: Swift.Int?, odometer: Swift.Int?, odometerDate: Swift.String?, totalKilometers: Swift.Int?, validatedKilometers: Swift.Int?, nonValidatedKilometers: Swift.Int?, fromDate: Swift.String?)
+  public init(dsUserId: Swift.Int?, bonusKilometers: Swift.Int?, odometer: Swift.Int?, odometerDate: Swift.String?, totalKilometers: Swift.Int?, validatedKilometers: Swift.Int?, nonValidatedKilometers: Swift.Int?, fromDate: Swift.String?)
   @objc deinit
   @objc override dynamic public init()
 }
