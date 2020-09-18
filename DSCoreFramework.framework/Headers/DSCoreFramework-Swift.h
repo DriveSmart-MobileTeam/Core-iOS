@@ -307,6 +307,13 @@ SWIFT_CLASS("_TtC15DSCoreFramework19DSChallengeResponse")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+SWIFT_CLASS("_TtC15DSCoreFramework23DSConfigurationResponse")
+@interface DSConfigurationResponse : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class DSErrorResponse;
 @class DSUserSession;
 @class DSUserRequest;
@@ -335,6 +342,7 @@ enum DSSignalTypes : NSInteger;
 SWIFT_CLASS("_TtC15DSCoreFramework15DSCoreFramework")
 @interface DSCoreFramework : NSObject
 + (void)configureWithApkKey:(NSString * _Nonnull)apkKey :(void (^ _Nonnull)(id _Nullable, DSErrorResponse * _Nullable))completion;
++ (void)getConfigurationWithApkKey:(NSString * _Nonnull)apkKey :(void (^ _Nonnull)(id _Nullable, DSErrorResponse * _Nullable))completion;
 + (void)refreshUserSession:(void (^ _Nonnull)(DSUserSession * _Nullable))completion;
 + (void)getUserSession:(void (^ _Nonnull)(DSUserSession * _Nullable))completion;
 + (void)signOut;
@@ -1296,6 +1304,11 @@ SWIFT_CLASS("_TtC15DSCoreFramework18DSWeekDaysResponse")
 
 
 
+typedef SWIFT_ENUM(NSInteger, HomeType, open) {
+  HomeTypeCAREWARD = 1,
+  HomeTypeKMCOUNTER = 2,
+};
+
 
 SWIFT_CLASS("_TtC15DSCoreFramework3Hub")
 @interface Hub : NSObject
@@ -1303,9 +1316,39 @@ SWIFT_CLASS("_TtC15DSCoreFramework3Hub")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+typedef SWIFT_ENUM(NSInteger, MiniChallengeType, open) {
+  MiniChallengeTypeYES = 1,
+  MiniChallengeTypeNO = 2,
+  MiniChallengeTypeCUSTOMER = 3,
+};
 
 
 
+
+
+typedef SWIFT_ENUM(NSInteger, PolicyType, open) {
+  PolicyTypeYES = 1,
+  PolicyTypeNO = 2,
+  PolicyTypeCUSTOMER = 3,
+};
+
+typedef SWIFT_ENUM(NSInteger, QuestType, open) {
+  QuestTypeYES = 1,
+  QuestTypeNO = 2,
+  QuestTypeCUSTOMER = 3,
+};
+
+typedef SWIFT_ENUM(NSInteger, RewardType, open) {
+  RewardTypeYES = 1,
+  RewardTypeNO = 2,
+  RewardTypeCUSTOMER = 3,
+};
+
+typedef SWIFT_ENUM(NSInteger, RoadAssistenceType, open) {
+  RoadAssistenceTypeYES = 1,
+  RoadAssistenceTypeNO = 2,
+  RoadAssistenceTypeCUSTOMER = 3,
+};
 
 @class WKWebView;
 @class WKNavigation;
@@ -1334,6 +1377,12 @@ SWIFT_CLASS("_TtC15DSCoreFramework12TaskDelegate")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+typedef SWIFT_ENUM(NSInteger, TripType, open) {
+  TripTypeCAREWARD = 1,
+  TripTypeKMCOUNTER = 2,
+  TripTypeKM_DETAIL = 3,
+};
 
 
 
@@ -1652,6 +1701,13 @@ SWIFT_CLASS("_TtC15DSCoreFramework19DSChallengeResponse")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+SWIFT_CLASS("_TtC15DSCoreFramework23DSConfigurationResponse")
+@interface DSConfigurationResponse : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class DSErrorResponse;
 @class DSUserSession;
 @class DSUserRequest;
@@ -1680,6 +1736,7 @@ enum DSSignalTypes : NSInteger;
 SWIFT_CLASS("_TtC15DSCoreFramework15DSCoreFramework")
 @interface DSCoreFramework : NSObject
 + (void)configureWithApkKey:(NSString * _Nonnull)apkKey :(void (^ _Nonnull)(id _Nullable, DSErrorResponse * _Nullable))completion;
++ (void)getConfigurationWithApkKey:(NSString * _Nonnull)apkKey :(void (^ _Nonnull)(id _Nullable, DSErrorResponse * _Nullable))completion;
 + (void)refreshUserSession:(void (^ _Nonnull)(DSUserSession * _Nullable))completion;
 + (void)getUserSession:(void (^ _Nonnull)(DSUserSession * _Nullable))completion;
 + (void)signOut;
@@ -2641,6 +2698,11 @@ SWIFT_CLASS("_TtC15DSCoreFramework18DSWeekDaysResponse")
 
 
 
+typedef SWIFT_ENUM(NSInteger, HomeType, open) {
+  HomeTypeCAREWARD = 1,
+  HomeTypeKMCOUNTER = 2,
+};
+
 
 SWIFT_CLASS("_TtC15DSCoreFramework3Hub")
 @interface Hub : NSObject
@@ -2648,9 +2710,39 @@ SWIFT_CLASS("_TtC15DSCoreFramework3Hub")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+typedef SWIFT_ENUM(NSInteger, MiniChallengeType, open) {
+  MiniChallengeTypeYES = 1,
+  MiniChallengeTypeNO = 2,
+  MiniChallengeTypeCUSTOMER = 3,
+};
 
 
 
+
+
+typedef SWIFT_ENUM(NSInteger, PolicyType, open) {
+  PolicyTypeYES = 1,
+  PolicyTypeNO = 2,
+  PolicyTypeCUSTOMER = 3,
+};
+
+typedef SWIFT_ENUM(NSInteger, QuestType, open) {
+  QuestTypeYES = 1,
+  QuestTypeNO = 2,
+  QuestTypeCUSTOMER = 3,
+};
+
+typedef SWIFT_ENUM(NSInteger, RewardType, open) {
+  RewardTypeYES = 1,
+  RewardTypeNO = 2,
+  RewardTypeCUSTOMER = 3,
+};
+
+typedef SWIFT_ENUM(NSInteger, RoadAssistenceType, open) {
+  RoadAssistenceTypeYES = 1,
+  RoadAssistenceTypeNO = 2,
+  RoadAssistenceTypeCUSTOMER = 3,
+};
 
 @class WKWebView;
 @class WKNavigation;
@@ -2679,6 +2771,12 @@ SWIFT_CLASS("_TtC15DSCoreFramework12TaskDelegate")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+typedef SWIFT_ENUM(NSInteger, TripType, open) {
+  TripTypeCAREWARD = 1,
+  TripTypeKMCOUNTER = 2,
+  TripTypeKM_DETAIL = 3,
+};
 
 
 
@@ -2997,6 +3095,13 @@ SWIFT_CLASS("_TtC15DSCoreFramework19DSChallengeResponse")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+SWIFT_CLASS("_TtC15DSCoreFramework23DSConfigurationResponse")
+@interface DSConfigurationResponse : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class DSErrorResponse;
 @class DSUserSession;
 @class DSUserRequest;
@@ -3025,6 +3130,7 @@ enum DSSignalTypes : NSInteger;
 SWIFT_CLASS("_TtC15DSCoreFramework15DSCoreFramework")
 @interface DSCoreFramework : NSObject
 + (void)configureWithApkKey:(NSString * _Nonnull)apkKey :(void (^ _Nonnull)(id _Nullable, DSErrorResponse * _Nullable))completion;
++ (void)getConfigurationWithApkKey:(NSString * _Nonnull)apkKey :(void (^ _Nonnull)(id _Nullable, DSErrorResponse * _Nullable))completion;
 + (void)refreshUserSession:(void (^ _Nonnull)(DSUserSession * _Nullable))completion;
 + (void)getUserSession:(void (^ _Nonnull)(DSUserSession * _Nullable))completion;
 + (void)signOut;
@@ -3986,6 +4092,11 @@ SWIFT_CLASS("_TtC15DSCoreFramework18DSWeekDaysResponse")
 
 
 
+typedef SWIFT_ENUM(NSInteger, HomeType, open) {
+  HomeTypeCAREWARD = 1,
+  HomeTypeKMCOUNTER = 2,
+};
+
 
 SWIFT_CLASS("_TtC15DSCoreFramework3Hub")
 @interface Hub : NSObject
@@ -3993,9 +4104,39 @@ SWIFT_CLASS("_TtC15DSCoreFramework3Hub")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+typedef SWIFT_ENUM(NSInteger, MiniChallengeType, open) {
+  MiniChallengeTypeYES = 1,
+  MiniChallengeTypeNO = 2,
+  MiniChallengeTypeCUSTOMER = 3,
+};
 
 
 
+
+
+typedef SWIFT_ENUM(NSInteger, PolicyType, open) {
+  PolicyTypeYES = 1,
+  PolicyTypeNO = 2,
+  PolicyTypeCUSTOMER = 3,
+};
+
+typedef SWIFT_ENUM(NSInteger, QuestType, open) {
+  QuestTypeYES = 1,
+  QuestTypeNO = 2,
+  QuestTypeCUSTOMER = 3,
+};
+
+typedef SWIFT_ENUM(NSInteger, RewardType, open) {
+  RewardTypeYES = 1,
+  RewardTypeNO = 2,
+  RewardTypeCUSTOMER = 3,
+};
+
+typedef SWIFT_ENUM(NSInteger, RoadAssistenceType, open) {
+  RoadAssistenceTypeYES = 1,
+  RoadAssistenceTypeNO = 2,
+  RoadAssistenceTypeCUSTOMER = 3,
+};
 
 @class WKWebView;
 @class WKNavigation;
@@ -4024,6 +4165,12 @@ SWIFT_CLASS("_TtC15DSCoreFramework12TaskDelegate")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+typedef SWIFT_ENUM(NSInteger, TripType, open) {
+  TripTypeCAREWARD = 1,
+  TripTypeKMCOUNTER = 2,
+  TripTypeKM_DETAIL = 3,
+};
 
 
 

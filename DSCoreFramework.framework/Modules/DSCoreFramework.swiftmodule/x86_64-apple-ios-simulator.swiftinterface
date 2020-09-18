@@ -103,14 +103,97 @@ public struct ResultModel : DSCoreFramework.ResponseObjectSerializable, DSCoreFr
   public var dsUserId: Swift.Int?
   public var bonusKilometers: Swift.Int?
   public var odometer: Swift.Int?
-  public var odometerDate: Swift.String?
+  public var odometerDate: Foundation.NSDate?
   public var totalKilometers: Swift.Int?
   public var validatedKilometers: Swift.Int?
   public var nonValidatedKilometers: Swift.Int?
-  public var fromDate: Swift.String?
-  public init(dsUserId: Swift.Int?, bonusKilometers: Swift.Int?, odometer: Swift.Int?, odometerDate: Swift.String?, totalKilometers: Swift.Int?, validatedKilometers: Swift.Int?, nonValidatedKilometers: Swift.Int?, fromDate: Swift.String?)
+  public var fromDate: Foundation.NSDate?
+  public var homeTypeId: Swift.Int?
+  public init(dsUserId: Swift.Int?, bonusKilometers: Swift.Int?, odometer: Swift.Int?, odometerDate: Foundation.NSDate?, totalKilometers: Swift.Int?, validatedKilometers: Swift.Int?, nonValidatedKilometers: Swift.Int?, fromDate: Foundation.NSDate?, homeTypeId: Swift.Int?)
   @objc deinit
   @objc override dynamic public init()
+}
+@objc public enum QuestType : Swift.Int {
+  case YES = 1
+  case NO
+  case CUSTOMER
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum TripType : Swift.Int {
+  case CAREWARD = 1
+  case KMCOUNTER
+  case KM_DETAIL
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum RewardType : Swift.Int {
+  case YES = 1
+  case NO
+  case CUSTOMER
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum RoadAssistenceType : Swift.Int {
+  case YES = 1
+  case NO
+  case CUSTOMER
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum PolicyType : Swift.Int {
+  case YES = 1
+  case NO
+  case CUSTOMER
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum MiniChallengeType : Swift.Int {
+  case YES = 1
+  case NO
+  case CUSTOMER
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum HomeType : Swift.Int {
+  case CAREWARD = 1
+  case KMCOUNTER
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class DSConfigurationResponse : ObjectiveC.NSObject {
+  public var apkId: Swift.Int?
+  public var quest: DSCoreFramework.QuestType?
+  public var trips: DSCoreFramework.TripType?
+  public var rewards: DSCoreFramework.RewardType?
+  public var roadAssistance: DSCoreFramework.RoadAssistenceType?
+  public var policy: DSCoreFramework.PolicyType?
+  public var miniChallenges: DSCoreFramework.MiniChallengeType?
+  public var home: DSCoreFramework.HomeType?
+  public init(apkId: Swift.Int?, quest: DSCoreFramework.QuestType?, trips: DSCoreFramework.TripType?, rewards: DSCoreFramework.RewardType?, roadAssistance: DSCoreFramework.RoadAssistenceType?, policy: DSCoreFramework.PolicyType?, miniChallenges: DSCoreFramework.MiniChallengeType?, home: DSCoreFramework.HomeType?)
+  @objc override dynamic public init()
+  @objc deinit
 }
 @objc public class DSLastTrip : ObjectiveC.NSObject {
   public var distance: Swift.Double?
@@ -890,6 +973,7 @@ public typealias DSUserSessionTypeAlias = (DSCoreFramework.DSUserSession?) -> ()
 }
 @_inheritsConvenienceInitializers @objc public class DSCoreFramework : ObjectiveC.NSObject {
   @objc public static func configure(apkKey: Swift.String, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getConfiguration(apkKey: Swift.String, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
   @objc public static func refreshUserSession(_ completion: @escaping DSCoreFramework.DSUserSessionTypeAlias)
   @objc public static func getUserSession(_ completion: @escaping DSCoreFramework.DSUserSessionTypeAlias)
   @objc public static func signOut()
@@ -1407,6 +1491,27 @@ public typealias DSSignalCompletion = (DSCoreFramework.DSSignalTypes, Any?) -> (
 extension DSCoreFramework.DSSmileType : Swift.Equatable {}
 extension DSCoreFramework.DSSmileType : Swift.Hashable {}
 extension DSCoreFramework.DSSmileType : Swift.RawRepresentable {}
+extension DSCoreFramework.QuestType : Swift.Equatable {}
+extension DSCoreFramework.QuestType : Swift.Hashable {}
+extension DSCoreFramework.QuestType : Swift.RawRepresentable {}
+extension DSCoreFramework.TripType : Swift.Equatable {}
+extension DSCoreFramework.TripType : Swift.Hashable {}
+extension DSCoreFramework.TripType : Swift.RawRepresentable {}
+extension DSCoreFramework.RewardType : Swift.Equatable {}
+extension DSCoreFramework.RewardType : Swift.Hashable {}
+extension DSCoreFramework.RewardType : Swift.RawRepresentable {}
+extension DSCoreFramework.RoadAssistenceType : Swift.Equatable {}
+extension DSCoreFramework.RoadAssistenceType : Swift.Hashable {}
+extension DSCoreFramework.RoadAssistenceType : Swift.RawRepresentable {}
+extension DSCoreFramework.PolicyType : Swift.Equatable {}
+extension DSCoreFramework.PolicyType : Swift.Hashable {}
+extension DSCoreFramework.PolicyType : Swift.RawRepresentable {}
+extension DSCoreFramework.MiniChallengeType : Swift.Equatable {}
+extension DSCoreFramework.MiniChallengeType : Swift.Hashable {}
+extension DSCoreFramework.MiniChallengeType : Swift.RawRepresentable {}
+extension DSCoreFramework.HomeType : Swift.Equatable {}
+extension DSCoreFramework.HomeType : Swift.Hashable {}
+extension DSCoreFramework.HomeType : Swift.RawRepresentable {}
 extension DSCoreFramework.DSErrors : Swift.Equatable {}
 extension DSCoreFramework.DSErrors : Swift.Hashable {}
 extension DSCoreFramework.DSErrors : Swift.RawRepresentable {}
