@@ -1,0 +1,1697 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DSCoreFramework
+import CoreLocation
+@_exported import DSCoreFramework
+import Darwin
+import Dispatch
+import Foundation
+import MobileCoreServices
+import Swift
+import SystemConfiguration
+import UIKit
+import WebKit
+@objc public class DSInsight : ObjectiveC.NSObject {
+  public var message: Swift.String?
+  public var read: Swift.Bool?
+  public init(message: Swift.String?, read: Swift.Bool?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct DataResponse<Value> {
+}
+extension DataResponse : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+@available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
+extension DataResponse {
+}
+@objc public class DSDeleteGroupRequest : ObjectiveC.NSObject {
+  public var groupId: Swift.Int
+  public init(groupId: Swift.Int)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSAcceptChallengeRequest : ObjectiveC.NSObject {
+  public var challengeId: Swift.Int
+  public var answer: Swift.Int?
+  public init(challengeId: Swift.Int, answer: Swift.Int?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSLandingStatusRequest : ObjectiveC.NSObject {
+  public var idLanding: Swift.Int
+  public init(idLanding: Swift.Int)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSImageLoaderRequest : ObjectiveC.NSObject {
+  public var photo: Swift.String
+  public init(photo: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class SessionManager {
+  public static let `default`: DSCoreFramework.SessionManager
+  @objc deinit
+}
+@objc public class DSUnlockChallengeRequest : ObjectiveC.NSObject {
+  public var code: Swift.String?
+  public var email: Swift.String?
+  public init(code: Swift.String?, email: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class Request {
+  @objc deinit
+}
+extension Request : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension Request : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class DataRequest : DSCoreFramework.Request {
+  @objc deinit
+}
+@objc public enum DSSmileType : Swift.Int {
+  case safety = 1
+  case sustainable
+  case social
+  case all
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class DSSmilesHistoryResponse : ObjectiveC.NSObject {
+  public var type: DSCoreFramework.DSSmileType?
+  public var descriptionText: Swift.String?
+  public var date: Foundation.NSDate?
+  public init(type: DSCoreFramework.DSSmileType? = nil, descriptionText: Swift.String? = nil, date: Foundation.NSDate? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSmiles : ObjectiveC.NSObject {
+  public var percent: Swift.Int?
+  public var pendingSmiles: Swift.Int?
+  public var obtainedSmiles: Swift.Int?
+  public var obtainedSafetySmiles: Swift.Int?
+  public var obtainedSocialSmiles: Swift.Int?
+  public var obtainedSustanaibleSmiles: Swift.Int?
+  public var requiredSafetySmiles: Swift.Int?
+  public var requiredSocialSmiles: Swift.Int?
+  public var requiredSustanaibleSmiles: Swift.Int?
+  public var nextLevel: DSCoreFramework.DSSmilesLevel
+  public init(percent: Swift.Int? = nil, pendingSmiles: Swift.Int? = nil, obtainedSmiles: Swift.Int? = nil, obtainedSafetySmiles: Swift.Int? = nil, obtainedSocialSmiles: Swift.Int? = nil, obtainedSustanaibleSmiles: Swift.Int? = nil, requiredSafetySmiles: Swift.Int? = nil, requiredSocialSmiles: Swift.Int? = nil, requiredSustanaibleSmiles: Swift.Int? = nil, nextLevel: DSCoreFramework.DSSmilesLevel = DSSmilesLevel.normal)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSOdometerLogResponse : ObjectiveC.NSObject {
+  @objc public var odometerId: Foundation.NSNumber?
+  @objc public var km: Foundation.NSNumber?
+  @objc public var isAutomatic: Swift.Bool
+  @objc public var device: Swift.String?
+  @objc public var pictureDateTime: Foundation.NSDate?
+  @objc public var url: Swift.String?
+  @objc public var location: Swift.String?
+  public init(odometerId: Foundation.NSNumber? = nil, km: Foundation.NSNumber? = nil, isAutomatic: Swift.Bool = false, device: Swift.String? = nil, pictureDateTime: Foundation.NSDate? = nil, url: Swift.String? = nil, location: Swift.String? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum HomeModeType : Swift.Int {
+  case CAREWARD_INTEGRATED = 1
+  case KMCOUNTER
+  case VERTI
+  case CAREWARD_NO_INTEGRATED
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum ScoreModeType : Swift.Int {
+  case NO_APPLY
+  case INTEGER
+  case FLOAT_2
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum TripsModeType : Swift.Int {
+  case NO_APPLY
+  case POINTS_DETAIL
+  case KMCOUNTER_NO_DETAIL
+  case KMCOUNTER
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum QuestModeType : Swift.Int {
+  case NO_APPLY
+  case WITH_BONUS
+  case WITHOUT_BONUS
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum TutorialModeType : Swift.Int {
+  case WITH_TUTORIAL = 1
+  case WITHOUT_TUTORIAL
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum MenuOptionDisplayType : Swift.Int, Swift.Codable {
+  case always
+  case never
+  case ifUserActivated
+  public init(_ possibleValue: Swift.Int?, defaultsTo: DSCoreFramework.MenuOptionDisplayType)
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class DSConfigurationMenuOptionResponse : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+  @objc public static var supportsSecureCoding: Swift.Bool
+  public var miniChallengesMenuOption: DSCoreFramework.MenuOptionDisplayType?
+  public var missionsMenuOption: DSCoreFramework.MenuOptionDisplayType?
+  public var policyMenuOption: DSCoreFramework.MenuOptionDisplayType?
+  public var questMenuOption: DSCoreFramework.MenuOptionDisplayType?
+  public var rankingMenuOption: DSCoreFramework.MenuOptionDisplayType?
+  public var rewardsMenuOption: DSCoreFramework.MenuOptionDisplayType?
+  public var roadAssistanceMenuOption: DSCoreFramework.MenuOptionDisplayType?
+  public var tripsMenuOption: DSCoreFramework.MenuOptionDisplayType?
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc required convenience public init?(coder: Foundation.NSCoder)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class DSConfigurationModesResponse : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+  @objc public static var supportsSecureCoding: Swift.Bool
+  public var questMode: DSCoreFramework.QuestModeType?
+  public var tripsMode: DSCoreFramework.TripsModeType?
+  public var homeMode: DSCoreFramework.HomeModeType?
+  public var scoreMode: DSCoreFramework.ScoreModeType?
+  public var tutorialMode: DSCoreFramework.TutorialModeType?
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc required convenience public init?(coder: Foundation.NSCoder)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class DSConfigurationResponse : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+  @objc public static var supportsSecureCoding: Swift.Bool
+  public var apkId: Swift.Int?
+  public var menuOptions: DSCoreFramework.DSConfigurationMenuOptionResponse?
+  public var modes: DSCoreFramework.DSConfigurationModesResponse?
+  public var profile: DSCoreFramework.MenuOptionDisplayType?
+  public var configuration: DSCoreFramework.MenuOptionDisplayType?
+  public var faqs: DSCoreFramework.MenuOptionDisplayType?
+  public var support: DSCoreFramework.MenuOptionDisplayType?
+  public var webviewRootUrl: Swift.String?
+  public var mapfrePrivacyPolicyUrl: Swift.String?
+  public var privacyUbiUrl: Swift.String?
+  public var termsUrl: Swift.String?
+  public var faqUrl: Swift.String?
+  public var logoUrl: Swift.String?
+  public var primaryColor: Swift.String?
+  public var assistanceNumber: Swift.String?
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc required convenience public init?(coder: Foundation.NSCoder)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSLastTrip : ObjectiveC.NSObject {
+  public var distance: Swift.Double?
+  public var incidents: Swift.Int?
+  public var startDate: Foundation.Date?
+  public var endDate: Foundation.Date?
+  public var score: Swift.Int?
+  public var smartCoins: Swift.Int?
+  public var insights: Swift.String?
+  public var tripId: Swift.Int?
+  public init(distance: Swift.Double?, incidents: Swift.Int?, startDate: Foundation.Date?, endDate: Foundation.Date?, score: Swift.Int?, smartCoins: Swift.Int?, insights: Swift.String?, tripId: Swift.Int?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSMonthlyTripsRequest : ObjectiveC.NSObject {
+  @objc public var date: Foundation.Date
+  @objc public var userTime: Foundation.NSNumber?
+  @objc public init(date: Foundation.Date, userTime: Foundation.NSNumber?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum DSErrors : Swift.Int {
+  case DS_INVALID_SESSION
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class DSScoreMetricsResponse : ObjectiveC.NSObject {
+  public var global: DSCoreFramework.DSScoreMetricTypeResponse?, urban: DSCoreFramework.DSScoreMetricTypeResponse?, subUrban: DSCoreFramework.DSScoreMetricTypeResponse?
+  public var smileIcons: [DSCoreFramework.DSSmileIconsResponse]?
+  public var weekDays: [DSCoreFramework.DSWeekDaysResponse]?
+  public init(global: DSCoreFramework.DSScoreMetricTypeResponse?, urban: DSCoreFramework.DSScoreMetricTypeResponse?, subUrban: DSCoreFramework.DSScoreMetricTypeResponse?, smileIcons: [DSCoreFramework.DSSmileIconsResponse]?, weekDays: [DSCoreFramework.DSWeekDaysResponse]?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSmileIconsResponse : ObjectiveC.NSObject {
+  public var id: Swift.Int?, scoreFrom: Swift.Int?, scoreLessThan: Swift.Int?
+  public var absolutePath: Swift.String?
+  public init(id: Swift.Int?, scoreFrom: Swift.Int?, scoreLessThan: Swift.Int?, absolutePath: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSScoreMetricTypeResponse : ObjectiveC.NSObject {
+  public var score: DSCoreFramework.DSScoreResponse?
+  public var insight: DSCoreFramework.DSScoreMetricsInsightResponse?
+  public var summary: DSCoreFramework.DSSummaryScoreMetricsResponse?
+  public var scoreDetail: DSCoreFramework.DSScoreDetailScoreMetricsResponse?
+  public var dailyGraphics: [DSCoreFramework.DSDailyGraphicResponse]?
+  public init(score: DSCoreFramework.DSScoreResponse?, insight: DSCoreFramework.DSScoreMetricsInsightResponse?, summary: DSCoreFramework.DSSummaryScoreMetricsResponse?, scoreDetail: DSCoreFramework.DSScoreDetailScoreMetricsResponse?, dailyGraphics: [DSCoreFramework.DSDailyGraphicResponse]?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSDailyGraphicResponse : ObjectiveC.NSObject {
+  public var day: Swift.Int?
+  public var min: Swift.Double?, max: Swift.Double?, avg: Swift.Double?
+  public var sMin: Swift.String?, sMax: Swift.String?, sAvg: Swift.String?
+  public var trips: Swift.Int?, distance: Swift.Int?, time: Swift.Int?
+  public var isEnable: Swift.Bool
+  public var dayOfWeek: Swift.Int?, speedScore: Swift.Int?, minSpeedScore: Swift.Int?, maxSpeedScore: Swift.Int?, accelerationScore: Swift.Int?, minAccelerationScore: Swift.Int?, maxAccelerationScore: Swift.Int?, minBrakingScore: Swift.Int?, maxBrakingScore: Swift.Int?, brakingScore: Swift.Int?, corneringScore: Swift.Int?, minCorneringScore: Swift.Int?, maxCorneringScore: Swift.Int?, trafficAnticipationScore: Swift.Int?, minTrafficAnticipationScore: Swift.Int?, maxTrafficAnticipationScore: Swift.Int?
+  public init(day: Swift.Int?, min: Swift.Double?, max: Swift.Double?, avg: Swift.Double?, sMin: Swift.String?, sMax: Swift.String?, sAvg: Swift.String?, trips: Swift.Int?, distance: Swift.Int?, time: Swift.Int?, isEnable: Swift.Bool, dayOfWeek: Swift.Int?, speedScore: Swift.Int?, minSpeedScore: Swift.Int?, maxSpeedScore: Swift.Int?, accelerationScore: Swift.Int?, minAccelerationScore: Swift.Int?, maxAccelerationScore: Swift.Int?, minBrakingScore: Swift.Int?, maxBrakingScore: Swift.Int?, brakingScore: Swift.Int?, corneringScore: Swift.Int?, minCorneringScore: Swift.Int?, maxCorneringScore: Swift.Int?, trafficAnticipationScore: Swift.Int?, minTrafficAnticipationScore: Swift.Int?, maxTrafficAnticipationScore: Swift.Int?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSScoreMetricsInsightResponse : ObjectiveC.NSObject {
+  public var insightID: Swift.Int?, userVote: Swift.Int?, like: Swift.Int?, dislike: Swift.Int?
+  public var message: Swift.String?
+  public init(insightID: Swift.Int?, userVote: Swift.Int?, like: Swift.Int?, dislike: Swift.Int?, message: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSScoreResponse : ObjectiveC.NSObject {
+  public var score: Swift.Int?
+  public var smileScore: Swift.String?
+  public init(score: Swift.Int?, smileScore: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSScoreDetailScoreMetricsResponse : ObjectiveC.NSObject {
+  public var speedScore: Swift.Int?, accelerationScore: Swift.Int?, brakingScore: Swift.Int?, corneringScore: Swift.Int?, trafficAnticipationScore: Swift.Int?
+  public var accelerationInsightId: Swift.Int?, brakingInsightId: Swift.Int?, corneringInsightId: Swift.Int?, speedInsightId: Swift.Int?, trafficAnticipationInsightId: Swift.Int?
+  public var insights: [DSCoreFramework.DSScoreMetricsInsightResponse]?
+  public init(speedScore: Swift.Int?, accelerationScore: Swift.Int?, brakingScore: Swift.Int?, corneringScore: Swift.Int?, trafficAnticipationScore: Swift.Int?, accelerationInsightId: Swift.Int?, brakingInsightId: Swift.Int?, corneringInsightId: Swift.Int?, speedInsightId: Swift.Int?, trafficAnticipationInsightId: Swift.Int?, insights: [DSCoreFramework.DSScoreMetricsInsightResponse]?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSummaryScoreMetricsResponse : ObjectiveC.NSObject {
+  public var trips: Swift.Int?, distance: Swift.Int?, duration: Swift.Int?
+  public init(trips: Swift.Int?, distance: Swift.Int?, duration: Swift.Int?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSWeekDaysResponse : ObjectiveC.NSObject {
+  public var weekDay: Swift.Int?
+  public var text: Swift.String?
+  public init(weekDay: Swift.Int?, text: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum DSSmilesLevel : Swift.Int {
+  case normal = 1
+  case bronze
+  case silver
+  case gold
+  case complete
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class DSMemberResponse : ObjectiveC.NSObject {
+  public var since: Swift.String?
+  public var memberShipId: DSCoreFramework.DSSmilesLevel
+  public var memberShip: Swift.String?
+  public var categoriesText: Swift.String?
+  public var needed: Swift.Int?
+  public var required: Swift.String?
+  public var benefits: [Swift.String]?
+  public var blocked: Swift.Bool?
+  public init(since: Swift.String? = nil, memberShipId: DSCoreFramework.DSSmilesLevel = .normal, memberShip: Swift.String? = nil, categoriesText: Swift.String? = nil, needed: Swift.Int? = nil, required: Swift.String? = nil, benefits: [Swift.String]? = nil, blocked: Swift.Bool? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSettingPhoneRequest : ObjectiveC.NSObject {
+  public var bluetooth: Swift.Bool?
+  public var location: Swift.Bool?
+  public var motion: Swift.Bool?
+  public var realTimeRecording: Swift.Bool?
+  public init(location: Swift.Bool?, realTimeRecording: Swift.Bool?, bluetooth: Swift.Bool?, motion: Swift.Bool?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSMonthlyTripsResponse : ObjectiveC.NSObject {
+  @objc public var tripsTabModel: [DSCoreFramework.DSTripsTabResponse]?
+  @objc public var tripsDayResponse: [DSCoreFramework.DSTripsDayResponse]?
+  @objc public var tripInsightResponse: [DSCoreFramework.DSTripInsightResponse]?
+  public init(tripsTabModel: [DSCoreFramework.DSTripsTabResponse]? = nil, tripsDayResponse: [DSCoreFramework.DSTripsDayResponse]? = nil, tripInsightResponse: [DSCoreFramework.DSTripInsightResponse]? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSTripsTabResponse : ObjectiveC.NSObject {
+  @objc public var date: Foundation.NSDate?
+  @objc public var title: Swift.String?
+  @objc public var count: Foundation.NSNumber?
+  @objc public var badge: Foundation.NSNumber?
+  @objc public var select: Swift.Bool
+  @objc public var index: Foundation.NSNumber?
+  public init(date: Foundation.NSDate? = nil, title: Swift.String? = nil, count: Foundation.NSNumber? = nil, badge: Foundation.NSNumber? = nil, select: Swift.Bool = false, index: Foundation.NSNumber? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSTripsDayResponse : ObjectiveC.NSObject {
+  @objc public var idTrips: Swift.String?
+  @objc public var date: Foundation.NSDate?
+  @objc public var month: Swift.String?
+  @objc public var dayName: Swift.String?
+  @objc public var totalScore: Foundation.NSNumber?
+  @objc public var totalDistance: Foundation.NSNumber?
+  @objc public var totalTime: Foundation.NSNumber?
+  @objc public var unRead: Foundation.NSNumber?
+  @objc public var smailScore: Swift.String?
+  @objc public var trips: [DSCoreFramework.DSTripDetailResponse]?
+  public init(idTrips: Swift.String? = nil, date: Foundation.NSDate? = nil, month: Swift.String? = nil, dayName: Swift.String? = nil, totalScore: Foundation.NSNumber? = nil, totalDistance: Foundation.NSNumber? = nil, totalTime: Foundation.NSNumber? = nil, unRead: Foundation.NSNumber? = nil, smailScore: Swift.String? = nil, trips: [DSCoreFramework.DSTripDetailResponse]? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSTripInsightResponse : ObjectiveC.NSObject {
+  @objc public var idInsight: Foundation.NSNumber?
+  @objc public var userVote: Foundation.NSNumber?
+  @objc public var likes: Foundation.NSNumber?
+  @objc public var dislikes: Foundation.NSNumber?
+  @objc public var message: Swift.String?
+  @objc public var messageCaption: Swift.String?
+  @objc public var messageLink: Swift.String?
+  public init(idInsight: Foundation.NSNumber? = nil, userVote: Foundation.NSNumber? = nil, likes: Foundation.NSNumber? = nil, dislikes: Foundation.NSNumber? = nil, message: Swift.String? = nil, messageCaption: Swift.String? = nil, messageLink: Swift.String? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSTripRequest : ObjectiveC.NSObject {
+  @objc public var tripId: Swift.Int
+  @objc public init(tripId: Swift.Int)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSAddressRequest : ObjectiveC.NSObject {
+  public var idCountry: Swift.Int?
+  public var idState: Swift.Int?
+  public var state: Swift.String?
+  public var city: Swift.String?
+  public var address: Swift.String?
+  public var zipCode: Swift.String?
+  public var receiveCard: Swift.Bool?
+  public init(idCountry: Swift.Int?, idState: Swift.Int?, state: Swift.String?, city: Swift.String?, address: Swift.String?, zipCode: Swift.String?, receiveCard: Swift.Bool?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum ConnectionType : Swift.Int {
+  case hub
+  case persistent
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum State : Swift.Int {
+  case connecting
+  case connected
+  case disconnected
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum Transport {
+  case auto
+  case webSockets
+  case foreverFrame
+  case serverSentEvents
+  case longPolling
+  public static func == (a: DSCoreFramework.Transport, b: DSCoreFramework.Transport) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum SwiftRError : Swift.Error {
+  case notConnected
+  public var message: Swift.String {
+    get
+  }
+  public static func == (a: DSCoreFramework.SwiftRError, b: DSCoreFramework.SwiftRError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc open class SignalR : ObjectiveC.NSObject, DSCoreFramework.SwiftRWebDelegate {
+  public var signalRVersion: DSCoreFramework.SignalRVersion
+  public var useWKWebView: Swift.Bool
+  public var transport: DSCoreFramework.Transport
+  public var originUrlString: Swift.String?
+  open var state: DSCoreFramework.State
+  open var connectionID: Swift.String?
+  open var received: ((Any?) -> ())?
+  open var starting: (() -> ())?
+  open var connected: (() -> ())?
+  open var disconnected: (() -> ())?
+  open var connectionSlow: (() -> ())?
+  open var connectionFailed: (() -> ())?
+  open var reconnecting: (() -> ())?
+  open var reconnected: (() -> ())?
+  open var error: (([Swift.String : Any]?) -> ())?
+  open var customUserAgent: Swift.String?
+  open var queryString: Any? {
+    get
+    set
+  }
+  open var headers: [Swift.String : Swift.String]? {
+    get
+    set
+  }
+  public init(_ baseUrl: Swift.String, connectionType: DSCoreFramework.ConnectionType = .hub)
+  public func connect(_ callback: (() -> ())? = nil)
+  @objc deinit
+  open func createHubProxy(_ name: Swift.String) -> DSCoreFramework.Hub
+  open func addHub(_ hub: DSCoreFramework.Hub)
+  open func send(_ data: Any?)
+  open func start()
+  open func stop()
+  @objc open func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @objc open func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers open class Hub : ObjectiveC.NSObject {
+  public init(_ name: Swift.String)
+  open func on(_ method: Swift.String, callback: @escaping ([Any]?) -> ())
+  open func invoke(_ method: Swift.String, arguments: [Any]? = nil, callback: ((Any?, Any?) -> ())? = nil) throws
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum SignalRVersion : Swift.CustomStringConvertible {
+  case v2_2_2
+  case v2_2_1
+  case v2_2_0
+  case v2_1_2
+  case v2_1_1
+  case v2_1_0
+  case v2_0_3
+  case v2_0_2
+  case v2_0_1
+  case v2_0_0
+  public var description: Swift.String {
+    get
+  }
+  public static func == (a: DSCoreFramework.SignalRVersion, b: DSCoreFramework.SignalRVersion) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol SwiftRWebDelegate : WebKit.WKNavigationDelegate, WebKit.WKScriptMessageHandler {
+}
+@objc final public class DSSettingResponse : ObjectiveC.NSObject {
+  final public var userSettings: DSCoreFramework.DSSettingUserResponse?
+  final public var phoneSettings: DSCoreFramework.DSSettingPhoneResponse?
+  final public var notifications: DSCoreFramework.DSSettingNotificationsResponse?
+  public init(userSettings: DSCoreFramework.DSSettingUserResponse? = nil, phoneSettings: DSCoreFramework.DSSettingPhoneResponse? = nil, notifications: DSCoreFramework.DSSettingNotificationsResponse? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class DSSettingAssitanceResponse : ObjectiveC.NSObject {
+  final public var assistanceId: Swift.Int?
+  final public var assistanceName: Swift.String?
+  final public var helpCallMisdn: Swift.String?
+  final public var assistanceIconPath: Swift.String?
+  final public var backgroundLogo: Swift.String?
+  public init(assistanceId: Swift.Int? = nil, assistanceName: Swift.String? = nil, helpCallMisdn: Swift.String? = nil, assistanceIconPath: Swift.String? = nil, backgroundLogo: Swift.String? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class DSSettingDateResponse : ObjectiveC.NSObject {
+  final public var dateTimeFormat: Swift.Int?
+  final public var dateFormat: Swift.Int?
+  final public var timeFormat: Swift.Int?
+  public init(dateTimeFormat: Swift.Int? = nil, dateFormat: Swift.Int? = nil, timeFormat: Swift.Int? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class DSSettingUserResponse : ObjectiveC.NSObject {
+  final public var idMetric: Swift.Int?
+  final public var language: Swift.Int?
+  final public var assistance: DSCoreFramework.DSSettingAssitanceResponse?
+  final public var idMap: Swift.Int?
+  final public var date: DSCoreFramework.DSSettingDateResponse?
+  public init(idMetric: Swift.Int? = nil, language: Swift.Int? = nil, assistance: DSCoreFramework.DSSettingAssitanceResponse? = nil, idMap: Swift.Int? = nil, date: DSCoreFramework.DSSettingDateResponse? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class DSSettingPhoneResponse : ObjectiveC.NSObject {
+  final public var realTime: Swift.Bool?
+  final public var motion: Swift.Bool?
+  final public var handsfree: Swift.Bool?
+  public init(realTime: Swift.Bool? = nil, motion: Swift.Bool?, handsfree: Swift.Bool?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class DSSettingDisplayResponse : ObjectiveC.NSObject {
+  final public var funfacts: Swift.Bool?
+  final public var challenges: Swift.Bool?
+  final public var metrics: Swift.Bool?
+  final public var specialOffers: Swift.Bool?
+  final public var rewards: Swift.Bool?
+  final public var pitStop: Swift.Bool?
+  final public var tripSummary: Swift.Bool?
+  public init(funfacts: Swift.Bool? = nil, challenges: Swift.Bool? = nil, metrics: Swift.Bool? = nil, specialOffers: Swift.Bool? = nil, rewards: Swift.Bool? = nil, pitStop: Swift.Bool? = nil, tripSummary: Swift.Bool? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class DSSettingMailResponse : ObjectiveC.NSObject {
+  final public var monthlyReport: Swift.Bool?
+  final public var newsletter: Swift.Bool?
+  public init(monthlyReport: Swift.Bool? = nil, newsletter: Swift.Bool? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class DSSettingAudioResponse : ObjectiveC.NSObject {
+  final public var countDown: Swift.Bool?
+  final public var startingTrip: Swift.Bool?
+  final public var tripFinished: Swift.Bool?
+  public init(countDown: Swift.Bool? = nil, startingTrip: Swift.Bool? = nil, tripFinished: Swift.Bool? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class DSSettingNotificationsResponse : ObjectiveC.NSObject {
+  final public var display: DSCoreFramework.DSSettingDisplayResponse?
+  final public var mail: DSCoreFramework.DSSettingMailResponse?
+  final public var audio: DSCoreFramework.DSSettingAudioResponse?
+  public init(display: DSCoreFramework.DSSettingDisplayResponse? = nil, mail: DSCoreFramework.DSSettingMailResponse? = nil, audio: DSCoreFramework.DSSettingAudioResponse? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSInterestResponse : ObjectiveC.NSObject {
+  public var appIconPath: Swift.String?
+  public var textDescription: Swift.String?
+  public var idInterest: Swift.Int?
+  public var selected: Swift.Bool?
+  public init(appIconPath: Swift.String?, textDescription: Swift.String?, idInterest: Swift.Int?, selected: Swift.Bool?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum DSActivityType : Swift.Int {
+  case today = 0
+  case week
+  case month
+  case absolute
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class DSActivity : ObjectiveC.NSObject {
+  public var activity: DSCoreFramework.DSActivityType?
+  public var trips: Swift.Int?
+  public var distance: Swift.Double?
+  public var duration: Swift.Double?
+  public var incidents: Swift.Int?
+  public var score: Swift.Int?
+  public var smartcoins: Swift.Int?
+  public var date: Foundation.Date?
+  public var read: Swift.Bool?
+  public init(activity: DSCoreFramework.DSActivityType?, trips: Swift.Int?, distance: Swift.Double?, duration: Swift.Double?, incidents: Swift.Int?, score: Swift.Int?, smartcoins: Swift.Int?, date: Foundation.Date?, read: Swift.Bool?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSStateResponse : ObjectiveC.NSObject {
+  public var countryID: Swift.Int?
+  public var countryName: Swift.String?
+  public init(countryID: Swift.Int?, countryName: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSHandsFreeDeviceRequest : ObjectiveC.NSObject {
+  public static let vitType: Swift.Int
+  public static let statusActive: Swift.Int
+  public static let statusInactive: Swift.Int
+  public init(mac: Swift.String?, name: Swift.String?, vitType: Swift.Int?, status: Swift.Int?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSMetricsRequest : ObjectiveC.NSObject {
+  public var date: Swift.String
+  public init(date: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSScore : ObjectiveC.NSObject {
+  public var month: Swift.Int?
+  public var score: Swift.Int?
+  public var icon: Swift.String?
+  public var scoreAbsolute: Swift.Int?
+  public var iconAbsolute: Swift.String?
+  public init(month: Swift.Int? = nil, score: Swift.Int? = nil, icon: Swift.String? = nil, scoreAbsolute: Swift.Int? = nil, iconAbsolute: Swift.String? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSChallengeResponse : ObjectiveC.NSObject {
+  public var challengeID: Swift.Int?
+  public var name: Swift.String?, url: Swift.String?
+  public var imageURL: Swift.String?
+  public var desc: Swift.String?, startDate: Swift.String?, endDate: Swift.String?, isoCountryCode: Swift.String?
+  public var termsAndCond: Swift.String?
+  public var isRegistered: Swift.Bool?, isVisible: Swift.Bool?, isLocked: Swift.Bool?
+  public var form: [Swift.String : Any]?
+  public var unlockCode: Swift.String?
+  public init(challengeID: Swift.Int?, name: Swift.String?, url: Swift.String?, imageURL: Swift.String?, desc: Swift.String?, startDate: Swift.String?, endDate: Swift.String?, isoCountryCode: Swift.String?, termsAndCond: Swift.String?, isRegistered: Swift.Bool?, isVisible: Swift.Bool?, isLocked: Swift.Bool?, form: [Swift.String : Any]?, unlockCode: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSThirdPartyRequest : ObjectiveC.NSObject {
+  public var token: Swift.String?
+  public var loginType: Swift.Int?
+  public var landingStatus: Swift.Int?
+  public var apiKey: Swift.String?
+  public var language: Swift.String?
+  public var email: Swift.String?
+  public var isTermsAccepted: Swift.Bool?
+  public var latitude: Swift.Double?
+  public var longitude: Swift.Double?
+  public init(token: Swift.String?, loginType: DSCoreFramework.DSLoginType?, landingStatus: Swift.Int?, apiKey: Swift.String?, language: Swift.String?, email: Swift.String?, isTermsAccepted: Swift.Bool?, latitude: Swift.Double?, longitude: Swift.Double?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc final public class DSHomeResponse : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+  @objc public static var supportsSecureCoding: Swift.Bool
+  final public var dsUserId: Swift.Int?
+  final public var bonusKilometers: Swift.Int?
+  final public var odometer: Swift.Int?
+  final public var odometerDate: Foundation.NSDate?
+  final public var totalKilometers: Swift.Int?
+  final public var validatedKilometers: Swift.Int?
+  final public var nonValidatedKilometers: Swift.Int?
+  final public var fromDate: Foundation.NSDate?
+  final public var homeTypeId: Swift.Int?
+  final public var hasTrips: Swift.Bool?
+  final public var reward: Swift.Int?
+  final public var score: Swift.Int?
+  convenience public init(dsUserId: Swift.Int?, bonusKilometers: Swift.Int?, odometer: Swift.Int?, odometerDate: Foundation.NSDate?, totalKilometers: Swift.Int?, validatedKilometers: Swift.Int?, nonValidatedKilometers: Swift.Int?, fromDate: Foundation.NSDate?, homeTypeId: Swift.Int?, hasTrips: Swift.Bool?, reward: Swift.Int?, score: Swift.Int?)
+  @objc final public func encode(with coder: Foundation.NSCoder)
+  @objc required convenience public init?(coder: Foundation.NSCoder)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSDriverKMResponse : ObjectiveC.NSObject {
+  @objc public var tripsTabModel: [DSCoreFramework.DSTripsTabResponse]?
+  @objc public var tripKMResponse: [DSCoreFramework.DSTripKMResponse]?
+  public init(tripsTabModel: [DSCoreFramework.DSTripsTabResponse]? = nil, tripKMResponse: [DSCoreFramework.DSTripKMResponse]? = nil, tripInsightResponse: [DSCoreFramework.DSTripInsightResponse]? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSTripKMResponse : ObjectiveC.NSObject {
+  @objc public var tripDistance: Foundation.NSNumber?
+  @objc public var startTripDate: Foundation.NSDate?
+  @objc public var endTripDate: Foundation.NSDate?
+  @objc public var tripTypeId: Foundation.NSNumber?
+  @objc public var tripId: Foundation.NSNumber?
+  @objc public var from: Swift.String?
+  @objc public var to: Swift.String?
+  @objc public var money: Foundation.NSNumber?
+  public init(tripDistance: Foundation.NSNumber? = nil, startTripDate: Foundation.NSDate? = nil, endTripDate: Foundation.NSDate? = nil, tripTypeId: Foundation.NSNumber? = nil, tripId: Foundation.NSNumber? = nil, from: Swift.String? = nil, to: Swift.String? = nil, money: Foundation.NSNumber? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum DSGenreType : Swift.Int {
+  case none = 0
+  case female = 2
+  case male = 1
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class DSUserProfile : ObjectiveC.NSObject {
+  public var email: Swift.String?
+  public var isEmailValid: Swift.Bool?
+  public var name: Swift.String?
+  public var surname: Swift.String?
+  public var phone: Swift.String?
+  public var codePhone: Swift.String?
+  public var birthday: Swift.String?
+  public var genre: DSCoreFramework.DSGenreType
+  public var address: Swift.String?
+  public var addressSecond: Swift.String?
+  public var country: Swift.String?
+  public var idCountry: Swift.Int?
+  public var state: Swift.String?
+  public var idState: Swift.Int?
+  public var city: Swift.String?
+  public var zipcode: Swift.String?
+  public var memberCode: Swift.String?
+  public var imageUrl: Swift.String?
+  public var isMapfre: Swift.Bool?
+  public var plate: Swift.String?
+  public init(email: Swift.String? = nil, isEmailValid: Swift.Bool? = nil, name: Swift.String? = nil, surname: Swift.String? = nil, phone: Swift.String? = nil, codePhone: Swift.String? = nil, birthday: Swift.String? = nil, genre: DSCoreFramework.DSGenreType = .none, address: Swift.String? = nil, addressSecond: Swift.String? = nil, country: Swift.String? = nil, idCountry: Swift.Int? = nil, state: Swift.String? = nil, idState: Swift.Int? = nil, city: Swift.String? = nil, zipcode: Swift.String? = nil, memberCode: Swift.String? = nil, imageUrl: Swift.String? = nil, isMapfre: Swift.Bool? = nil, plate: Swift.String? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public typealias DSUserTypeAlias = (DSCoreFramework.DSUser?) -> ()
+public typealias DSUserSessionTypeAlias = (DSCoreFramework.DSUserSession?) -> ()
+@objc public class DSUniqueUserIdRequest : ObjectiveC.NSObject {
+  @objc public var uniqueUserId: Swift.String
+  @objc public init(uniqueUserId: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSValidateUserRequest : ObjectiveC.NSObject {
+  public var documentNumber: Swift.String
+  public var plateNumber: Swift.String
+  public var policyNumber: Swift.String
+  public var adsAccepted: Swift.Bool
+  public init(documentNumber: Swift.String, plateNumber: Swift.String, policyNumber: Swift.String, adsAccepted: Swift.Bool)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class MultipartFormData {
+  open var contentType: Swift.String {
+    get
+    set
+  }
+  @objc deinit
+}
+@objc public class DSTripByOriginalIdRequest : ObjectiveC.NSObject {
+  @objc public var originalTripId: Swift.Int
+  @objc public var tripDate: Foundation.Date?
+  @objc public init(originalTripId: Swift.Int, tripDate: Foundation.Date?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum DSMetricType : Swift.Int {
+  case trips
+  case distance
+  case time
+  case incidents
+  case severity
+  case frecuency
+  case ecoScore
+  case smiles
+  case smartcoins
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class DSMetricsResponse : ObjectiveC.NSObject {
+  public var tabs: [DSCoreFramework.DSMetricsTabResponse]?
+  public var metrics: DSCoreFramework.DSMetricsHeaderResponse?
+  public var driving: [DSCoreFramework.DSMetricResponse]?
+  public var incidents: [DSCoreFramework.DSMetricResponse]?
+  public var efficiency: [DSCoreFramework.DSMetricResponse]?
+  public var miscellaneous: [DSCoreFramework.DSMetricResponse]?
+  public init(tabs: [DSCoreFramework.DSMetricsTabResponse]? = nil, metrics: DSCoreFramework.DSMetricsHeaderResponse? = nil, driving: [DSCoreFramework.DSMetricResponse]? = nil, incidents: [DSCoreFramework.DSMetricResponse]? = nil, efficiency: [DSCoreFramework.DSMetricResponse]? = nil, miscellaneous: [DSCoreFramework.DSMetricResponse]? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSMetricsTabResponse : ObjectiveC.NSObject {
+  public var date: Foundation.NSDate?
+  public var title: Swift.String?
+  public var count: Swift.Int?
+  public var badge: Swift.Int?
+  public var select: Swift.Bool?
+  public var index: Swift.Int?
+  public init(date: Foundation.NSDate? = nil, title: Swift.String? = nil, count: Swift.Int? = nil, badge: Swift.Int? = nil, select: Swift.Bool, index: Swift.Int? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSMetricsHeaderResponse : ObjectiveC.NSObject {
+  public var global: Swift.Double?
+  public var globalIcon: Swift.String?
+  public var urban: Swift.Double?
+  public var urbanIcon: Swift.String?
+  public var suburban: Swift.Double?
+  public var suburbanIcon: Swift.String?
+  public init(global: Swift.Double? = nil, globalIcon: Swift.String? = nil, urban: Swift.Double? = nil, urbanIcon: Swift.String? = nil, suburban: Swift.Double? = nil, suburbanIcon: Swift.String? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSMetricResponse : ObjectiveC.NSObject {
+  public var data: Swift.Double?
+  public var type: DSCoreFramework.DSMetricType
+  public var score: Swift.Bool
+  public var icon: Swift.String?
+  public init(data: Swift.Double? = nil, type: DSCoreFramework.DSMetricType = .trips, score: Swift.Bool = false, icon: Swift.String? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum DSErrorNotificationType : Swift.Int {
+  case info = 0
+  case notification
+  case error
+  case unhandledError
+  case alwaysAllow
+  public func needToShow() -> Swift.Bool
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum DSErrorNotificationSeverityType : Swift.Int {
+  case none = 0
+  case low
+  case medium
+  case high
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum DSErrorCodes : Swift.Int {
+  case success = 200
+  case errorNoDataFound = -100
+  case errorGeneric = -1
+  case errorServerConnection = 0
+  case errorToken = 24
+  case errorAPIKey = 3
+  case errorLogin = 4
+  case errorUserNotFound = 2
+  case errorResetPassword = 25
+  case errorChallengeUnexisting = 27
+  case errorServer = 500
+  case errorNotProfileForAnonymousUser = 39
+  case errorBluetooth = -1000
+  case errorReachebility = -1001
+  case errorGoogleLogin = -1010
+  case errorGoogleLoginData = -1011
+  case errorFacebookLogin = -1021
+  case errorFacebookLoginCancel = -1022
+  case errorFacebookLoginData = -1023
+  case errorFacebookUserInfo = -1024
+  case errorFacebookAutorizhing = -1025
+  case errorFacebookToken = 6
+  case infoAchievements = -1100
+  case infoTrips = -1200
+  case infoPitstop = -1300
+  case infoMetrics = -1400
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class DSErrorResponse : ObjectiveC.NSObject {
+  public var code: DSCoreFramework.DSErrorCodes?
+  public var title: Swift.String?
+  public var notification: Swift.String?
+  public var message: Swift.String?
+  public var canDismiss: Swift.Bool?
+  public var minTimeDismiss: Swift.Double
+  public var maxTimeDismiss: Swift.Double
+  public var timeToDismiss: Swift.Double?
+  public var type: DSCoreFramework.DSErrorNotificationType
+  public var severity: DSCoreFramework.DSErrorNotificationSeverityType
+  public var icon: UIKit.UIImage?
+  public var color: UIKit.UIColor?
+  public var titleColor: UIKit.UIColor?
+  public var messageColor: UIKit.UIColor?
+  convenience public init(code: DSCoreFramework.DSErrorCodes? = nil, title: Swift.String? = nil, notification: Swift.String? = nil, message: Swift.String? = nil, canDismiss: Swift.Bool? = nil, minTimeDismiss: Swift.Double? = nil, maxTimeDismiss: Swift.Double? = nil, type: DSCoreFramework.DSErrorNotificationType? = nil, severity: DSCoreFramework.DSErrorNotificationSeverityType? = nil, titleColor: UIKit.UIColor? = .black, messageColor: UIKit.UIColor? = .black)
+  convenience public init(code: DSCoreFramework.DSErrorCodes?, title: Swift.String? = nil, notification: Swift.String? = nil, message: Swift.String? = nil, canDismiss: Swift.Bool? = nil, minTimeDismiss: Swift.Double? = nil, maxTimeDismiss: Swift.Double? = nil, type: DSCoreFramework.DSErrorNotificationType? = nil, severity: DSCoreFramework.DSErrorNotificationSeverityType? = nil, icon: UIKit.UIImage? = nil, color: UIKit.UIColor? = .black, titleColor: UIKit.UIColor?, messageColor: UIKit.UIColor? = .black)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSCountryResponse : ObjectiveC.NSObject {
+  public var countryID: Swift.Int?
+  public var countryName: Swift.String?
+  public init(countryID: Swift.Int?, countryName: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSCertificateResponse : ObjectiveC.NSObject {
+  public var totalScore: Swift.Int?
+  public var certificateImage: Swift.String?
+  public var isProfesional: Swift.Bool?
+  public var tripDistanceInMeter: Swift.Double?
+  public var driveTimeInSeconds: Swift.Double?
+  public var obtainRequeriments: Swift.Bool?
+  public var obtainCertificateDatetime: Swift.String?
+  public var professionalBrandedUrl: Swift.String?
+  public init(totalScore: Swift.Int?, certificateImage: Swift.String?, isProfesional: Swift.Bool?, tripDistanceInMeter: Swift.Double?, driveTimeInSeconds: Swift.Double?, obtainRequeriments: Swift.Bool?, obtainCertificateDatetime: Swift.String?, professionalBrandedUrl: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ServerTrustPolicyManager {
+  @objc deinit
+}
+@objc public class DSInsightRequest : ObjectiveC.NSObject {
+  public var vote: Swift.Int?
+  public var idInsight: Swift.Int?
+  public init(vote: Swift.Int?, idInsight: Swift.Int?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSmilesHistoryRequest : ObjectiveC.NSObject {
+  public var categoryId: Swift.Int?
+  public var pageIndex: Swift.Int?
+  public var pageSize: Swift.Int?
+  public init(categoryId: Swift.Int?, pageIndex: Swift.Int?, pageSize: Swift.Int?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSInterestRequest : ObjectiveC.NSObject {
+  public var interests: [Swift.Int]?
+  public init(interests: [Swift.Int]?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSettingAssitanceRequest : ObjectiveC.NSObject {
+  public var assistanceId: Swift.Int?
+  public var assistanceName: Swift.String?
+  public var helpCallMisdn: Swift.String?
+  public var assistanceIconPath: Swift.String?
+  public var backgroundLogo: Swift.String?
+  public init(assistanceId: Swift.Int?, assistanceName: Swift.String?, helpCallMisdn: Swift.String?, assistanceIconPath: Swift.String?, backgroundLogo: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSettingGeneralRequest : ObjectiveC.NSObject {
+  public var unitSystemId: Swift.Int?
+  public var mapTypeId: Swift.Int?
+  public var phoneDateFormatId: Swift.Int?
+  public var dateFormatId: Swift.Int?
+  public var timeFormatId: Swift.Int?
+  public var languageId: Swift.Int?
+  public var assistance: DSCoreFramework.DSSettingAssitanceRequest?
+  public init(unitSystemId: Swift.Int?, mapTypeId: Swift.Int?, phoneDateFormatId: Swift.Int?, dateFormatId: Swift.Int?, timeFormatId: Swift.Int?, languageId: Swift.Int?, assistance: DSCoreFramework.DSSettingAssitanceRequest?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSMarkAllTripsRequest : ObjectiveC.NSObject {
+  @objc public var date: Swift.String
+  @objc public init(date: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum DSAnswerChallengeType : Swift.Int {
+  case deny
+  case accept
+  case nothing
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class DSAcceptChallengeResponse : ObjectiveC.NSObject {
+  public var answer: DSCoreFramework.DSAnswerChallengeType?
+  public init(answer: DSCoreFramework.DSAnswerChallengeType?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSUserRequest : ObjectiveC.NSObject {
+  @objc public var email: Swift.String
+  @objc public var password: Swift.String
+  @objc public var latitude: Foundation.NSNumber?
+  @objc public var longitude: Foundation.NSNumber?
+  @objc public init(email: Swift.String, password: Swift.String, latitude: Foundation.NSNumber? = 0, longitude: Foundation.NSNumber? = 0)
+  @objc convenience public init(email: Swift.String, password: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol DSSignalManagerProtocol {
+  @objc optional func conectionStarted()
+  @objc optional func onSignalReceived(type: DSCoreFramework.DSSignalTypes, data: Any?)
+  @objc optional func invalidSession(error: Foundation.NSError)
+}
+@_inheritsConvenienceInitializers @objc public class DSCoreFramework : ObjectiveC.NSObject {
+  @objc public static func configure(apkKey: Swift.String, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getConfiguration(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func refreshUserSession(_ completion: @escaping DSCoreFramework.DSUserSessionTypeAlias)
+  @objc public static func getUserSession(_ completion: @escaping DSCoreFramework.DSUserSessionTypeAlias)
+  @objc public static func signOut()
+  @objc public static func signIn(userRequest: DSCoreFramework.DSUserRequest, completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func signUp(userRequest: DSCoreFramework.DSUserRequest, completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func addUniqueUserId(uniqueUserIdRequest: DSCoreFramework.DSUniqueUserIdRequest, completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func setPassword(userRequest: DSCoreFramework.DSForgottenPasswordRequest, completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func accessThirdParty(_ thirdPartyRequest: DSCoreFramework.DSThirdPartyRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func anonymousSignIn(_ anonymousRequest: DSCoreFramework.DSAnonymousRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func agreementsAcceptance(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getUserProfile(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func setUserProfile(_ userRequest: DSCoreFramework.DSSetUserProfileRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func uploadPhoto(_ imageRequest: DSCoreFramework.DSImageLoaderRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getUserChallenge(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getHome(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getTrips(_ monthlyTripsRequest: DSCoreFramework.DSMonthlyTripsRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getDriverKM(_ monthlyTripsRequest: DSCoreFramework.DSMonthlyTripsRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getRoutes(_ dsDailyMapsRequest: DSCoreFramework.DSDailyMapsRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func markAllAsRead(_ dsMarkAllTripsRequest: DSCoreFramework.DSMarkAllTripsRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getTripDetail(_ dsTripRequest: DSCoreFramework.DSTripRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getDiscrepancies(_ dsTripRequest: DSCoreFramework.DSTripRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getUnseenTrips(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getTripDetailByOriginalTripId(_ tripByOriginalIdRequest: DSCoreFramework.DSTripByOriginalIdRequest, completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getSettings(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func setNotificationsSettings(_ dsSettingNotificationRequest: DSCoreFramework.DSSettingNotificationRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func setGeneralSettings(_ dsSettingGeneralRequest: DSCoreFramework.DSSettingGeneralRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func setPhoneSettings(_ dsSettingPhoneRequest: DSCoreFramework.DSSettingPhoneRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func sendHandsFreeDevices(_ request: DSCoreFramework.DSHandsFreeDeviceRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getGroups(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func addNewGroup(_ addNewGroupRequest: DSCoreFramework.DSAddNewGroupRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func validateUser(_ validateUserRequest: DSCoreFramework.DSValidateUserRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func deleteGroup(_ deleteGroupRequest: DSCoreFramework.DSDeleteGroupRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func setAddress(_ addressRequest: DSCoreFramework.DSAddressRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getScoreMetrics(_ metricsRequest: DSCoreFramework.DSMetricsRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getMetrics(_ metricsRequest: DSCoreFramework.DSMetricsRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getFindMyCar(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getCountries(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func getStates(_ dsLocationRequest: DSCoreFramework.DSLocationRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func addUserToDefaultCountry(_ dsLocationRequest: DSCoreFramework.DSLocationRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func setDefaultCountry(_ dsRegistrationCountryRequest: DSCoreFramework.DSRegistrationCountryRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func setTemporalCountry(_ dsLocationRequest: DSCoreFramework.DSLocationRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func setTemporalCountryRegistration(_ dsRegistrationCountryRequest: DSCoreFramework.DSRegistrationCountryRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func setVote(_ dsInsightRequest: DSCoreFramework.DSInsightRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc public static func setSignalComunnication(delegate: DSCoreFramework.DSSignalManagerProtocol?)
+  @objc public static func getSignalObject(type: DSCoreFramework.DSSignalTypes, _ completion: @escaping DSCoreFramework.DSSignalCompletion)
+  @objc public static func getOdometerLog(_ dsOdometerLogRequest: DSCoreFramework.DSOdometerLogRequest, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class TaskDelegate : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSDailyMapsResponse : ObjectiveC.NSObject {
+  @objc public var tid: Foundation.NSNumber?
+  public var route: [(Swift.Double, Swift.Double)]?
+  @objc public var incidents: [DSCoreFramework.DSTripIncidentResponse]?
+  @objc public var type: Foundation.NSNumber?
+  public init(tid: Foundation.NSNumber? = nil, route: [(Swift.Double, Swift.Double)]? = nil, incidents: [DSCoreFramework.DSTripIncidentResponse]? = nil, type: Foundation.NSNumber? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class DSSmallAchievement : DSCoreFramework.DSAchievements {
+  override public init(idAchievement: Swift.Int?, icon: Swift.String?, title: Swift.String? = super, subtitle: Swift.String? = super, message: Swift.String?, link: Swift.String? = super, linkTitle: Swift.String? = super, next: DSCoreFramework.DSSmallAchievement? = super, show: Swift.Bool? = super)
+  @objc deinit
+}
+@objc public class DSAchievements : ObjectiveC.NSObject {
+  public var idAchievement: Swift.Int?
+  public var icon: Swift.String?
+  public var title: Swift.String?
+  public var subtitle: Swift.String?
+  public var message: Swift.String?
+  public var link: Swift.String?
+  public var linkTitle: Swift.String?
+  public var next: DSCoreFramework.DSSmallAchievement?
+  public var show: Swift.Bool?
+  public init(idAchievement: Swift.Int?, icon: Swift.String?, title: Swift.String? = nil, subtitle: Swift.String? = nil, message: Swift.String?, link: Swift.String? = nil, linkTitle: Swift.String? = nil, next: DSCoreFramework.DSSmallAchievement? = nil, show: Swift.Bool? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSForgottenPasswordRequest : ObjectiveC.NSObject {
+  public var userEmail: Swift.String
+  public init(userEmail: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct DSChallengeRequest {
+  public var documentNumber: Swift.String
+  public var plateNumber: Swift.String
+  public var policyNumber: Swift.String
+  public var adsAccepted: Swift.Bool
+  public init(documentNumber: Swift.String, plateNumber: Swift.String, policyNumber: Swift.String, adsAccepted: Swift.Bool)
+}
+@objc public class DSUserSession : ObjectiveC.NSObject {
+  @objc public var apiKey: Swift.String?
+  @objc public var userId: Swift.String?
+  @objc public var email: Swift.String?
+  @objc public var password: Swift.String?
+  @objc public var token: Swift.String?
+  public var tokenSocial: Swift.String?
+  public var loginType: Swift.Int
+  public var userType: Swift.Int?
+  public var lastTripDate: Foundation.NSDate?
+  @objc public var realTime: Swift.Bool
+  public var profile: DSCoreFramework.DSUserProfile?
+  public var settings: DSCoreFramework.DSSettingResponse?
+  public init(apiKey: Swift.String? = nil, userId: Swift.String? = nil, email: Swift.String? = nil, password: Swift.String? = nil, token: Swift.String? = nil, tokenSocial: Swift.String? = nil, loginType: Swift.Int = DSLoginType.driveSmart.rawValue, userType: Swift.Int? = nil, lastTripDate: Foundation.NSDate? = nil, realTime: Swift.Bool = true, profile: DSCoreFramework.DSUserProfile? = nil, settings: DSCoreFramework.DSSettingResponse? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSubscribeChallengeRequest : ObjectiveC.NSObject {
+  public var form: [Swift.String : Any]?
+  public var idChallenge: Swift.Int?
+  public init(form: [Swift.String : Any]?, idChallenge: Swift.Int?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSGroupResponse : ObjectiveC.NSObject {
+  public var id: Swift.Int?
+  public var name: Swift.String?
+  public var imageURL: Swift.String?
+  public var status: Swift.String?
+  public var statusId: Swift.Int?
+  public var termsAndCondition: Swift.String?
+  public var validationKey: Swift.String?
+  public init(id: Swift.Int?, name: Swift.String?, imageURL: Swift.String?, status: Swift.String?, statusId: Swift.Int?, termsAndCondition: Swift.String?, validationKey: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSmartcoins : ObjectiveC.NSObject {
+  public var smartCoins: Swift.Int
+  public init(smartCoins: Swift.Int = 0)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSDailyMapsRequest : ObjectiveC.NSObject {
+  @objc public var date: Swift.String
+  @objc public var userTime: Foundation.NSNumber?
+  @objc public init(date: Swift.String, userTime: Foundation.NSNumber?)
+  @objc convenience public init(date: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSABRequest : ObjectiveC.NSObject {
+  public var idCampaign: Swift.Int
+  public init(idCampaign: Swift.Int)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSmilesTypeResponse : ObjectiveC.NSObject {
+  public var categoryId: Swift.Int?
+  public var category: Swift.String?
+  public var group: [DSCoreFramework.DSSmilesTypesGroupResponse]?
+  public init(categoryId: Swift.Int? = nil, category: Swift.String? = nil, group: [DSCoreFramework.DSSmilesTypesGroupResponse]? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSmilesTypesGroupResponse : ObjectiveC.NSObject {
+  public var groupId: Swift.Int?
+  public var name: Swift.String?
+  public var smiles: [DSCoreFramework.DSSmilesTypesGroupSmilesResponse]?
+  public init(groupId: Swift.Int? = nil, name: Swift.String? = nil, smiles: [DSCoreFramework.DSSmilesTypesGroupSmilesResponse]? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSmilesTypesGroupSmilesResponse : ObjectiveC.NSObject {
+  public var title: Swift.String?
+  public var descriptionText: Swift.String?
+  public var subText: Swift.String?
+  public init(title: Swift.String? = nil, descriptionText: Swift.String? = nil, subText: Swift.String? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSettingNotificationRequest : ObjectiveC.NSObject {
+  public var tripSummary: Swift.Bool?
+  public var funfacts: Swift.Bool?
+  public var challenges: Swift.Bool?
+  public var metrics: Swift.Bool?
+  public var specialOffers: Swift.Bool?
+  public var rewards: Swift.Bool?
+  public var pitstop: Swift.Bool?
+  public var monthlyReport: Swift.Bool?
+  public var newsletter: Swift.Bool?
+  public var countDown: Swift.Bool?
+  public var startingTrip: Swift.Bool?
+  public var tripFinished: Swift.Bool?
+  public init(tripSummary: Swift.Bool?, funfacts: Swift.Bool?, challenges: Swift.Bool?, metrics: Swift.Bool?, specialOffers: Swift.Bool?, rewards: Swift.Bool?, pitstop: Swift.Bool?, monthlyReport: Swift.Bool?, newsletter: Swift.Bool?, countDown: Swift.Bool?, startingTrip: Swift.Bool?, tripFinished: Swift.Bool?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSetUserProfileRequest : ObjectiveC.NSObject {
+  public var name: Swift.String?
+  public var surname: Swift.String?
+  public var email: Swift.String?
+  public var phone: Swift.String?
+  public var codePhone: Swift.String?
+  public var birthday: Swift.String?
+  public var genre: DSCoreFramework.DSGenreType
+  public var address: Swift.String?
+  public var addressSecond: Swift.String?
+  public var country: Swift.String?
+  public var idCountry: Swift.Int?
+  public var state: Swift.String?
+  public var idState: Swift.Int?
+  public var city: Swift.String?
+  public var zipcode: Swift.String?
+  public var memberCode: Swift.String?
+  public var isEmailValid: Swift.Bool?
+  public var isMapfre: Swift.Bool?
+  public var plate: Swift.String?
+  public init(name: Swift.String?, surname: Swift.String?, email: Swift.String?, phone: Swift.String?, codePhone: Swift.String?, birthday: Swift.String?, genre: DSCoreFramework.DSGenreType?, address: Swift.String?, addressSecond: Swift.String?, country: Swift.String?, idCountry: Swift.Int?, state: Swift.String?, idState: Swift.Int?, city: Swift.String?, zipcode: Swift.String?, memberCode: Swift.String?, isEmailValid: Swift.Bool?, isMapfre: Swift.Bool?, plate: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum DSLoginType : Swift.Int {
+  case anonymous = 0
+  case driveSmart
+  case facebook
+  case google
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum DSLandingState : Swift.Int {
+  case signout = -1
+  case splash = 1
+  case pitch = 2
+  case login = 3
+  case terms = 4
+  case completed = 5
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum DSCampaignVariant : Swift.Int {
+  case access = 1
+  case bait
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc final public class DSUser : ObjectiveC.NSObject {
+  @objc final public var email: Swift.String?
+  @objc final public var password: Swift.String?
+  @objc final public var language: Swift.String?
+  @objc final public var token: Swift.String?
+  @objc final public var tokenSocial: Swift.String?
+  @objc final public var loginType: Foundation.NSNumber
+  @objc final public var assistantTel: Swift.String?
+  @objc final public var assistantBackground: Swift.String?
+  @objc final public var assistantLogo: Swift.String?
+  @objc final public var userId: Swift.String?
+  @objc final public var lastTripDate: Foundation.NSDate?
+  @objc final public var isTermsAccepted: Swift.Bool
+  @objc final public var isNew: Swift.Bool
+  @objc final public var userType: Foundation.NSNumber?
+  @objc final public var apiVersion: Swift.String?
+  @objc final public var engineerId: Foundation.NSNumber?
+  @objc final public var phoneConfigId: Foundation.NSNumber?
+  @objc final public var country: Swift.String?
+  @objc final public var idCountry: Foundation.NSNumber?
+  @objc final public var campaignVariant: Foundation.NSNumber?
+  @objc final public var idRegistrationCountry: Foundation.NSNumber?
+  @objc final public var nameRegistrationCountry: Swift.String?
+  @objc final public var registrationCountryLat: Foundation.NSNumber?
+  @objc final public var registrationCountryLon: Foundation.NSNumber?
+  @objc final public var lastConfigurationUpdate: Foundation.Date?
+  @objc final public var smartCoins: Foundation.NSNumber?
+  @objc final public var apiKey: Swift.String?
+  @objc final public var landingStatus: Foundation.NSNumber
+  @objc public init(email: Swift.String? = nil, password: Swift.String? = nil, language: Swift.String? = nil, token: Swift.String? = nil, tokenSocial: Swift.String? = nil, loginType: Foundation.NSNumber = NSNumber(value: DSLoginType.driveSmart.rawValue), assistantTel: Swift.String? = nil, assistantBackground: Swift.String? = nil, assistantLogo: Swift.String? = nil, userId: Swift.String? = nil, lastTripDate: Foundation.NSDate? = nil, isTermsAccepted: Swift.Bool = false, isNew: Swift.Bool = false, userType: Foundation.NSNumber? = nil, apiVersion: Swift.String? = nil, engineerId: Foundation.NSNumber? = nil, phoneConfigId: Foundation.NSNumber? = nil, country: Swift.String? = nil, idCountry: Foundation.NSNumber? = nil, campaignVariant: Foundation.NSNumber? = nil, idRegistrationCountry: Foundation.NSNumber? = nil, nameRegistrationCountry: Swift.String? = nil, registrationCountryLat: Foundation.NSNumber? = nil, registrationCountryLon: Foundation.NSNumber? = nil, lastConfigurationUpdate: Foundation.Date? = nil, smartCoins: Foundation.NSNumber? = nil, apiKey: Swift.String? = nil, landingStatus: Foundation.NSNumber = NSNumber(value: DSLandingState.splash.rawValue))
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum DSSignalTypes : Swift.Int {
+  case achievements = 2
+  case activity = 3
+  case score = 4
+  case lastTrip = 5
+  case smartcoins = 6
+  case smartmiles = 7
+  case insight = 9
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class DSTripDiscrepancyResponse : ObjectiveC.NSObject {
+  @objc public var discrepancies: [DSCoreFramework.DSDiscrepancyResponse]?
+  public init(discrepancies: [DSCoreFramework.DSDiscrepancyResponse]? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSDiscrepancyResponse : ObjectiveC.NSObject {
+  @objc public var incidentId: Foundation.NSNumber?
+  @objc public var discrepancyId: Foundation.NSNumber?
+  @objc public var discrepancyDate: Foundation.NSDate?
+  public init(incidentId: Foundation.NSNumber? = nil, discrepancyId: Foundation.NSNumber? = nil, discrepancyDate: Foundation.NSDate? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSFindMyCarResponse : ObjectiveC.NSObject {
+  public var address: Swift.String?
+  public var city: Swift.String?
+  public var longitude: Swift.Double?
+  public var latitude: Swift.Double?
+  public var eventDate: Foundation.NSDate?
+  public init(address: Swift.String? = nil, city: Swift.String? = nil, longitude: Swift.Double? = nil, latitude: Swift.Double? = nil, eventDate: Foundation.NSDate? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSOdometerLogRequest : ObjectiveC.NSObject {
+  @objc public var userTime: Foundation.NSNumber?
+  @objc public init(userTime: Foundation.NSNumber?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSLocationRequest : ObjectiveC.NSObject {
+  public var idCountry: Swift.Int?
+  public init(idCountry: Swift.Int?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSUserChallengeResponse : ObjectiveC.NSObject {
+  public var dsUserId: Swift.Int?
+  public var score: Swift.Int?
+  public var requieredKilometers: Swift.Int?
+  public var kilometers: Swift.Int?
+  public var trips: Swift.Int?
+  public var days: Swift.Int?
+  public var discount: Swift.Int?
+  public var daysPolicityRenewal: Swift.Int?
+  public var requieredDiscounts: [Swift.Int]?
+  public var coins: Swift.Int?
+  public var questStatus: Swift.Int?
+  public var previousQuests: [DSCoreFramework.DSUserChallengeResponse]
+  public init(dsUserId: Swift.Int?, score: Swift.Int?, requieredKilometers: Swift.Int?, kilometers: Swift.Int?, trips: Swift.Int?, days: Swift.Int?, discount: Swift.Int?, daysPolicityRenewal: Swift.Int?, requieredDiscounts: [Swift.Int]?, coins: Swift.Int?, questStatus: Swift.Int?, previousQuests: [DSCoreFramework.DSUserChallengeResponse])
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum DSQuestStatus : Swift.Int {
+  case nothing = 0
+  case inQuest = 1
+  case notAchieved = 2
+  case notScore = 3
+  case achieved = 4
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol ResponseObjectSerializable {
+  init(response: Foundation.HTTPURLResponse, representation: Swift.AnyObject)
+  func resultData() -> DSCoreFramework.ResultModel?
+}
+public protocol ResponseCollectionSerializable {
+  static func collection(from response: Foundation.HTTPURLResponse, withRepresentation representation: Swift.AnyObject) -> [Self]
+  func resultData() -> DSCoreFramework.ResultModel?
+}
+extension ResponseCollectionSerializable where Self : DSCoreFramework.ResponseObjectSerializable {
+  public static func collection(from response: Foundation.HTTPURLResponse, withRepresentation representation: Swift.AnyObject) -> [Self]
+}
+@objc public class DSAddNewGroupRequest : ObjectiveC.NSObject {
+  public var code: Swift.String
+  public init(code: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public typealias DSCoreResultAlias = (Any?, DSCoreFramework.DSErrorResponse?) -> ()
+public enum DSServiceResult {
+  case success(data: Any?)
+  case error(error: DSCoreFramework.DSErrorResponse?)
+}
+public typealias DSServiceCompletion = (DSCoreFramework.DSServiceResult) -> ()
+public typealias DSSignalCompletion = (DSCoreFramework.DSSignalTypes, Any?) -> ()
+@objc public class DSTripDetailResponse : ObjectiveC.NSObject {
+  @objc public var idTrip: Foundation.NSNumber?
+  @objc public var originalId: [Swift.Int]?
+  @objc public var type: Foundation.NSNumber?
+  @objc public var adressStart: Swift.String?
+  @objc public var adressFinish: Swift.String?
+  @objc public var dateStart: Foundation.NSDate?
+  @objc public var dateFinish: Foundation.NSDate?
+  @objc public var distance: Foundation.NSNumber?
+  @objc public var score: Foundation.NSNumber?
+  @objc public var smileScore: Swift.String?
+  @objc public var insight: Foundation.NSNumber?
+  @objc public var read: Swift.Bool
+  @objc public var duration: Foundation.NSNumber?
+  @objc public var efficiency: Foundation.NSNumber?
+  @objc public var smartcoins: Foundation.NSNumber?
+  @objc public var summary: DSCoreFramework.DSTripsSummaryResponse?
+  @objc public var incidents: [DSCoreFramework.DSTripIncidentResponse]?
+  @objc public var scoreDetail: DSCoreFramework.DSTripScoreResponse?
+  @objc public var efficiencyDetail: DSCoreFramework.DSTripEfficiencyResponse?
+  @objc public var route: [DSCoreFramework.DSDailyMapsResponse]?
+  @objc public var insightDetail: [DSCoreFramework.DSTripInsightResponse]?
+  @objc public var collapse: Swift.Bool
+  public init(idTrip: Foundation.NSNumber? = nil, originalId: [Swift.Int]? = nil, type: Foundation.NSNumber? = nil, adressStart: Swift.String? = nil, adressFinish: Swift.String? = nil, dateStart: Foundation.NSDate? = nil, dateFinish: Foundation.NSDate? = nil, distance: Foundation.NSNumber? = nil, score: Foundation.NSNumber? = nil, smileScore: Swift.String? = nil, insight: Foundation.NSNumber? = nil, read: Swift.Bool = false, duration: Foundation.NSNumber? = nil, efficiency: Foundation.NSNumber? = nil, smartcoins: Foundation.NSNumber? = nil, summary: DSCoreFramework.DSTripsSummaryResponse? = nil, incidents: [DSCoreFramework.DSTripIncidentResponse]? = nil, scoreDetail: DSCoreFramework.DSTripScoreResponse? = nil, efficiencyDetail: DSCoreFramework.DSTripEfficiencyResponse? = nil, route: [DSCoreFramework.DSDailyMapsResponse]? = nil, insightDetail: [DSCoreFramework.DSTripInsightResponse]? = nil, collapse: Swift.Bool = true)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSTripsSummaryResponse : ObjectiveC.NSObject {
+  @objc public var distance: Foundation.NSNumber?
+  @objc public var time: Foundation.NSNumber?
+  @objc public var averageSpeed: Foundation.NSNumber?
+  @objc public var numIncidents: Foundation.NSNumber?
+  @objc public var fuelEfficiency: Foundation.NSNumber?
+  @objc public var smartCoins: Foundation.NSNumber?
+  @objc public var score: Foundation.NSNumber?
+  @objc public var lastTripTrend: DSCoreFramework.DSSummaryTrendResponse?
+  @objc public var lastDayTrend: DSCoreFramework.DSSummaryTrendResponse?
+  @objc public var lastWeekTrend: DSCoreFramework.DSSummaryTrendResponse?
+  @objc public var lastMonthTrend: DSCoreFramework.DSSummaryTrendResponse?
+  @objc public var absoluteTrend: DSCoreFramework.DSSummaryTrendResponse?
+  public init(distance: Foundation.NSNumber? = nil, time: Foundation.NSNumber? = nil, averageSpeed: Foundation.NSNumber? = nil, numIncidents: Foundation.NSNumber? = nil, fuelEfficiency: Foundation.NSNumber? = nil, smartCoins: Foundation.NSNumber? = nil, score: Foundation.NSNumber? = nil, lastTripTrend: DSCoreFramework.DSSummaryTrendResponse? = nil, lastDayTrend: DSCoreFramework.DSSummaryTrendResponse? = nil, lastWeekTrend: DSCoreFramework.DSSummaryTrendResponse? = nil, lastMonthTrend: DSCoreFramework.DSSummaryTrendResponse? = nil, absoluteTrend: DSCoreFramework.DSSummaryTrendResponse? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSSummaryTrendResponse : ObjectiveC.NSObject {
+  @objc public var distance: Foundation.NSNumber?
+  @objc public var time: Foundation.NSNumber?
+  @objc public var averageSpeed: Foundation.NSNumber?
+  @objc public var numIncidents: Foundation.NSNumber?
+  @objc public var fuelEfficiency: Foundation.NSNumber?
+  @objc public var smartCoins: Foundation.NSNumber?
+  @objc public var score: Foundation.NSNumber?
+  public init(distance: Foundation.NSNumber? = nil, time: Foundation.NSNumber? = nil, averageSpeed: Foundation.NSNumber? = nil, numIncidents: Foundation.NSNumber? = nil, fuelEfficiency: Foundation.NSNumber? = nil, smartCoins: Foundation.NSNumber? = nil, score: Foundation.NSNumber? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSTripIncidentResponse : ObjectiveC.NSObject {
+  @objc public var tripId: Foundation.NSNumber
+  @objc public var latitude: Foundation.NSNumber?
+  @objc public var longitude: Foundation.NSNumber?
+  @objc public var address: Swift.String?
+  @objc public var date: Foundation.Date?
+  @objc public var eventID: Foundation.NSNumber?
+  @objc public var heading: Foundation.NSNumber?
+  @objc public var isUrban: Swift.Bool
+  @objc public var speed: Foundation.NSNumber?
+  @objc public var speedLimit: Foundation.NSNumber?
+  @objc public var severity: Foundation.NSNumber?
+  @objc public var eventIncidentId: Foundation.NSNumber?
+  @objc public var incidentTypeId: Foundation.NSNumber?
+  @objc public var customMessageId: Foundation.NSNumber?
+  @objc public var acceleration: Foundation.NSNumber?
+  @objc public var batteryStatus: Foundation.NSNumber?
+  @objc public var gpsStatus: Foundation.NSNumber?
+  @objc public var smartCoinsPenalty: Foundation.NSNumber?
+  @objc public var scorePenalty: Foundation.NSNumber?
+  @objc public var dimensionType: Foundation.NSNumber?
+  public init(tripId: Foundation.NSNumber = -1, latitude: Foundation.NSNumber? = nil, longitude: Foundation.NSNumber? = nil, address: Swift.String? = nil, date: Foundation.Date? = nil, eventID: Foundation.NSNumber? = nil, heading: Foundation.NSNumber? = nil, isUrban: Swift.Bool = false, speed: Foundation.NSNumber? = nil, speedLimit: Foundation.NSNumber? = nil, severity: Foundation.NSNumber? = nil, eventIncidentId: Foundation.NSNumber? = nil, incidentTypeId: Foundation.NSNumber? = nil, customMessageId: Foundation.NSNumber? = nil, acceleration: Foundation.NSNumber? = nil, batteryStatus: Foundation.NSNumber? = nil, gpsStatus: Foundation.NSNumber? = nil, smartCoinsPenalty: Foundation.NSNumber? = nil, scorePenalty: Foundation.NSNumber? = nil, dimensionType: Foundation.NSNumber? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSTripScoreResponse : ObjectiveC.NSObject {
+  @objc public var dimension: [DSCoreFramework.DSScoreDimensionResponse]?
+  @objc public var metrics: [Swift.String : DSCoreFramework.DSMetricsScoreResponse]?
+  @objc public var totalScore: Foundation.NSNumber?
+  @objc public var smileScore: Swift.String?
+  @objc public var tripInsightTotalScore: Foundation.NSNumber?
+  @objc public var lastTrip: DSCoreFramework.DSScoreComparationResponse?
+  @objc public var lastDay: DSCoreFramework.DSScoreComparationResponse?
+  @objc public var lastWeek: DSCoreFramework.DSScoreComparationResponse?
+  @objc public var lastMonth: DSCoreFramework.DSScoreComparationResponse?
+  @objc public var absolute: DSCoreFramework.DSScoreComparationResponse?
+  public init(dimension: [DSCoreFramework.DSScoreDimensionResponse]? = nil, metrics: [Swift.String : DSCoreFramework.DSMetricsScoreResponse]? = nil, totalScore: Foundation.NSNumber? = nil, smileScore: Swift.String? = nil, tripInsightTotalScore: Foundation.NSNumber? = nil, lastTrip: DSCoreFramework.DSScoreComparationResponse? = nil, lastDay: DSCoreFramework.DSScoreComparationResponse? = nil, lastWeek: DSCoreFramework.DSScoreComparationResponse? = nil, lastMonth: DSCoreFramework.DSScoreComparationResponse? = nil, absolute: DSCoreFramework.DSScoreComparationResponse? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSScoreComparationResponse : ObjectiveC.NSObject {
+  @objc public var score: Foundation.NSNumber?
+  @objc public var smileScore: Swift.String?
+  public init(score: Foundation.NSNumber? = nil, smileScore: Swift.String? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSScoreDimensionResponse : ObjectiveC.NSObject {
+  @objc public var tripInsight: Foundation.NSNumber?
+  @objc public var dimensionTypeId: Foundation.NSNumber?
+  @objc public var score: Foundation.NSNumber?
+  public init(tripInsight: Foundation.NSNumber? = nil, dimensionTypeId: Foundation.NSNumber? = nil, score: Foundation.NSNumber? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSMetricsScoreResponse : ObjectiveC.NSObject {
+  @objc public var imgURL: Swift.String?
+  @objc public var score: Foundation.NSNumber?
+  public init(imgURL: Swift.String? = nil, score: Foundation.NSNumber? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSTripEfficiencyResponse : ObjectiveC.NSObject {
+  @objc public var distance: Foundation.NSNumber?
+  @objc public var urbanDistance: Foundation.NSNumber?
+  @objc public var suburbanDistance: Foundation.NSNumber?
+  @objc public var averageSpeed: Foundation.NSNumber?
+  @objc public var averageSpeedUrban: Foundation.NSNumber?
+  @objc public var suburbanAverageSpeed: Foundation.NSNumber?
+  @objc public var nightDistance: Foundation.NSNumber?
+  public init(distance: Foundation.NSNumber? = nil, urbanDistance: Foundation.NSNumber? = nil, suburbanDistance: Foundation.NSNumber? = nil, averageSpeed: Foundation.NSNumber? = nil, averageSpeedUrban: Foundation.NSNumber? = nil, suburbanAverageSpeed: Foundation.NSNumber? = nil, nightDistance: Foundation.NSNumber? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSAutoEvaluationRequest : ObjectiveC.NSObject {
+  public var evaluationId: Swift.Int
+  public var dimensionId: Swift.Int
+  public var answer: Swift.Int
+  public init(evaluationId: Swift.Int, dimensionId: Swift.Int, answer: Swift.Int)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct ResultModel : DSCoreFramework.ResponseObjectSerializable, DSCoreFramework.ResponseCollectionSerializable {
+  public static let keyData: Swift.String
+  public static let keyResult: Swift.String
+  public static let keyNotification: Swift.String
+  public static let keyTitle: Swift.String
+  public static let keyDescription: Swift.String
+  public static let keyCode: Swift.String
+  public static let keyMessage: Swift.String
+  public static let keyCategory: Swift.String
+  public static let keySeverity: Swift.String
+  public static let keyMinTime: Swift.String
+  public static let keyMaxTime: Swift.String
+  public init(response: Foundation.HTTPURLResponse, representation: Swift.AnyObject)
+  public func resultData() -> DSCoreFramework.ResultModel?
+}
+@objc public class DSReminderRequest : ObjectiveC.NSObject {
+  public var reminderUUID: Swift.String?
+  public var time: Swift.String?
+  public init(reminderUUID: Swift.String?, time: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSRegistrationCountryRequest : ObjectiveC.NSObject {
+  public var latitude: Swift.Double?
+  public var longitude: Swift.Double?
+  public init(latitude: Swift.Double?, longitude: Swift.Double?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DSAnonymousRequest : ObjectiveC.NSObject {
+  public var latitude: Swift.Double?
+  public var longitude: Swift.Double?
+  public init(latitude: Swift.Double? = 0, longitude: Swift.Double? = 0)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension DSCoreFramework.DSSmileType : Swift.Equatable {}
+extension DSCoreFramework.DSSmileType : Swift.Hashable {}
+extension DSCoreFramework.DSSmileType : Swift.RawRepresentable {}
+extension DSCoreFramework.HomeModeType : Swift.Equatable {}
+extension DSCoreFramework.HomeModeType : Swift.Hashable {}
+extension DSCoreFramework.HomeModeType : Swift.RawRepresentable {}
+extension DSCoreFramework.ScoreModeType : Swift.Equatable {}
+extension DSCoreFramework.ScoreModeType : Swift.Hashable {}
+extension DSCoreFramework.ScoreModeType : Swift.RawRepresentable {}
+extension DSCoreFramework.TripsModeType : Swift.Equatable {}
+extension DSCoreFramework.TripsModeType : Swift.Hashable {}
+extension DSCoreFramework.TripsModeType : Swift.RawRepresentable {}
+extension DSCoreFramework.QuestModeType : Swift.Equatable {}
+extension DSCoreFramework.QuestModeType : Swift.Hashable {}
+extension DSCoreFramework.QuestModeType : Swift.RawRepresentable {}
+extension DSCoreFramework.TutorialModeType : Swift.Equatable {}
+extension DSCoreFramework.TutorialModeType : Swift.Hashable {}
+extension DSCoreFramework.TutorialModeType : Swift.RawRepresentable {}
+extension DSCoreFramework.MenuOptionDisplayType : Swift.Equatable {}
+extension DSCoreFramework.MenuOptionDisplayType : Swift.Hashable {}
+extension DSCoreFramework.MenuOptionDisplayType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSErrors : Swift.Equatable {}
+extension DSCoreFramework.DSErrors : Swift.Hashable {}
+extension DSCoreFramework.DSErrors : Swift.RawRepresentable {}
+extension DSCoreFramework.DSSmilesLevel : Swift.Equatable {}
+extension DSCoreFramework.DSSmilesLevel : Swift.Hashable {}
+extension DSCoreFramework.DSSmilesLevel : Swift.RawRepresentable {}
+extension DSCoreFramework.ConnectionType : Swift.Equatable {}
+extension DSCoreFramework.ConnectionType : Swift.Hashable {}
+extension DSCoreFramework.ConnectionType : Swift.RawRepresentable {}
+extension DSCoreFramework.State : Swift.Equatable {}
+extension DSCoreFramework.State : Swift.Hashable {}
+extension DSCoreFramework.State : Swift.RawRepresentable {}
+extension DSCoreFramework.Transport : Swift.Equatable {}
+extension DSCoreFramework.Transport : Swift.Hashable {}
+extension DSCoreFramework.SwiftRError : Swift.Equatable {}
+extension DSCoreFramework.SwiftRError : Swift.Hashable {}
+extension DSCoreFramework.SignalRVersion : Swift.Equatable {}
+extension DSCoreFramework.SignalRVersion : Swift.Hashable {}
+extension DSCoreFramework.DSActivityType : Swift.Equatable {}
+extension DSCoreFramework.DSActivityType : Swift.Hashable {}
+extension DSCoreFramework.DSActivityType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSGenreType : Swift.Equatable {}
+extension DSCoreFramework.DSGenreType : Swift.Hashable {}
+extension DSCoreFramework.DSGenreType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSMetricType : Swift.Equatable {}
+extension DSCoreFramework.DSMetricType : Swift.Hashable {}
+extension DSCoreFramework.DSMetricType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSErrorNotificationType : Swift.Equatable {}
+extension DSCoreFramework.DSErrorNotificationType : Swift.Hashable {}
+extension DSCoreFramework.DSErrorNotificationType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSErrorNotificationSeverityType : Swift.Equatable {}
+extension DSCoreFramework.DSErrorNotificationSeverityType : Swift.Hashable {}
+extension DSCoreFramework.DSErrorNotificationSeverityType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSErrorCodes : Swift.Equatable {}
+extension DSCoreFramework.DSErrorCodes : Swift.Hashable {}
+extension DSCoreFramework.DSErrorCodes : Swift.RawRepresentable {}
+extension DSCoreFramework.DSAnswerChallengeType : Swift.Equatable {}
+extension DSCoreFramework.DSAnswerChallengeType : Swift.Hashable {}
+extension DSCoreFramework.DSAnswerChallengeType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSLoginType : Swift.Equatable {}
+extension DSCoreFramework.DSLoginType : Swift.Hashable {}
+extension DSCoreFramework.DSLoginType : Swift.RawRepresentable {}
+extension DSCoreFramework.DSLandingState : Swift.Equatable {}
+extension DSCoreFramework.DSLandingState : Swift.Hashable {}
+extension DSCoreFramework.DSLandingState : Swift.RawRepresentable {}
+extension DSCoreFramework.DSCampaignVariant : Swift.Equatable {}
+extension DSCoreFramework.DSCampaignVariant : Swift.Hashable {}
+extension DSCoreFramework.DSCampaignVariant : Swift.RawRepresentable {}
+extension DSCoreFramework.DSSignalTypes : Swift.Equatable {}
+extension DSCoreFramework.DSSignalTypes : Swift.Hashable {}
+extension DSCoreFramework.DSSignalTypes : Swift.RawRepresentable {}
+extension DSCoreFramework.DSQuestStatus : Swift.Equatable {}
+extension DSCoreFramework.DSQuestStatus : Swift.Hashable {}
+extension DSCoreFramework.DSQuestStatus : Swift.RawRepresentable {}

@@ -1,0 +1,11 @@
+framework module DSCoreFramework {
+  umbrella header "DSCoreFramework.h"
+
+  export *
+  module * { export * }
+}
+
+module DSCoreFramework.Swift {
+    header "DSCoreFramework-Swift.h"
+    requires objc
+}
