@@ -6,15 +6,15 @@
 	<dict>
 		<key>Headers/DSCoreFramework-Swift.h</key>
 		<data>
-		oEcNNen2pDuwecKW9QsoDkO+Mh8=
+		3U8tUdJlnkndM8dH3Vaoijo2zYE=
 		</data>
 		<key>Headers/DSCoreFramework.h</key>
 		<data>
-		a5ZE/qk19mqj1xb6BxUx78cVZSo=
+		E+kWruyUB/j6oAQFNrfB3mLRFto=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		OkLlWfhwikh0c6ewTTlASPKaczU=
+		8uqURv1iP3Yhaw0DAbg8uXo4dKE=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		qMPiT4Z0sw821VcmQe6uXTgvx+E=
+		Z/APkFVHEMe5LCh9MYgQWtmJWzg=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		pigPazSIuBUM2GGgzjlziBLkLfE=
+		xgUuekC8eEE9YE3opfJ4UP/+1tU=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		qMPiT4Z0sw821VcmQe6uXTgvx+E=
+		Z/APkFVHEMe5LCh9MYgQWtmJWzg=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		pigPazSIuBUM2GGgzjlziBLkLfE=
+		xgUuekC8eEE9YE3opfJ4UP/+1tU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -99,14 +99,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WaWul1qWfMOSbPsPKEQNntZHB4C+M4B0g3zcbl5y3Ag=
+			VgaXMRtCY86iKo3fqjh3MgPshpVaRERHnZvn/I2O+/k=
 			</data>
 		</dict>
 		<key>Headers/DSCoreFramework.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UW8/9FQ/NcfGhjITVuOrDQIc73fEaFq4wKzw/qJB10A=
+			nyd1rTnSpAEyhCr2Cl2h45Fnu2FIoQwvtr/bP26kwJo=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -120,14 +120,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LoQoPxZ8fL9HoQEo7WlRONVlkVGAq3b4JC40GSA+PCQ=
+			7MjVWIAsPKH3S6hze/lbq4EETxFomDzNaIf7dzkZz2s=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			z6ulJxxoMhdMyrOnOxJACsHHsQ6tqXYvC4i6wPfMbog=
+			hyG0EyHs3JaocPHLP2t1G1m2NCxxOfG8gHW2+rOxQOI=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftdoc</key>
@@ -141,14 +141,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LoQoPxZ8fL9HoQEo7WlRONVlkVGAq3b4JC40GSA+PCQ=
+			7MjVWIAsPKH3S6hze/lbq4EETxFomDzNaIf7dzkZz2s=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			z6ulJxxoMhdMyrOnOxJACsHHsQ6tqXYvC4i6wPfMbog=
+			hyG0EyHs3JaocPHLP2t1G1m2NCxxOfG8gHW2+rOxQOI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

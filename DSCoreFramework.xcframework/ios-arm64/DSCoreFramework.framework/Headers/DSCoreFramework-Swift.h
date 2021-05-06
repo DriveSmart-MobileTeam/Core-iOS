@@ -370,8 +370,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL supportsSecureCoding;)
 enum DSSignalTypes : NSInteger;
 @class DSOdometerLogRequest;
 
-SWIFT_CLASS("_TtC15DSCoreFramework15DSCoreFramework")
-@interface DSCoreFramework : NSObject
+SWIFT_CLASS("_TtC15DSCoreFramework6DSCore")
+@interface DSCore : NSObject
 + (void)configureWithApkKey:(NSString * _Nonnull)apkKey :(void (^ _Nonnull)(id _Nullable, DSErrorResponse * _Nullable))completion;
 + (void)getConfiguration:(void (^ _Nonnull)(id _Nullable, DSErrorResponse * _Nullable))completion;
 + (void)refreshUserSession:(void (^ _Nonnull)(DSUserSession * _Nullable))completion;

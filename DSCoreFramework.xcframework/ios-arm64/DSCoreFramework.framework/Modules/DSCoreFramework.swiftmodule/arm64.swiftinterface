@@ -1060,7 +1060,7 @@ public typealias DSUserSessionTypeAlias = (DSCoreFramework.DSUserSession?) -> ()
   @objc optional func onSignalReceived(type: DSCoreFramework.DSSignalTypes, data: Any?)
   @objc optional func invalidSession(error: Foundation.NSError)
 }
-@_inheritsConvenienceInitializers @objc public class DSCoreFramework : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc public class DSCore : ObjectiveC.NSObject {
   @objc public static func configure(apkKey: Swift.String, _ completion: @escaping DSCoreFramework.DSCoreResultAlias)
   @objc public static func getConfiguration(_ completion: @escaping DSCoreFramework.DSCoreResultAlias)
   @objc public static func refreshUserSession(_ completion: @escaping DSCoreFramework.DSUserSessionTypeAlias)
