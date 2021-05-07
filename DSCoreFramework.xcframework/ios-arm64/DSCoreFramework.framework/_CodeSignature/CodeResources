@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/DSCoreFramework-Swift.h</key>
 		<data>
-		3U8tUdJlnkndM8dH3Vaoijo2zYE=
+		qR/cx8+to18aUPezsQzTlUjTBVM=
 		</data>
 		<key>Headers/DSCoreFramework.h</key>
 		<data>
@@ -14,31 +14,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		8uqURv1iP3Yhaw0DAbg8uXo4dKE=
+		2MDDew2SGOXDTE7VTbnfrBV/xh8=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		93P3Opz1k1gHQ5hIY2oKDXBEacw=
+		WqYZwZw7xDpNfTZZ81bSaG3UOgY=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		Z/APkFVHEMe5LCh9MYgQWtmJWzg=
+		I1E03JBvvmmI2pOeYr+t+YOO/+4=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		xgUuekC8eEE9YE3opfJ4UP/+1tU=
+		GSubyPh3n0hSDtd0Q70tu8YD+zU=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		93P3Opz1k1gHQ5hIY2oKDXBEacw=
+		WqYZwZw7xDpNfTZZ81bSaG3UOgY=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		Z/APkFVHEMe5LCh9MYgQWtmJWzg=
+		I1E03JBvvmmI2pOeYr+t+YOO/+4=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		xgUuekC8eEE9YE3opfJ4UP/+1tU=
+		GSubyPh3n0hSDtd0Q70tu8YD+zU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -99,7 +99,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VgaXMRtCY86iKo3fqjh3MgPshpVaRERHnZvn/I2O+/k=
+			/9vdoOlFBsd7erRJTugK32mFL2F3sIUuFrzh+vFUc+E=
 			</data>
 		</dict>
 		<key>Headers/DSCoreFramework.h</key>
@@ -113,42 +113,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8zzPdlamBFGKUaF/0mPq091fqLV4GUEuS8QZkgiBj0w=
+			ZGkBLtz49vZbFFSRersFwqhaSO34kkRjdr6LxN9LDZM=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7MjVWIAsPKH3S6hze/lbq4EETxFomDzNaIf7dzkZz2s=
+			Yh1f9BVn/LSkXW4puXxB0hPaG8V5Nn3fw72hErnTo9s=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hyG0EyHs3JaocPHLP2t1G1m2NCxxOfG8gHW2+rOxQOI=
+			QwQEyJZQa7bSnIHwGGePpZFKLhY/4YOjwpuzWQjeCRU=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8zzPdlamBFGKUaF/0mPq091fqLV4GUEuS8QZkgiBj0w=
+			ZGkBLtz49vZbFFSRersFwqhaSO34kkRjdr6LxN9LDZM=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7MjVWIAsPKH3S6hze/lbq4EETxFomDzNaIf7dzkZz2s=
+			Yh1f9BVn/LSkXW4puXxB0hPaG8V5Nn3fw72hErnTo9s=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hyG0EyHs3JaocPHLP2t1G1m2NCxxOfG8gHW2+rOxQOI=
+			QwQEyJZQa7bSnIHwGGePpZFKLhY/4YOjwpuzWQjeCRU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

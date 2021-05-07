@@ -1398,6 +1398,24 @@ SWIFT_CLASS("_TtC15DSCoreFramework18DSWeekDaysResponse")
 
 
 
+
+/// Base output class
+SWIFT_CLASS("_TtC15DSCoreFramework9LogOutput")
+@interface LogOutput : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15DSCoreFramework4File")
+@interface File : LogOutput
+@end
+
+
+SWIFT_CLASS("_TtC15DSCoreFramework6Filter")
+@interface Filter : LogOutput
+@end
+
 typedef SWIFT_ENUM(NSInteger, HomeModeType, open) {
   HomeModeTypeCAREWARD_INTEGRATED = 1,
   HomeModeTypeKMCOUNTER = 2,
@@ -1412,7 +1430,94 @@ SWIFT_CLASS("_TtC15DSCoreFramework3Hub")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class LogScope;
+enum LogType : NSInteger;
 
+SWIFT_CLASS("_TtC15DSCoreFramework7LogItem")
+@interface LogItem : NSObject
+@property (nonatomic, copy) NSDate * _Nullable time;
+@property (nonatomic, readonly, copy) NSString * _Nonnull category;
+@property (nonatomic, readonly, strong) LogScope * _Nullable scope;
+@property (nonatomic, readonly) enum LogType type;
+@property (nonatomic, readonly, copy) NSString * _Nonnull fileName;
+@property (nonatomic, readonly, copy) NSString * _Nonnull funcName;
+@property (nonatomic, readonly) NSUInteger line;
+@property (nonatomic, readonly, copy) NSString * _Nonnull text;
+- (nonnull instancetype)initWithTime:(NSDate * _Nullable)time category:(NSString * _Nonnull)category scope:(LogScope * _Nullable)scope type:(enum LogType)type fileName:(NSString * _Nonnull)fileName funcName:(NSString * _Nonnull)funcName line:(NSUInteger)line text:(NSString * _Nonnull)text OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15DSCoreFramework11LogInterval")
+@interface LogInterval : LogItem
+@property (nonatomic, readonly) NSInteger count;
+@property (nonatomic, readonly) NSTimeInterval duration;
+@property (nonatomic, readonly) NSTimeInterval minDuration;
+@property (nonatomic, readonly) NSTimeInterval maxDuration;
+@property (nonatomic, readonly) NSTimeInterval avgDuration;
+- (void)begin;
+- (void)end;
+- (nonnull instancetype)initWithTime:(NSDate * _Nullable)time category:(NSString * _Nonnull)category scope:(LogScope * _Nullable)scope type:(enum LogType)type fileName:(NSString * _Nonnull)fileName funcName:(NSString * _Nonnull)funcName line:(NSUInteger)line text:(NSString * _Nonnull)text SWIFT_UNAVAILABLE;
+@end
+
+
+
+
+
+SWIFT_CLASS("_TtC15DSCoreFramework8LogScope")
+@interface LogScope : LogItem
+@property (nonatomic, readonly) NSTimeInterval duration;
+- (void)enter;
+- (void)leave;
+- (nonnull instancetype)initWithTime:(NSDate * _Nullable)time category:(NSString * _Nonnull)category scope:(LogScope * _Nullable)scope type:(enum LogType)type fileName:(NSString * _Nonnull)fileName funcName:(NSString * _Nonnull)funcName line:(NSUInteger)line text:(NSString * _Nonnull)text SWIFT_UNAVAILABLE;
+@end
+
+
+@interface LogScope (SWIFT_EXTENSION(DSCoreFramework))
+- (NSString * _Nullable)log:(NSString * _Nonnull)text type:(enum LogType)type category:(NSString * _Nonnull)category scope:(LogScope * _Nullable)scope file:(NSString * _Nonnull)file function:(NSString * _Nonnull)function line:(NSUInteger)line SWIFT_WARN_UNUSED_RESULT;
+- (LogScope * _Nonnull)scope:(NSString * _Nonnull)text category:(NSString * _Nonnull)category file:(NSString * _Nonnull)file function:(NSString * _Nonnull)function line:(NSUInteger)line closure:(void (^ _Nullable)(LogScope * _Nonnull))closure SWIFT_WARN_UNUSED_RESULT;
+@end
+
+typedef SWIFT_ENUM(NSInteger, LogType, open) {
+  LogTypeTrace = 0,
+  LogTypeInfo = 1,
+  LogTypeInterval = 2,
+  LogTypeScope = 3,
+  LogTypeDebug = 4,
+  LogTypeError = 5,
+  LogTypeAssert = 6,
+  LogTypeFault = 7,
+};
+
+
+
+
+SWIFT_CLASS("_TtC15DSCoreFramework3Net")
+@interface Net : LogOutput
+@end
+
+@class NSStream;
+
+@interface Net (SWIFT_EXTENSION(DSCoreFramework)) <NSStreamDelegate>
+- (void)stream:(NSStream * _Nonnull)aStream handleEvent:(NSStreamEvent)eventCode;
+@end
+
+@class NSNetServiceBrowser;
+@class NSNetService;
+
+@interface Net (SWIFT_EXTENSION(DSCoreFramework)) <NSNetServiceBrowserDelegate>
+- (void)netServiceBrowserWillSearch:(NSNetServiceBrowser * _Nonnull)browser;
+- (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser * _Nonnull)browser;
+- (void)netServiceBrowser:(NSNetServiceBrowser * _Nonnull)browser didNotSearch:(NSDictionary<NSString *, NSNumber *> * _Nonnull)errorDict;
+- (void)netServiceBrowser:(NSNetServiceBrowser * _Nonnull)browser didFindService:(NSNetService * _Nonnull)service moreComing:(BOOL)moreComing;
+- (void)netServiceBrowser:(NSNetServiceBrowser * _Nonnull)browser didRemoveService:(NSNetService * _Nonnull)service moreComing:(BOOL)moreComing;
+@end
+
+
+SWIFT_CLASS("_TtC15DSCoreFramework5OSLog")
+@interface OSLog : LogOutput
+@end
 
 typedef SWIFT_ENUM(NSInteger, QuestModeType, open) {
   QuestModeTypeNO_APPLY = 0,
@@ -1439,6 +1544,11 @@ SWIFT_CLASS("_TtC15DSCoreFramework7SignalR")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+SWIFT_CLASS("_TtC15DSCoreFramework8Standard")
+@interface Standard : LogOutput
+@end
+
 typedef SWIFT_ENUM(NSInteger, State, open) {
   StateConnecting = 0,
   StateConnected = 1,
@@ -1452,6 +1562,11 @@ SWIFT_CLASS("_TtC15DSCoreFramework12TaskDelegate")
 @interface TaskDelegate : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15DSCoreFramework4Text")
+@interface Text : LogOutput
 @end
 
 typedef SWIFT_ENUM(NSInteger, TripsModeType, open) {
