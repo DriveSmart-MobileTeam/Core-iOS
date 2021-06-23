@@ -559,15 +559,7 @@ public enum SwiftRError : Swift.Error {
 }
 public enum SignalRVersion : Swift.CustomStringConvertible {
   case v2_2_2
-  case v2_2_1
   case v2_2_0
-  case v2_1_2
-  case v2_1_1
-  case v2_1_0
-  case v2_0_3
-  case v2_0_2
-  case v2_0_1
-  case v2_0_0
   public var description: Swift.String {
     get
   }
@@ -821,7 +813,9 @@ public protocol SwiftRWebDelegate : WebKit.WKNavigationDelegate, WebKit.WKScript
   public var imageUrl: Swift.String?
   public var isMapfre: Swift.Bool?
   public var plate: Swift.String?
-  public init(email: Swift.String? = nil, isEmailValid: Swift.Bool? = nil, name: Swift.String? = nil, surname: Swift.String? = nil, phone: Swift.String? = nil, codePhone: Swift.String? = nil, birthday: Swift.String? = nil, genre: DSCoreFramework.DSGenreType = .none, address: Swift.String? = nil, addressSecond: Swift.String? = nil, country: Swift.String? = nil, idCountry: Swift.Int? = nil, state: Swift.String? = nil, idState: Swift.Int? = nil, city: Swift.String? = nil, zipcode: Swift.String? = nil, memberCode: Swift.String? = nil, imageUrl: Swift.String? = nil, isMapfre: Swift.Bool? = nil, plate: Swift.String? = nil)
+  public var policyExpirationMonth: Swift.Int?
+  public init(email: Swift.String? = nil, isEmailValid: Swift.Bool? = nil, name: Swift.String? = nil, surname: Swift.String? = nil, phone: Swift.String? = nil, codePhone: Swift.String? = nil, birthday: Swift.String? = nil, genre: DSCoreFramework.DSGenreType = .none, address: Swift.String? = nil, addressSecond: Swift.String? = nil, country: Swift.String? = nil, idCountry: Swift.Int? = nil, state: Swift.String? = nil, idState: Swift.Int? = nil, city: Swift.String? = nil, zipcode: Swift.String? = nil, memberCode: Swift.String? = nil, imageUrl: Swift.String? = nil, isMapfre: Swift.Bool? = nil, plate: Swift.String? = nil, policyExpirationMonth: Swift.Int? = nil)
+  public static func initFrom(request: DSCoreFramework.DSSetUserProfileRequest) -> DSCoreFramework.DSUserProfile
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1478,7 +1472,8 @@ extension LogOutput {
   public var isEmailValid: Swift.Bool?
   public var isMapfre: Swift.Bool?
   public var plate: Swift.String?
-  public init(name: Swift.String?, surname: Swift.String?, email: Swift.String?, phone: Swift.String?, codePhone: Swift.String?, birthday: Swift.String?, genre: DSCoreFramework.DSGenreType?, address: Swift.String?, addressSecond: Swift.String?, country: Swift.String?, idCountry: Swift.Int?, state: Swift.String?, idState: Swift.Int?, city: Swift.String?, zipcode: Swift.String?, memberCode: Swift.String?, isEmailValid: Swift.Bool?, isMapfre: Swift.Bool?, plate: Swift.String?)
+  public var policyExpirationMonth: Swift.Int?
+  public init(name: Swift.String?, surname: Swift.String?, email: Swift.String?, phone: Swift.String?, codePhone: Swift.String?, birthday: Swift.String?, genre: DSCoreFramework.DSGenreType?, address: Swift.String?, addressSecond: Swift.String?, country: Swift.String?, idCountry: Swift.Int?, state: Swift.String?, idState: Swift.Int?, city: Swift.String?, zipcode: Swift.String?, memberCode: Swift.String?, isEmailValid: Swift.Bool?, isMapfre: Swift.Bool?, plate: Swift.String?, policyExpirationMonth: Swift.Int?)
   @objc override dynamic public init()
   @objc deinit
 }
