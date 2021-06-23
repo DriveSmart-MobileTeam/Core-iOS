@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		2MDDew2SGOXDTE7VTbnfrBV/xh8=
+		Kjji46xW1qF7Dak6EGfPSVig0hM=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		I1E03JBvvmmI2pOeYr+t+YOO/+4=
+		eZehz+MteCkLhLNct3yDVM25j3g=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		GSubyPh3n0hSDtd0Q70tu8YD+zU=
+		JIL8hBa8YFGDgrgNGtBEwy1XCY8=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		I1E03JBvvmmI2pOeYr+t+YOO/+4=
+		eZehz+MteCkLhLNct3yDVM25j3g=
 		</data>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		GSubyPh3n0hSDtd0Q70tu8YD+zU=
+		JIL8hBa8YFGDgrgNGtBEwy1XCY8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -52,41 +52,9 @@
 		<data>
 		QbS/uqlr5tFEDbbngASt4cE04nY=
 		</data>
-		<key>jquery.signalr-2.0.0.min.js</key>
-		<data>
-		UlNvyMqM1RnV2RfokNGzP7GzTaQ=
-		</data>
-		<key>jquery.signalr-2.0.1.min.js</key>
-		<data>
-		9zEeBpcguhl216NqOa98mDJJ5/E=
-		</data>
-		<key>jquery.signalr-2.0.2.min.js</key>
-		<data>
-		KOsuRolSg4qIrXwYllVaitFsukU=
-		</data>
-		<key>jquery.signalr-2.0.3.min.js</key>
-		<data>
-		29VsL7b5ZaHlXdjtb7xS0kESlio=
-		</data>
-		<key>jquery.signalr-2.1.0.min.js</key>
-		<data>
-		CShVlFN+DxQxsMBukj76ig/+RfE=
-		</data>
-		<key>jquery.signalr-2.1.1.min.js</key>
-		<data>
-		Looe+d6k58MZ/1fV/MD+K0uHZ8w=
-		</data>
-		<key>jquery.signalr-2.1.2.min.js</key>
-		<data>
-		wI+YWgxkUtZNd6IWwUIV0EsDjK8=
-		</data>
 		<key>jquery.signalr-2.2.0.min.js</key>
 		<data>
 		zZROCseAvRxytAFV6hfdTP8seOk=
-		</data>
-		<key>jquery.signalr-2.2.1.min.js</key>
-		<data>
-		ECi4dRaMM6KXWF4iy82gYh0+lpQ=
 		</data>
 		<key>jquery.signalr-2.2.2.min.js</key>
 		<data>
@@ -120,14 +88,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Yh1f9BVn/LSkXW4puXxB0hPaG8V5Nn3fw72hErnTo9s=
+			/kzwvpMqNZN6tp+9om1GUUeyHkBLUYUtE9rpZHeCE5s=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QwQEyJZQa7bSnIHwGGePpZFKLhY/4YOjwpuzWQjeCRU=
+			e6ANmvKLcakB+3+OS7xvHjZWx0QT0/vyNuQmW1H+P1U=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftdoc</key>
@@ -141,14 +109,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Yh1f9BVn/LSkXW4puXxB0hPaG8V5Nn3fw72hErnTo9s=
+			/kzwvpMqNZN6tp+9om1GUUeyHkBLUYUtE9rpZHeCE5s=
 			</data>
 		</dict>
 		<key>Modules/DSCoreFramework.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QwQEyJZQa7bSnIHwGGePpZFKLhY/4YOjwpuzWQjeCRU=
+			e6ANmvKLcakB+3+OS7xvHjZWx0QT0/vyNuQmW1H+P1U=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -172,67 +140,11 @@
 			ivk71nXhz9nsyFDoYoGf2sbjrR9ddh+XDkCcfZxjvcM=
 			</data>
 		</dict>
-		<key>jquery.signalr-2.0.0.min.js</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			+Wn4dR/7JP/7FAayXpPFqNkTtCHZWyx4it6FgtQBA5U=
-			</data>
-		</dict>
-		<key>jquery.signalr-2.0.1.min.js</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			6Tf/AOaDreTmJWDNnGGznkDkOsX8zizwBWeFO/V8Hk4=
-			</data>
-		</dict>
-		<key>jquery.signalr-2.0.2.min.js</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			xpami7UIEC8PJR6vAN8PXtzzWhPuDX3Byzqw2J23S5U=
-			</data>
-		</dict>
-		<key>jquery.signalr-2.0.3.min.js</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			YoUtCJVwnVsgstHWr6IbeghTndTj9LKjH2i/sKpdzKs=
-			</data>
-		</dict>
-		<key>jquery.signalr-2.1.0.min.js</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			sHBaEIX836kCZ1Q9EGcX1On2/30k1MjKisSrmqZ8XzU=
-			</data>
-		</dict>
-		<key>jquery.signalr-2.1.1.min.js</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			1R49zPxv0mEH7nRLhnLtu2h0APzv9DPm5GIQfo9WjDY=
-			</data>
-		</dict>
-		<key>jquery.signalr-2.1.2.min.js</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			DMDTGhmDdE3TAqCW4+X+w8Qq6504q69cjqGQxUYhRbg=
-			</data>
-		</dict>
 		<key>jquery.signalr-2.2.0.min.js</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			24TYeARZP7ReIBU7LcHw88Zus9ylNr2z8BfEGPmAVfY=
-			</data>
-		</dict>
-		<key>jquery.signalr-2.2.1.min.js</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			19UYIDTcfqKXnEp/KVu8eWXal0U8/faYxBwrdE5ODa0=
 			</data>
 		</dict>
 		<key>jquery.signalr-2.2.2.min.js</key>
